@@ -19,6 +19,49 @@
             - Không hư hại phím\n
             - Độ vang nhỏ\n
     </string>
+    <string name="descriptionMaclenin">
+        Bộ giáo trình Triết học:\n
+            - Chỉ dùng 1 lần lúc thi\n
+            - Sản phẩm còn mới\n
+            - Không bị rách...
+    </string>
+    <string name="descriptionBalo">
+        Balo Kim Long KL024:\n
+            - Chỉ dùng 3 lần\n
+            - Balo màu đen tuyền\n
+            - Chứa được ...
+    </string>
+    <string name="descriptionTugiay">
+        Tủ đựng giày Lương Sơn:\n
+            - Đã sử dụng 1 tháng\n
+            - Chất liệu gỗ săn chắc\n
+            - Còn bảo hành...
+    </string>
+    <string name="descriptionTulanh">
+        Tủ lạnh Sharp:\n
+            - New 80%\n
+            - Thể tích 150 -199 lít\n
+            - Hàng chính...
+    </string>
+    <string name="descriptionLaptop">
+        Laptop cũ Dell inspiron\n 15R 3543 Celeron:\n
+            - Tình trang pin: 80%\n
+            - Trọng lượng: ...
+    </string>
+
+    <string name="descriptionTulanhDetail">
+        Tủ lạnh Sharp:\n
+            - New 80%\n
+            - Thể tích 150 -199 lít\n
+            - Hàng chính hãng
+    </string>
+
+    <string name="descriptionLaptopDetaile">
+        Laptop cũ Dell inspiron 15R 3543 Celeron:\n
+            - Tình trang pin: 80%\n
+            - Trọng lượng: 2.3 kg\n
+            - Còn bảo hành
+    </string>
     <string name="noResultText">
         Rất tiếc, không tìm thấy từ khóa bạn nhập, vui lòng kiểm tra lại hoặc tìm kiếm bằng từ khóa khác.
     </string>

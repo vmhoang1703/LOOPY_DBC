@@ -15,6 +15,16 @@ public class PersonalStoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_store);
 
+        ImageView backArrow = findViewById(R.id.back);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PersonalStoreActivity.this, PersonalActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         TextView myProduct = findViewById(R.id.sanphamText);
         myProduct.setOnClickListener(new View.OnClickListener() {
             @Override

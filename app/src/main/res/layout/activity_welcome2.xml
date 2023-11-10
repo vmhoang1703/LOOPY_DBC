@@ -22,7 +22,7 @@
         android:layout_below="@+id/welcome2"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="-40dp"/>
+        android:layout_marginTop="40dp"/>
 
     <RelativeLayout
         android:layout_width="80dp"

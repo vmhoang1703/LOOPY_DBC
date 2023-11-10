@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -37,6 +38,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        RelativeLayout back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, Welcome1Activity.class);
+                startActivity(intent);
+            }
+        });
+
         ImageView googleLoginBtn = findViewById(R.id.ggLogin);
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -44,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail().build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
 
         googleLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

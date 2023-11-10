@@ -35,6 +35,16 @@ public class ProductDescriptionActivity extends AppCompatActivity {
             }
         });
 
+        RelativeLayout addToCartBtn = findViewById(R.id.addToCartBtn);
+        addToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductDescriptionActivity.this, AddToCartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         TextView damphangia = findViewById(R.id.damphangiaText);
         damphangia.setOnClickListener(new View.OnClickListener() {
             @Override

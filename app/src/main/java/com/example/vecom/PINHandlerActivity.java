@@ -3,12 +3,14 @@ package com.example.vecom;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class PINHandlerActivity extends AppCompatActivity {
 
@@ -16,6 +18,16 @@ public class PINHandlerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pinhandler);
+
+        ImageView backArrow = findViewById(R.id.back);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PINHandlerActivity.this, PaymentOptionsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         RelativeLayout continuePayment = findViewById(R.id.continueBtn);
         continuePayment.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +48,15 @@ public class PINHandlerActivity extends AppCompatActivity {
 
                 // Show the second dialog
                 successDialog.show();
+
+                TextView xemDonHangBtn = successDialog.findViewById(R.id.xemdonhangBtn);
+                xemDonHangBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(PINHandlerActivity.this, OrderManagerActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
         });
     }

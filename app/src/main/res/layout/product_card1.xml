@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+    android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/bg_product"
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:background="@drawable/product_bg"
-            android:layout_centerHorizontal="true"/>
+            android:background="@drawable/product_bg"/>
 
         <ImageView
             android:layout_width="25dp"
@@ -30,30 +20,26 @@
         <ImageView
             android:id="@+id/product_img"
             android:layout_below="@+id/bg_product"
-            android:layout_width="300dp"
+            android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/product_test"
-            android:layout_marginTop="-240dp"
-            android:layout_centerHorizontal="true"/>
+            android:src="@drawable/maclenin"
+            android:layout_marginTop="-240dp"/>
 
         <TextView
             android:id="@+id/product_name"
-            android:layout_width="300dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:text="Bàn phím cơ Dareu EK87"
+            android:text="Bộ giáo trình Triết học"
             android:layout_below="@+id/product_img"
             android:layout_marginTop="10dp"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <ImageView
             android:id="@+id/descriptIcon"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_below="@+id/product_name"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/description" />
 
@@ -74,20 +60,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_mota"
             android:layout_marginTop="10dp"
-            android:text="@string/description_text"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"
-            android:textSize="16dp" />
+            android:text="@string/descriptionMaclenin"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_mota"
-            android:layout_marginLeft="-58dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginTop="55dp"
             android:layout_toRightOf="@+id/descriptionText"
             android:text="@string/xemthem"
-            android:textSize="14dp"
+            android:textSize="11dp"
             android:textColor="#01b763"/>
 
         <TextView
@@ -96,18 +80,16 @@
             android:layout_height="wrap_content"
             android:text="Giá:"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:layout_below="@+id/descriptionText"
-            android:layout_marginTop="5dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"/>
+            android:layout_marginTop="5dp"/>
 
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="299.000"
-            android:textSize="24dp"
+            android:text="30.000"
+            android:textSize="20dp"
             android:textColor="#ee8f1b"
             android:layout_below="@+id/descriptionText"
             android:layout_toRightOf="@+id/priceText"
@@ -121,10 +103,9 @@
             android:text="@string/currency"
             android:layout_toRightOf="@+id/price"
             android:layout_below="@+id/descriptionText"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:layout_marginLeft="5dp"
             android:textColor="#ee8f1b"
             android:layout_marginTop="5dp"
             android:textStyle="bold"/>
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+</RelativeLayout>
