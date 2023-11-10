@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">VECOM</string>
+    <string name="description_text">
+        Bàn phím cơ Dareu EK87\n
+            - Đã dùng 1 tháng\n
+            - Còn thời gian bảo hành\n
+            - Nặng 1.5 ký ...
+    </string>
+    <string name="xemthem">Xem thêm</string>
+    <string name="currency"><u>đ</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descriptionText">
+        Bàn phím cơ DareuEK87\n
+            - Đã dùng 1 tháng\n
+            - Còn thời gian bảo hành\n
+            - Nặng 1.5 ký\n
+            - Không trầy xước\n
+            - Không hư hại phím\n
+            - Độ vang nhỏ\n
+    </string>
+    <string name="noResultText">
+        Rất tiếc, không tìm thấy từ khóa bạn nhập, vui lòng kiểm tra lại hoặc tìm kiếm bằng từ khóa khác.
+    </string>
+    <string name="noAddToCartText">
+        Bạn chưa thêm mặt hàng nào vào giỏ hàng.
+    </string>
+    <string name="LinkToRegister">
+        Bạn chưa có tài khoản?
+        <a href="">
+            <u>Đăng ký</u>
+        </a>
+    </string>
+    <string name="default_web_client_id">7234215807-1b9jmh325dhiuqu60b75dpl7dbqu08mb.apps.googleusercontent.com</string>
+</resources>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderInformationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/back"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sản phẩm"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/back"
+                android:layout_marginLeft="16dp" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/top">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/addProductImg"
+                    android:layout_width="128dp"
+                    android:layout_height="95dp"
+                    android:background="@drawable/order_status_bg"
+                    android:layout_marginTop="18dp"
+                    android:text="Thêm ảnh"
+                    android:textSize="24dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"/>
+
+                <TextView
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/line2"
+                    android:layout_below="@+id/addProductImg"
+                    android:layout_marginTop="42dp" />
+
+                <RelativeLayout
+                    android:id="@+id/addProductNameBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:id="@+id/tensanphamText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tên sản phẩm"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="0/120"
+                        android:textSize="20dp"
+                        android:textColor="#C1C0C0"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/tensanphamText"
+                        android:background="@drawable/white_bg"
+                        android:hint="Nhập tên sản phẩm"
+                        android:layout_marginTop="18dp"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/line2"
+                    android:layout_below="@+id/addProductNameBox" />
+                <RelativeLayout
+                    android:id="@+id/addProductDescriptionBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line1"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:id="@+id/motasanphamText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mô tả sản phẩm"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="0/2500"
+                        android:textSize="20dp"
+                        android:textColor="#C1C0C0"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/motasanphamText"
+                        android:background="@drawable/white_bg"
+                        android:hint="Nhập mô tả sản phẩm"
+                        android:layout_marginTop="18dp"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/line2"
+                    android:layout_below="@+id/addProductDescriptionBox" />
+                <RelativeLayout
+                    android:id="@+id/addMoreInfoBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line2"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp">
+
+                    <RelativeLayout
+                        android:id="@+id/phanloaiOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp">
+                        <ImageView
+                            android:id="@+id/optionIcon"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/option1"
+                            android:layout_centerVertical="true"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Phân loại"
+                            android:layout_toRightOf="@+id/optionIcon"
+                            android:layout_marginLeft="28dp"
+                            android:layout_centerVertical="true"
+                            android:textSize="20dp"/>
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/choose_cate"
+                            android:layout_alignParentEnd="true"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/priceOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_below="@+id/phanloaiOption">
+                        <ImageView
+                            android:id="@+id/priceIcon"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/price"
+                            android:layout_centerVertical="true"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Giá"
+                            android:layout_toRightOf="@+id/priceIcon"
+                            android:layout_marginLeft="24dp"
+                            android:layout_centerVertical="true"
+                            android:textSize="20dp"/>
+                        <EditText
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:hint="Nhập"
+                            android:layout_alignParentEnd="true"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/stockOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_below="@+id/priceOption">
+                        <ImageView
+                            android:id="@+id/stockIcon"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/stock"
+                            android:layout_centerVertical="true"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kho hàng"
+                            android:layout_toRightOf="@+id/stockIcon"
+                            android:layout_marginLeft="28dp"
+                            android:layout_centerVertical="true"
+                            android:textSize="20dp"/>
+                        <EditText
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:hint="Nhập"
+                            android:layout_alignParentEnd="true"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/line2"
+                    android:layout_below="@+id/addMoreInfoBox"/>
+                <RelativeLayout
+                    android:id="@+id/deliveryPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_below="@+id/line3"
+                    android:layout_marginTop="19.92dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp">
+                    <ImageView
+                        android:id="@+id/deliveryIcon"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/truck1"
+                        android:layout_centerVertical="true"/>
+                    <TextView
+                        android:id="@+id/deliveryPriceText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phí vận chuyển"
+                        android:layout_toRightOf="@+id/deliveryIcon"
+                        android:layout_marginLeft="28dp"
+                        android:layout_centerVertical="true"
+                        android:textSize="20dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(Cân nặng/ Kích thước)"
+                        android:layout_toRightOf="@+id/deliveryPriceText"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="12dp"/>
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/choose_cate"
+                        android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/showBtn"
+                    android:layout_width="158dp"
+                    android:layout_height="58dp"
+                    android:background="@drawable/shadowbtn"
+                    android:elevation="5dp"
+                    android:text="Hiển thị"
+                    android:textColor="@color/green"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/deliveryPrice"
+                    android:layout_marginTop="81dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginLeft="42dp"/>
+
+                <TextView
+                    android:id="@+id/saveBtn"
+                    android:layout_width="158dp"
+                    android:layout_height="58dp"
+                    android:background="@drawable/shadowbtn_grren"
+                    android:elevation="5dp"
+                    android:text="Lưu"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/deliveryPrice"
+                    android:layout_marginTop="81dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginEnd="42dp"/>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</RelativeLayout>

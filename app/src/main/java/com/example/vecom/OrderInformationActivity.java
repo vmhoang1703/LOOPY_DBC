@@ -1,0 +1,51 @@
+package com.example.vecom;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+
+import com.example.vecom.Adapter.CartAdapter;
+import com.example.vecom.Adapter.OrderItemsAdapter;
+import com.example.vecom.Model.Product;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OrderInformationActivity extends AppCompatActivity {
+    private View continuePaymentBtn;
+    private List<Product> cartList;
+    private ListView cartListView;
+    private LinearLayout emptyCartText;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_order_information);
+
+        cartListView = findViewById(R.id.cartListView);
+
+        cartList = new ArrayList<>();
+        // Thêm sản phẩm vào giỏ hàng
+        cartList.add(new Product("Bàn phím cơ EK87", 299.000, R.drawable.product_test));
+
+        updateCartView();
+
+
+        continuePaymentBtn = findViewById(R.id.continuePaymentBtn);
+
+        continuePaymentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrderInformationActivity.this, PaymentOptionsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void updateCartView() {
+        OrderItemsAdapter orderItemsAdapter = new OrderItemsAdapter(this, cartList);
+        cartListView.setAdapter(orderItemsAdapter);
+    }
+}

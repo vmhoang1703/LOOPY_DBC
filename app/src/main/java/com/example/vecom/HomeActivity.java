@@ -1,0 +1,201 @@
+package com.example.vecom;
+
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.Gravity;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.vecom.Adapter.CardSliderAdapter;
+import com.example.vecom.Adapter.ImageSliderAdapter;
+import com.example.vecom.Model.CardItem;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class HomeActivity extends AppCompatActivity {
+    private ViewPager viewPagerAds;
+    private int[] images = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+    private int currentPage = 0;
+    private Timer timer;
+    private List<CardItem> cardItems; // Khai báo danh sách cardItems
+    private List<CardItem> cardItems1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
+        viewPagerAds = findViewById(R.id.viewPagerAds);
+        ImageSliderAdapter adapter = new ImageSliderAdapter(this, images);
+        viewPagerAds.setAdapter(adapter);
+
+        // Tạo chỉ mục (indicator)
+        addIndicator(images.length);
+
+        // Tự động chuyển slider sau mỗi 5 giây
+        final Handler handler = new Handler(Looper.getMainLooper());
+        final Runnable update = new Runnable() {
+            public void run() {
+                if (currentPage == images.length) {
+                    currentPage = 0;
+                }
+                viewPagerAds.setCurrentItem(currentPage++, true);
+            }
+        };
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(update);
+            }
+        }, 5000, 5000); // 5 giây delay và chuyển sau mỗi 5 giây
+
+        ViewPager viewPager = findViewById(R.id.viewPager); // Ánh xạ ViewPager từ layout
+        cardItems = createCardItems(); // Tạo danh sách card giả lập
+        CardSliderAdapter cardSliderAdapter = new CardSliderAdapter(this, cardItems); // Sử dụng dữ liệu cardItems
+        viewPager.setAdapter(cardSliderAdapter); // Gắn Adapter vào ViewPager
+
+//        ViewPager viewPager1 = findViewById(R.id.viewPager1); // Ánh xạ ViewPager từ layout
+//        cardItems1 = createCardItems(); // Tạo danh sách card giả lập
+//        CardSliderAdapter cardSliderAdapter1 = new CardSliderAdapter(this, cardItems1); // Sử dụng dữ liệu cardItems
+//        viewPager1.setAdapter(cardSliderAdapter); // Gắn Adapter vào ViewPager
+
+        ImageView customIcon = findViewById(R.id.customIcon);
+        customIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create the second dialog
+                Dialog filterDialog = new Dialog(HomeActivity.this);
+
+                // Set up the second dialog window with MATCH_PARENT width
+                Window secondWindow = filterDialog.getWindow();
+                if (secondWindow != null) {
+                    secondWindow.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                }
+
+                filterDialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Optional, removes title bar
+                filterDialog.setContentView(R.layout.popup_filter); // Your custom layout
+                filterDialog.getWindow().setBackgroundDrawableResource(R.drawable.filter_bg); // Apply the background
+
+                // Show the second dialog
+                filterDialog.show();
+            }
+        });
+
+//        viewPager.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(HomeActivity.this, ProductDescription.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        RelativeLayout homeNavi = findViewById(R.id.homeNavi);
+        homeNavi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout cartNavi = findViewById(R.id.cartNavi);
+        cartNavi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, AddToCartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout orderNavi = findViewById(R.id.orderNavi);
+        orderNavi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, OrderManagerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout profileNavi = findViewById(R.id.profileNavi);
+        profileNavi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, PersonalActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private List<CardItem> createCardItems() {
+        // Tạo danh sách card giả lập
+        List<CardItem> cardItems = new ArrayList<>();
+        cardItems.add(new CardItem(R.drawable.product_test, "Bàn phím cơ Dareu EK87", R.string.description_text, 100.0));
+        cardItems.add(new CardItem(R.drawable.product_test, "Bàn phím cơ Dareu EK87", R.string.description_text, 100.0));
+        cardItems.add(new CardItem(R.drawable.product_test, "Bàn phím cơ Dareu EK87", R.string.description_text, 100.0));
+        cardItems.add(new CardItem(R.drawable.product_test, "Bàn phím cơ Dareu EK87", R.string.description_text, 100.0));
+        cardItems.add(new CardItem(R.drawable.product_test, "Bàn phím cơ Dareu EK87", R.string.description_text, 100.0));
+
+        // Thêm các CardItem khác vào danh sách ở đây
+        return cardItems;
+    }
+
+    private void addIndicator(int count) {
+        LinearLayout indicatorLayout = findViewById(R.id.indicatorLayout);
+        ImageView[] indicators = new ImageView[count];
+
+        for (int i = 0; i < count; i++) {
+            indicators[i] = new ImageView(this);
+            indicators[i].setImageResource(R.drawable.point_notactive);
+
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            layoutParams.setMargins(8, 0, 8, 0);
+            indicatorLayout.addView(indicators[i], layoutParams);
+        }
+
+        updateIndicator(0);
+        viewPagerAds.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                updateIndicator(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+    }
+
+    private void updateIndicator(int position) {
+        LinearLayout indicatorLayout = findViewById(R.id.indicatorLayout);
+        int childCount = indicatorLayout.getChildCount();
+
+        for (int i = 0; i < childCount; i++) {
+            ImageView indicator = (ImageView) indicatorLayout.getChildAt(i);
+            indicator.setImageResource((i == position) ?
+                    R.drawable.point_active : R.drawable.point_notactive);
+        }
+    }
+}

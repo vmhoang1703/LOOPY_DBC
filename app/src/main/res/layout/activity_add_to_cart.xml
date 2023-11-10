@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddToCartActivity">
+
+    <RelativeLayout
+        android:id="@+id/addToCartTitle"
+        android:layout_width="395dp"
+        android:layout_height="60.77dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="38dp"
+            android:layout_height="40.77dp"
+            android:src="@drawable/logo"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/giohangText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giỏ hàng"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/search1"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="17dp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/cartListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addToCartTitle"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="200dp"/>
+
+    <include
+        layout="@layout/no_addtocart_layout"
+        android:id="@+id/noAddToCartLayout"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/totalBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navigationMenu"
+        android:layout_marginBottom="29dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="39dp">
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng tiền"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/total"
+            android:text="299.000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#ed8304"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/currency"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#ed8304"
+            android:layout_below="@+id/total"
+            android:layout_marginLeft="1dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/paymentBtn"
+        android:layout_width="191dp"
+        android:layout_height="56dp"
+        android:background="@drawable/addtocart_btn"
+        android:layout_toRightOf="@+id/totalBox"
+        android:layout_above="@+id/navigationMenu"
+        android:layout_marginLeft="49dp"
+        android:layout_marginBottom="22dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paymentText"
+            android:text="Thanh toán"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="35dp"/>
+
+        <ImageView
+            android:id="@+id/cartIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/next"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/paymentText"
+            android:layout_marginLeft="16dp"/>
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/navigationMenu"
+        layout="@layout/activity_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

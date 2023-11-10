@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderInformationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp">
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/back"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Theo dõi"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/back"
+                android:layout_marginLeft="16dp" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/orderInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_back_des">
+                    <ImageView
+                        android:id="@+id/productImg"
+                        android:src="@drawable/product_test"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="20dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="204dp"
+                        android:layout_height="107dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true">
+
+                        <TextView
+                            android:id="@+id/productName"
+                            android:text="Bàn phím cơ EK87"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/quantityText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Số lượng:"
+                            android:textSize="12dp"
+                            android:layout_below="@+id/productName"
+                            android:layout_marginTop="20dp"/>
+                        <TextView
+                            android:id="@+id/quantityNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="12dp"
+                            android:layout_toRightOf="@+id/quantityText"
+                            android:layout_marginLeft="1dp"
+                            android:layout_below="@+id/productName"
+                            android:layout_marginTop="20dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true">
+                            <TextView
+                                android:id="@+id/productPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="299.000"
+                                android:textSize="22dp"
+                                android:textStyle="bold"
+                                android:textColor="#ed8304"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/currency"
+                                android:textStyle="bold"
+                                android:textColor="#ed8304"
+                                android:layout_toRightOf="@+id/productPrice"
+                                android:textSize="22dp"
+                                android:layout_marginLeft="1dp"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/deliveryImg"
+                    android:layout_width="380dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/deliveryimg"
+                    android:layout_below="@+id/orderInfo"
+                    android:layout_marginTop="24dp"/>
+                <TextView
+                    android:id="@+id/orderStatusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/deliveryImg"
+                    android:text="Đơn hàng đang được vận chuyển"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="24dp"/>
+                <TextView
+                    android:id="@+id/line"
+                    android:layout_width="380dp"
+                    android:layout_height="1dp"
+                    android:background="@drawable/line"
+                    android:layout_below="@+id/orderStatusText"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp" />
+                <TextView
+                    android:id="@+id/Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line"
+                    android:text="Tình trạng đơn hàng"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
+                <RelativeLayout
+                    android:id="@+id/statusStepByStep1"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/Text"
+                    android:layout_marginTop="24dp">
+                    
+                    <ImageView
+                        android:id="@+id/pointIcon1"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/point"
+                        android:layout_centerVertical="true"/>
+                    <RelativeLayout
+                        android:layout_width="328dp"
+                        android:layout_height="70dp"
+                        android:layout_toRightOf="@+id/pointIcon1"
+                        android:layout_marginLeft="16dp">
+                        <TextView
+                            android:id="@+id/detailedStatus1"
+                            android:layout_width="255dp"
+                            android:layout_height="44dp"
+                            android:text="Đơn hàng đang vận chuyển - 17/12"
+                            android:textStyle="bold"
+                            android:textSize="18dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15:20 PM"
+                            android:textSize="12dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ga Sài Gòn"
+                            android:textSize="14dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/netdut1"
+                    android:layout_width="36dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/netdut"
+                    android:layout_below="@id/statusStepByStep1"/>
+                <RelativeLayout
+                    android:id="@+id/statusStepByStep2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/netdut1">
+
+                    <ImageView
+                        android:id="@+id/pointIcon2"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/point"
+                        android:layout_centerVertical="true"/>
+                    <RelativeLayout
+                        android:layout_width="328dp"
+                        android:layout_height="70dp"
+                        android:layout_toRightOf="@+id/pointIcon2"
+                        android:layout_marginLeft="16dp">
+                        <TextView
+                            android:id="@+id/detailedStatus2"
+                            android:layout_width="255dp"
+                            android:layout_height="44dp"
+                            android:text="Đơn hàng đang vận chuyển - 17/12"
+                            android:textStyle="bold"
+                            android:textSize="18dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15:20 PM"
+                            android:textSize="12dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ga Sài Gòn"
+                            android:textSize="14dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/netdut2"
+                    android:layout_width="36dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/netdut"
+                    android:layout_below="@id/statusStepByStep2"/>
+                <RelativeLayout
+                    android:id="@+id/statusStepByStep3"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/netdut2">
+
+                    <ImageView
+                        android:id="@+id/pointIcon3"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/point"
+                        android:layout_centerVertical="true"/>
+                    <RelativeLayout
+                        android:layout_width="328dp"
+                        android:layout_height="70dp"
+                        android:layout_toRightOf="@+id/pointIcon3"
+                        android:layout_marginLeft="16dp">
+                        <TextView
+                            android:id="@+id/detailedStatus3"
+                            android:layout_width="255dp"
+                            android:layout_height="44dp"
+                            android:text="Đơn hàng đang vận chuyển - 17/12"
+                            android:textStyle="bold"
+                            android:textSize="18dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15:20 PM"
+                            android:textSize="12dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ga Sài Gòn"
+                            android:textSize="14dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</RelativeLayout>

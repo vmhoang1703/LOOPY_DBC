@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderManagerActivity">
+
+    <RelativeLayout
+        android:id="@+id/orderTitle"
+        android:layout_width="395dp"
+        android:layout_height="60.77dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="38dp"
+            android:layout_height="40.77dp"
+            android:src="@drawable/logo"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/giohangText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đơn hàng của tôi"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/search1"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="17dp" />
+    </RelativeLayout>
+
+<!--    <ListView-->
+<!--        android:id="@+id/orderListView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/orderTitle"-->
+<!--        android:layout_marginTop="42dp"-->
+<!--        android:layout_marginBottom="100dp"/>-->
+
+    <include
+        layout="@layout/list_order_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/orderTitle"
+        android:layout_marginTop="47dp"/>
+
+    <include
+        layout="@layout/no_order_layout"
+        android:id="@+id/noOrderLayout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/navigationMenu"
+        layout="@layout/activity_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true" />
+
+
+</RelativeLayout>

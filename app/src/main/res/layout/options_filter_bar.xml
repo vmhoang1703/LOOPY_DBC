@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/allBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/options_round_active"
+        android:text="Hàng mới"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"/>
+
+    <TextView
+        android:id="@+id/firstOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/options_round"
+        android:text="Hàng cũ"
+        android:textSize="16dp"
+        android:textColor="@color/green"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/allBtn"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginLeft="12dp"/>
+
+    <TextView
+        android:id="@+id/secondOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/options_round"
+        android:text="Giá cao"
+        android:textSize="16dp"
+        android:textColor="@color/green"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/firstOption"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginLeft="12dp"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/thirdOption"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/options_round"-->
+<!--        android:text="Sách kinh tế"-->
+<!--        android:textSize="16dp"-->
+<!--        android:textColor="@color/green"-->
+<!--        android:gravity="center"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_toRightOf="@+id/secondOption"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:paddingBottom="10dp"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:paddingRight="20dp"-->
+<!--        android:layout_marginLeft="12dp"/>-->
+</RelativeLayout>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- RecyclerView with id "recyclerView" -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/beeImage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/bee" />
+
+            <TextView
+                android:id="@+id/welcomeText"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="Chào ngày mới 👋"
+                android:layout_toRightOf="@+id/beeImage"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="16dp"
+                android:textSize="16dp"
+                android:textColor="#757575" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="Esien Nguyen"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/beeImage"
+                android:layout_below="@+id/welcomeText"
+                android:layout_marginLeft="16dp"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/notiIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="38dp"
+                android:layout_toRightOf="@+id/welcomeText"
+                android:src="@drawable/notification" />
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/heart"
+                android:layout_toRightOf="@+id/notiIcon"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="38dp" />
+
+            <include
+                layout="@layout/search"
+                android:id="@+id/searchBar"
+                android:layout_below="@+id/beeImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp" />
+
+            <RelativeLayout
+                android:id="@+id/sliderAds"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="400dp"
+                android:layout_height="193dp"
+                android:layout_below="@+id/searchBar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="61dp">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPagerAds"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"/>
+
+                <LinearLayout
+                    android:id="@+id/indicatorLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/newestText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sliderAds"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="59dp"
+                android:text="Mới nhất"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/allText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sliderAds"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="15dp"
+                android:text="Tất cả"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#30c480" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="wrap_content"
+                android:layout_height="450dp"
+                android:layout_below="@+id/allText"
+                android:layout_marginTop="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/commonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewPager"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="34dp"
+                android:text="Phổ biến"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/allText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewPager"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="15dp"
+                android:text="Tất cả"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#30c480" />
+
+            <include
+                android:id="@+id/optionsBar"
+                layout="@layout/options_bar"
+                android:layout_below="@+id/commonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="36dp" />
+
+
+            <!--            <androidx.viewpager.widget.ViewPager-->
+            <!--                android:id="@+id/viewPager1"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="450dp"-->
+            <!--                android:layout_below="@+id/optionsBar"-->
+            <!--                android:layout_marginTop="36dp"-->
+            <!--                android:layout_alignParentStart="true"-->
+            <!--                android:layout_marginStart="20dp"-->
+            <!--                android:layout_alignParentEnd="true"-->
+            <!--                android:layout_marginEnd="20dp"-->
+            <!--                android:layout_marginBottom="100dp"/>-->
+
+            <include
+                android:id="@+id/row1"
+                layout="@layout/product_card"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/optionsBar"
+                android:layout_marginTop="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"/>
+
+            <include
+                layout="@layout/product_card"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/optionsBar"
+                android:layout_marginTop="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"/>
+
+            <include
+                layout="@layout/product_card"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/row1"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"/>
+
+            <include
+                layout="@layout/product_card"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/row1"
+                android:layout_marginTop="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="100dp"/>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+    <!-- Bottom Navigation Menu -->
+    <include
+        android:id="@+id/navigationMenu"
+        layout="@layout/activity_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
+
+

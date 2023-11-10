@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "7234215807",
+    "project_id": "dbc-project-loopy",
+    "storage_bucket": "dbc-project-loopy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7234215807:android:104f847c71dc33c7c8444a",
+        "android_client_info": {
+          "package_name": "com.example.vecom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7234215807-qh9e17cmem2mr8jsaiajrikegnas0jcs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vecom",
+            "certificate_hash": "182fca6cd9a0d5c2e0e50c49f2dda82c1451e261"
+          }
+        },
+        {
+          "client_id": "7234215807-qekqhtlhodkupq50674g573c87me7vp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApPfr9YptdVOQMIG3P05d2W513jpzYLNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7234215807-1b9jmh325dhiuqu60b75dpl7dbqu08mb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

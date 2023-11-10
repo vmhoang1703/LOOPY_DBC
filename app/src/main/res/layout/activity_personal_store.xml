@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderInformationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp">
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/back"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cửa hàng của tôi"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/back"
+                android:layout_marginLeft="16dp" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/work"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/box1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/personalShopInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/bee"
+                            android:id="@+id/avatarImg" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Minh Minh"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/avatarImg"
+                            android:textSize="24dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="tradeloop.vn/minhminh"
+                            android:layout_toRightOf="@+id/avatarImg"
+                            android:textSize="15dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/edit2"
+                            android:layout_toLeftOf="@+id/seeShopBtn"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginRight="20dp" />
+
+                        <RelativeLayout
+                            android:id="@+id/seeShopBtn"
+                            android:layout_width="96dp"
+                            android:layout_height="34dp"
+                            android:background="@drawable/addtocart_btn"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Xem shop"
+                                android:textColor="@color/white"
+                                android:textSize="14dp"
+                                android:textStyle="bold"
+                                android:layout_centerVertical="true"
+                                android:layout_centerHorizontal="true" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/sanphamText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sản phẩm"
+                        android:textSize="25dp"
+                        android:layout_below="@+id/personalShopInfo"
+                        android:layout_marginTop="75dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/sanphamArrow"
+                        android:layout_width="33dp"
+                        android:layout_height="24dp"
+                        android:layout_toRightOf="@+id/sanphamText"
+                        android:src="@drawable/continue_arrow"
+                        android:layout_below="@+id/personalShopInfo"
+                        android:layout_marginTop="80dp"
+                        android:layout_marginLeft="12dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/box2"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/box1"
+                    android:layout_marginTop="32.57dp"
+                    android:layout_centerHorizontal="true">
+                    <RelativeLayout
+                        android:id="@+id/cholayhangBox"
+                        android:layout_width="151dp"
+                        android:layout_height="105dp"
+                        android:background="@drawable/order_status_bg">
+                        <TextView
+                            android:id="@+id/cholayhangNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chờ lấy hàng"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:layout_below="@+id/cholayhangNumber"
+                            android:layout_centerHorizontal="true"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/donhuyBox"
+                        android:layout_width="151dp"
+                        android:layout_height="105dp"
+                        android:background="@drawable/order_status_bg"
+                        android:layout_alignParentEnd="true">
+                        <TextView
+                            android:id="@+id/donhuyNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Đơn hủy"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:layout_below="@+id/donhuyNumber"
+                            android:layout_centerHorizontal="true"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/trahangBox"
+                        android:layout_width="151dp"
+                        android:layout_height="105dp"
+                        android:background="@drawable/order_status_bg"
+                        android:layout_below="@+id/cholayhangBox"
+                        android:layout_marginTop="24dp">
+                        <TextView
+                            android:id="@+id/trahangNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trả hàng/Hoàn tiền"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:layout_below="@+id/trahangNumber"
+                            android:layout_centerHorizontal="true"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/phanhoiBox"
+                        android:layout_width="151dp"
+                        android:layout_height="105dp"
+                        android:background="@drawable/order_status_bg"
+                        android:layout_below="@+id/donhuyBox"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="24dp">
+                        <TextView
+                            android:id="@+id/phanhoiNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="25dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Phản hồi/Đánh giá"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:layout_below="@+id/phanhoiNumber"
+                            android:layout_centerHorizontal="true"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/line"
+                    android:layout_width="218dp"
+                    android:layout_height="10dp"
+                    android:background="@drawable/line"
+                    android:layout_below="@+id/box2"
+                    android:layout_marginTop="53dp"
+                    android:layout_centerHorizontal="true"/>
+                <RelativeLayout
+                    android:id="@+id/financeBox"
+                    android:layout_below="@+id/line"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="185dp">
+                    <TextView
+                        android:id="@+id/financeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tài chính"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="33dp"
+                        android:layout_height="24dp"
+                        android:layout_toRightOf="@+id/financeText"
+                        android:src="@drawable/continue_arrow"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <TextView
+                        android:id="@+id/sodutaikhoanText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/financeText"
+                        android:text="Số dư tài khoản"
+                        android:textSize="20dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:id="@+id/sodutaikhoanNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="55dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/green"
+                        android:layout_below="@+id/sodutaikhoanText"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/currency"
+                        android:textColor="@color/green"
+                        android:layout_toRightOf="@id/sodutaikhoanNumber"
+                        android:layout_below="@id/sodutaikhoanText"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="5dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/performanceBox"
+                    android:layout_below="@+id/financeBox"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/performanceText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hiệu suất"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="33dp"
+                        android:layout_height="24dp"
+                        android:layout_toRightOf="@+id/performanceText"
+                        android:src="@drawable/continue_arrow"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="5dp"/>
+
+                    <ImageView
+                        android:layout_width="400dp"
+                        android:layout_height="400dp"
+                        android:src="@drawable/performance_emulator"
+                        android:layout_below="@id/performanceText"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</RelativeLayout>

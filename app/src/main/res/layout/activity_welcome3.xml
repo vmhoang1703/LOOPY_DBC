@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Welcome1Activity">
+
+    <ImageView
+        android:id="@+id/welcome3"
+        android:layout_width="440dp"
+        android:layout_height="406dp"
+        android:src="@drawable/welcome3"
+        android:layout_marginTop="51dp"/>
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="380dp"
+        android:layout_height="210dp"
+        android:text="Ngoài ra, chúng tôi\n còn tạo ra một cộng đồng trò chuyện về\n tình hình KT-XH,..."
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:layout_below="@+id/welcome3"
+        android:layout_centerHorizontal="true"
+        android:gravity="center" />
+
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="8dp"
+        android:layout_above="@+id/continueBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="31dp">
+
+        <ImageView
+            android:id="@+id/notActive"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/point_notactive"/>
+
+        <ImageView
+            android:id="@+id/notActive1"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/point_notactive"
+            android:layout_toRightOf="@id/notActive"
+            android:layout_marginLeft="8dp"/>
+
+        <ImageView
+            android:id="@+id/pointActive"
+            android:layout_width="32dp"
+            android:layout_height="8dp"
+            android:src="@drawable/point_active1"
+            android:layout_toRightOf="@id/notActive1"
+            android:layout_marginLeft="8dp"/>
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/point_notactive"
+            android:layout_toRightOf="@id/pointActive"
+            android:layout_marginLeft="8dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/continueBtn"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        android:background="@drawable/addtocart_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="66dp"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiếp"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

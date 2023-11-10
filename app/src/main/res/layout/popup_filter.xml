@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="663dp"
+    android:background="#16000000">
+
+    <TextView
+        android:id="@+id/filterBg"
+        android:layout_width="428dp"
+        android:layout_height="663dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-1dp"
+        android:background="@drawable/filter_bg" />
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="38dp"
+        android:layout_height="3dp"
+        android:layout_above="@+id/filterBg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-15dp"
+        android:src="@drawable/line1"/>
+
+    <TextView
+        android:id="@+id/filterText"
+        android:layout_width="360dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/line"
+        android:layout_marginTop="27dp"
+        android:layout_centerHorizontal="true"
+        android:text="Sắp xếp và lọc"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/categoriesText"
+        android:layout_width="360dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/filterText"
+        android:layout_marginTop="48dp"
+        android:layout_centerHorizontal="true"
+        android:text="Danh mục"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
+
+    <include
+        android:id="@+id/cateOption"
+        layout="@layout/options_bar"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoriesText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/priceRangeText"
+        android:layout_width="360dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/cateOption"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:text="Khoảng giá"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/rangePrice"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/priceRangeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/arrangeText"
+        android:layout_width="360dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/rangePrice"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:text="Sắp xếp theo"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
+
+    <include
+        android:id="@+id/filterOption"
+        layout="@layout/options_filter_bar"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrangeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/line1"
+        android:layout_width="360dp"
+        android:layout_height="1dp"
+        android:background="@drawable/line1"
+        android:layout_below="@+id/filterOption"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true" />
+
+
+    <RelativeLayout
+        android:layout_below="@id/line1"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/resetBtn"
+            android:layout_width="174dp"
+            android:layout_height="58dp"
+            android:background="@drawable/shadowbtn"
+            android:elevation="5dp"
+            android:text="Đặt lại"
+            android:textColor="@color/green"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="174dp"
+            android:layout_height="58dp"
+            android:background="@drawable/shadowbtn_grren"
+            android:elevation="5dp"
+            android:text="Tiến hành"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

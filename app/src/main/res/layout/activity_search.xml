@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp">
+        <include
+            android:id="@+id/searchBox"
+            layout="@layout/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Search..."/>
+        <!--    <EditText-->
+        <!--        android:id="@+id/searchEditText"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:hint="Search..."-->
+        <!--        android:layout_margin="16dp"/>-->
+
+        <TextView
+            android:id="@+id/recentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recent"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_below="@+id/searchBox"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:id="@+id/clearText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear All"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textColor="@color/green"
+            android:layout_below="@+id/searchBox"
+            android:layout_marginTop="24dp"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="380dp"
+            android:layout_height="2dp"
+            android:background="@drawable/line"
+            android:layout_below="@+id/recentText"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"/>
+
+        <FrameLayout
+            android:id="@+id/searchResultsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/line">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <!-- Layout cho thông báo "Không tìm thấy sản phẩm" -->
+            <include layout="@layout/no_results_layout" android:id="@+id/noResultsLayout" android:visibility="gone" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
