@@ -17,7 +17,7 @@
         android:id="@+id/welcomeText"
         android:layout_width="380dp"
         android:layout_height="210dp"
-        android:text="Hãy khám phá những trải nghiệm tuyệt vời trên TRADELOOP nào!"
+        android:text="Hãy khám phá những trải nghiệm tuyệt vời trên LOOPY nào!"
         android:textStyle="bold"
         android:textSize="35dp"
         android:layout_below="@+id/welcome4"
