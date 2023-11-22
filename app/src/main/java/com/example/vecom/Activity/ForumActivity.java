@@ -20,7 +20,7 @@ public class ForumActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ForumActivity.this, PersonalActivity.class);
+                Intent intent = new Intent(ForumActivity.this, PersonalActivity1.class);
                 startActivity(intent);
                 finish();
             }

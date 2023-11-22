@@ -9,18 +9,18 @@ import android.widget.RelativeLayout;
 
 import com.example.vecom.R;
 
-public class PersonalActivity extends AppCompatActivity {
+public class PersonalActivity1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal);
+        setContentView(R.layout.activity_personal1);
 
         RelativeLayout homeNavi = findViewById(R.id.homeNavi);
         homeNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity.this, HomeActivity.class);
+                Intent intent = new Intent(PersonalActivity1.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -29,7 +29,16 @@ public class PersonalActivity extends AppCompatActivity {
         cartNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity.this, AddToCartActivity.class);
+                Intent intent = new Intent(PersonalActivity1.this, AddToCartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout forumNavi = findViewById(R.id.forumNavi);
+        forumNavi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PersonalActivity1.this, ForumActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +47,7 @@ public class PersonalActivity extends AppCompatActivity {
         orderNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity.this, OrderManagerActivity.class);
+                Intent intent = new Intent(PersonalActivity1.this, OrderManagerActivity.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +56,7 @@ public class PersonalActivity extends AppCompatActivity {
         profileNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity.this, PersonalActivity.class);
+                Intent intent = new Intent(PersonalActivity1.this, PersonalActivity1.class);
                 startActivity(intent);
             }
         });
@@ -56,16 +65,16 @@ public class PersonalActivity extends AppCompatActivity {
         workAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity.this, PersonalStoreActivity.class);
+                Intent intent = new Intent(PersonalActivity1.this, PersonalStoreActivity.class);
                 startActivity(intent);
             }
         });
 
-        RelativeLayout communitySpacing = findViewById(R.id.communitySapcing);
-        communitySpacing.setOnClickListener(new View.OnClickListener() {
+        RelativeLayout setting = findViewById(R.id.setting);
+        setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity.this, ForumActivity.class);
+                Intent intent = new Intent(PersonalActivity1.this, PersonalActivity2.class);
                 startActivity(intent);
             }
         });
