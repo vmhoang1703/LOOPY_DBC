@@ -3,6 +3,7 @@ package com.example.vecom.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,6 +59,16 @@ public class PersonalActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PersonalActivity2.this, PersonalActivity1.class);
                 startActivity(intent);
+            }
+        });
+
+        ImageView backArrow = findViewById(R.id.back);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PersonalActivity2.this, PersonalActivity1.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
