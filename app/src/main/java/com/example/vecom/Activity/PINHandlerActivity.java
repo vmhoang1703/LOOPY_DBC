@@ -1,4 +1,4 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.vecom.R;
 
 public class PINHandlerActivity extends AppCompatActivity {
 

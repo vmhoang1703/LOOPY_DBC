@@ -1,4 +1,4 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -6,6 +6,8 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.vecom.R;
 
 
 public class SearchActivity extends AppCompatActivity {

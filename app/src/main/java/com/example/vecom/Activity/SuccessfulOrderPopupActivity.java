@@ -1,4 +1,4 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.vecom.R;
 
 public class SuccessfulOrderPopupActivity extends AppCompatActivity {
     @Override

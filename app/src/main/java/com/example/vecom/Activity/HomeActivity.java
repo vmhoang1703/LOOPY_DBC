@@ -1,18 +1,16 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -20,6 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.vecom.Adapter.CardSliderAdapter;
 import com.example.vecom.Adapter.ImageSliderAdapter;
 import com.example.vecom.Model.CardItem;
+import com.example.vecom.R;
 
 import java.util.ArrayList;
 import java.util.List;

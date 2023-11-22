@@ -1,4 +1,4 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.example.vecom.Adapter.CartAdapter;
 import com.example.vecom.Adapter.OrderManagementAdapter;
 import com.example.vecom.Model.Order;
-import com.example.vecom.Model.Product;
+import com.example.vecom.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OrderManagerActivity extends AppCompatActivity {

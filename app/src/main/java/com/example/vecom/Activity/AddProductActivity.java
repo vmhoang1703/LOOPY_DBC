@@ -1,4 +1,4 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,18 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class ForumActivity extends AppCompatActivity {
+import com.example.vecom.R;
+
+public class AddProductActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forum);
+        setContentView(R.layout.activity_add_product);
 
         ImageView backArrow = findViewById(R.id.back);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ForumActivity.this, PersonalActivity.class);
+                Intent intent = new Intent(AddProductActivity.this, MyProductsActivity.class);
                 startActivity(intent);
                 finish();
             }

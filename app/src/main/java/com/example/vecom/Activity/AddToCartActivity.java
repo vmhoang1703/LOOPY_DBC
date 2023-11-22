@@ -1,4 +1,4 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.vecom.Adapter.CartAdapter;
 
 import com.example.vecom.Model.Product;
+import com.example.vecom.R;
 
 import java.util.ArrayList;
 import java.util.List;

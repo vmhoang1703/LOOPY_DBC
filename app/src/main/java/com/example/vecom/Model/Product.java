@@ -5,7 +5,18 @@ import java.text.DecimalFormat;
 public class Product {
     private String name;
     private double price;
+    private String desc;
+
+    private double rate;
+
+    private int quantity;
+
+    private String cmt;
+
     private int imageResourceId;
+
+    private String productType;
+
 
     public Product(String name, double price, int imageResourceId) {
         this.name = name;

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.vecom.Model.CardItem;
-import com.example.vecom.ProductDescriptionActivity;
+import com.example.vecom.Activity.ProductDescriptionActivity;
 import com.example.vecom.R;
 
 import java.util.List;

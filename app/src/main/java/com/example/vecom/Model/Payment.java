@@ -7,7 +7,7 @@ public class Payment {
     private String transactionId;
 
     public Payment() {
-        // Constructor mặc định
+
     }
 
     public Payment(int paymentId, String paymentMethod, double amount, String transactionId) {

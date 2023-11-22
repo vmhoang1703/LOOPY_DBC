@@ -9,38 +9,36 @@ import java.util.ArrayList;
 public class User {
     private int userID;
     private String userName;
-    private String password;
-    private String email;
-    private String ID_card;//CCCD/CMT
-    private String fullName;
-    private String dob;
-    private String gender;
-    private String hometown;
-    private String address;
-    private String phoneNumber;
+    private String userPassword;
+    private String userEmail;
+//    private String IdCard;//CCCD/CMT
+    private String userFullName;
+    private String userDob;
+    private String userGender;
+    private String userHometown;
+    private String userAddress;
+    private String userPhoneNumber;
     private ArrayList<String> liked_product;
-    private String hashedPIN; // Thêm thuộc tính để lưu mã PIN đã hash
+    private String hashedPIN;
     private String salt;
-
-
 
     // Constructors
     public User() {
         this.salt = generateSalt();
     }
 
-    public User(int userID, String userName, String password, String email,String ID_card, String fullName,String dob,String gender,String hometown, String address, String phoneNumber,ArrayList<String> liked_product,String pin) {
+    public User(int userID, String userName, String userPassword, String userEmail, String userFullName, String userDob, String userGender, String userHometown, String userAddress, String userPhoneNumber, ArrayList<String> liked_product, String pin) {
         this.userID = userID;
         this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.ID_card = ID_card;//CCCD/CMT
-        this.fullName = fullName;
-        this.dob = dob;
-        this.gender = gender;
-        this.hometown = hometown;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+//        this.IdCard = ID_card;// CCCD/CMT
+        this.userFullName = userFullName;
+        this.userDob = userDob;
+        this.userGender = userGender;
+        this.userHometown = userHometown;
+        this.userAddress = userAddress;
+        this.userPhoneNumber = userPhoneNumber;
         this.liked_product = liked_product;
         this.salt = generateSalt();
         this.hashedPIN = hashPIN(pin, this.salt);
@@ -70,8 +68,6 @@ public class User {
         return null;
     }
 
-
-
     public boolean isCorrectPIN(String pinToCheck) {
         String hashedPINToCheck = hashPIN(pinToCheck, this.salt);
         return hashedPINToCheck.equals(this.hashedPIN);
@@ -90,40 +86,40 @@ public class User {
         return userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-
-    public String getFullName() {
-        return fullName;
+    public String getUserFullName() {
+        return userFullName;
     }
 
-    public String getDob() {
-        return dob;
-    }
-    public String getGender() {
-        return gender;
-    }
-    public String getHometown() {
-        return hometown;
-    }
-    public String getID_card() {
-        return ID_card;
+    public String getUserDob() {
+        return userDob;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUserGender() {
+        return userGender;
     }
 
+    public String getUserHometown() {
+        return userHometown;
+    }
 
+//    public String getIdCard() {
+//        return IdCard;
+//    }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
     }
 
     @Override
@@ -131,15 +127,15 @@ public class User {
         return "User{" +
                 "userID=" + userID +
                 ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", ID_card='" + ID_card + '\'' +
-                ", dob='" + dob + '\'' +
-                ", gender='" + gender + '\'' +
-                ", hometown='" + hometown + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + userPassword + '\'' +
+                ", email='" + userEmail + '\'' +
+                ", fullName='" + userFullName + '\'' +
+//                ", ID_card='" + IdCard + '\'' +
+                ", dob='" + userDob + '\'' +
+                ", gender='" + userGender + '\'' +
+                ", hometown='" + userHometown + '\'' +
+                ", address='" + userAddress + '\'' +
+                ", phoneNumber='" + userPhoneNumber + '\'' +
                 ", likedProduct='" + liked_product + '\'' +
                 ", Pin='" + hashedPIN + '\'' +
                 '}';

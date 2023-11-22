@@ -1,4 +1,4 @@
-package com.example.vecom;
+package com.example.vecom.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.vecom.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -98,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                             map.put("name",user.getDisplayName());
                             map.put("profile",user.getPhotoUrl().toString());
                             database.getReference().child("users").child(user.getUid()).setValue(map);
-                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             startActivity(intent);
                         }
                         else{
