@@ -93,6 +93,7 @@
                         android:textSize="20dp"
                         android:textColor="#C1C0C0"/>
                     <EditText
+                        android:id="@+id/edit_addProductName"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_below="@id/tensanphamText"
@@ -132,6 +133,7 @@
                         android:textSize="20dp"
                         android:textColor="#C1C0C0"/>
                     <EditText
+                        android:id="@+id/edit_addProductDesc"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_below="@id/motasanphamText"
@@ -200,6 +202,7 @@
                             android:layout_centerVertical="true"
                             android:textSize="20dp"/>
                         <EditText
+                            android:id="@+id/edit_addProductPrice"
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:background="@color/white"
@@ -227,6 +230,7 @@
                             android:layout_centerVertical="true"
                             android:textSize="20dp"/>
                         <EditText
+                            android:id="@+id/edit_addProductQuantity"
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:background="@color/white"

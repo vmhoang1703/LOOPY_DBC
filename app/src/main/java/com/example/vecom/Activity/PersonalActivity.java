@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.vecom.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class PersonalActivity extends AppCompatActivity {
 
@@ -69,5 +70,22 @@ public class PersonalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        RelativeLayout logoutBtn = findViewById(R.id.logout);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+
+            }
+        });
+        logoutBtn.setVisibility(View.GONE);
     }
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        // Điều hướng người dùng đến màn hình đăng nhập hoặc màn hình khác theo nhu cầu của bạn.
+        Intent intent = new Intent(PersonalActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Đảm bảo người dùng không thể quay lại màn hình PersonalActivity bằng nút back.
+    }
+
 }

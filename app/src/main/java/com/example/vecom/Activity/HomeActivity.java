@@ -145,11 +145,11 @@ public class HomeActivity extends AppCompatActivity {
         // Tạo danh sách card giả lập
         List<CardItem> cardItems = new ArrayList<>();
         cardItems.add(new CardItem(R.drawable.product_test, "Bàn phím cơ Dareu EK87", R.string.description_text, 100.0));
-        cardItems.add(new CardItem(R.drawable.maclenin, "Bộ giáo trình Triết học", R.string.descriptionMaclenin, 30.0));
-        cardItems.add(new CardItem(R.drawable.balo, "Balo Kim Long KL024", R.string.descriptionBalo, 299.0));
-        cardItems.add(new CardItem(R.drawable.tugiay, "Tủ đựng giày gỗ Lương Sơn", R.string.descriptionTugiay, 199.0));
-        cardItems.add(new CardItem(R.drawable.tulanh, "Tủ lạnh Sharp chính hãng", R.string.descriptionTulanh, 1099.0));
-        cardItems.add(new CardItem(R.drawable.laptop, "Laptop cũ Dell inspiron 15R", R.string.descriptionLaptop, 5000.0));
+//        cardItems.add(new CardItem(R.drawable.maclenin, "Bộ giáo trình Triết học", R.string.descriptionMaclenin, 30.0));
+//        cardItems.add(new CardItem(R.drawable.balo, "Balo Kim Long KL024", R.string.descriptionBalo, 299.0));
+//        cardItems.add(new CardItem(R.drawable.tugiay, "Tủ đựng giày gỗ Lương Sơn", R.string.descriptionTugiay, 199.0));
+//        cardItems.add(new CardItem(R.drawable.tulanh, "Tủ lạnh Sharp chính hãng", R.string.descriptionTulanh, 1099.0));
+//        cardItems.add(new CardItem(R.drawable.laptop, "Laptop cũ Dell inspiron 15R", R.string.descriptionLaptop, 5000.0));
 
         // Thêm các CardItem khác vào danh sách ở đây
         return cardItems;
@@ -187,7 +187,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
     private void updateIndicator(int position) {
         LinearLayout indicatorLayout = findViewById(R.id.indicatorLayout);
         int childCount = indicatorLayout.getChildCount();

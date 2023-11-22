@@ -192,54 +192,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="20dp"/>
 
-            <include
-                layout="@layout/product_card1"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/optionsBar"
-                android:layout_marginTop="36dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"/>
 
-            <include
-                android:id="@+id/row2"
-                layout="@layout/product_card2"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/row1"
-                android:layout_marginTop="36dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"/>
 
-            <include
-                layout="@layout/product_card3"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/row1"
-                android:layout_marginTop="36dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"/>
-
-            <include
-                android:id="@+id/row3"
-                layout="@layout/product_card4"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/row2"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="120dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"/>
-
-            <include
-                layout="@layout/product_card5"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/row2"
-                android:layout_marginTop="36dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="120dp"/>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
     <!-- Bottom Navigation Menu -->
