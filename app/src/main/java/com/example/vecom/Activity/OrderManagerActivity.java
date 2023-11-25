@@ -55,7 +55,7 @@ public class OrderManagerActivity extends AppCompatActivity {
         profileNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OrderManagerActivity.this, PersonalActivity.class);
+                Intent intent = new Intent(OrderManagerActivity.this, PersonalActivity1.class);
                 startActivity(intent);
             }
         });

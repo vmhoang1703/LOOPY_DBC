@@ -122,6 +122,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        RelativeLayout forumNavi = findViewById(R.id.forumNavi);
+        forumNavi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ForumActivity.class);
+                startActivity(intent);
+            }
+        });
+
         RelativeLayout orderNavi = findViewById(R.id.orderNavi);
         orderNavi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +144,7 @@ public class HomeActivity extends AppCompatActivity {
         profileNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, PersonalActivity.class);
+                Intent intent = new Intent(HomeActivity.this, PersonalActivity1.class);
                 startActivity(intent);
             }
         });
