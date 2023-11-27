@@ -1,4 +1,4 @@
-package com.example.vecom.Fragments;
+package com.example.vecom.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

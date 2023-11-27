@@ -76,9 +76,10 @@ public class PersonalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 signOut();
 
+
             }
         });
-        logoutBtn.setVisibility(View.GONE);
+
     }
     private void signOut() {
         FirebaseAuth.getInstance().signOut();

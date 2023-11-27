@@ -17,12 +17,9 @@ public class Welcome1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome1);
 
         RelativeLayout continueBtn = findViewById(R.id.continueBtn);
-        continueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Welcome1Activity.this, Welcome2Activity.class);
-                startActivity(intent);
-            }
+        continueBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Welcome1Activity.this, Welcome2Activity.class);
+            startActivity(intent);
         });
     }
 }

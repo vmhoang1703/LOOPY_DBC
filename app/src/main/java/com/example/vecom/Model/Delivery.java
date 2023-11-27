@@ -25,11 +25,9 @@ public class Delivery {
     }
 
 
-
     public String getDeliveryStatus() {
         return deliveryStatus;
     }
-
 
 
     public String getDeliveryAddress() {

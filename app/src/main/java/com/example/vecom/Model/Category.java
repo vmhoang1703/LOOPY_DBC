@@ -6,7 +6,7 @@ public class Category {
     private String description;
 
     public Category() {
-        // Constructor mặc định
+
     }
 
     public Category(int categoryId, String categoryName, String description) {
@@ -15,7 +15,7 @@ public class Category {
         this.description = description;
     }
 
-    // Getter và Setter cho thuộc tính categoryId
+
     public int getCategoryId() {
         return categoryId;
     }

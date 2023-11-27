@@ -40,7 +40,7 @@ public class OrderInformationActivity extends AppCompatActivity {
 
         cartList = new ArrayList<>();
         // Thêm sản phẩm vào giỏ hàng
-        cartList.add(new Product("Bàn phím cơ EK87", 299.000, desc, rate, quantity, cmt, R.drawable.product_test, productType));
+//        cartList.add(new Product("Bàn phím cơ EK87", 299.000, R.drawable.product_test, productType));
 
         updateCartView();
 
