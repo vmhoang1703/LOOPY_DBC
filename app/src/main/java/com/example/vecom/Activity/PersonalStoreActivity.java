@@ -21,7 +21,7 @@ public class PersonalStoreActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalStoreActivity.this, PersonalActivity.class);
+                Intent intent = new Intent(PersonalStoreActivity.this, PersonalActivity1.class);
                 startActivity(intent);
                 finish();
             }
