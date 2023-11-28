@@ -17,9 +17,10 @@ public class Product {
     private String productType;
     private String imageUrl;
     private int imageResourceId;
+    private String userEmail;
 
 
-    public Product(String name, double price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType) {
+    public Product(String name, double price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail) {
         this.name = name;
         this.price = price;
         this.desc = desc;
@@ -29,6 +30,7 @@ public class Product {
         this.productType = productType;
         this.imageResourceId = imageResourceId;
         this.imageUrl = imageUrl;
+        this.userEmail = userEmail;
     }
     public String getDesc(){return desc;};
     public String getName() {
