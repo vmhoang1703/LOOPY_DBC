@@ -13,6 +13,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.ProgressBar;
+
 
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
@@ -27,6 +33,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 
 public class AddProductActivity extends AppCompatActivity {
 
@@ -45,28 +52,6 @@ public class AddProductActivity extends AppCompatActivity {
         TextView saveBtn = findViewById(R.id.saveBtn);
 
         TextView addProductImg = findViewById(R.id.addProductImg);
-
-        addProductImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                selectImage();
-
-
-            }
-        });
-
-        addProductImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                uploadImage();
-
-            }
-        });
-
 
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +75,14 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveProductToDatabase();
+            }
+        });
+        addProductImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Choose to either select an image or upload it based on your logic
+                // For simplicity, I'll call the selectImage method
+                selectImage();
             }
         });
     }
@@ -134,10 +127,8 @@ public class AddProductActivity extends AppCompatActivity {
     }
     private void uploadImage() {
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading File....");
+        Dialog progressDialog = createProgressDialog(this);
         progressDialog.show();
-
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
         Date now = new Date();
@@ -188,8 +179,20 @@ public class AddProductActivity extends AppCompatActivity {
 
             imageUri = data.getData();
 //            binding.firebaseimage.setImageURI(imageUri);
-
+            uploadImage();
 
         }
     }
+    private Dialog createProgressDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.progress_dialog, null);
+        builder.setView(view);
+        builder.setCancelable(false);
+
+        Dialog progressDialog = builder.create();
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        return progressDialog;
+    }
+
 }
