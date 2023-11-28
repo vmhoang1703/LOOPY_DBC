@@ -124,5 +124,21 @@ public class PersonalActivity1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        RelativeLayout logoutBtn = findViewById(R.id.logout);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+
+            }
+        });
+    }
+
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        // Điều hướng người dùng đến màn hình đăng nhập hoặc màn hình khác theo nhu cầu của bạn.
+        Intent intent = new Intent(PersonalActivity1.this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Đảm bảo người dùng không thể quay lại màn hình PersonalActivity bằng nút back.
     }
 }

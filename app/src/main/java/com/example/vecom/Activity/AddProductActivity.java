@@ -12,8 +12,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +46,7 @@ public class AddProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
 
+
         ImageView backArrow = findViewById(R.id.back);
         TextView showBtn = findViewById(R.id.showBtn);
         TextView saveBtn = findViewById(R.id.saveBtn);
@@ -50,6 +54,25 @@ public class AddProductActivity extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference("images");
         databaseReference = FirebaseDatabase.getInstance().getReference("products");
+        // Initialize Spinner
+        Spinner categorySpinner = findViewById(R.id.categorySpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.category_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(adapter);
+
+        // Set up a listener for the Spinner to handle the selected gender
+        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedGender = parentView.getItemAtPosition(position).toString();
+                // You can use the selectedGender as needed
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Do nothing here
+            }
+        });
 
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
