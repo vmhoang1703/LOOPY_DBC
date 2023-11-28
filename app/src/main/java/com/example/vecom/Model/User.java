@@ -1,21 +1,21 @@
 package com.example.vecom.Model;
+
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Base64;
-
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class User {
     private int userID;
     private String userName;
     private String userPassword;
     private String userEmail;
-//    private String IdCard;//CCCD/CMT
     private String userFullName;
     private String userDob;
     private String userGender;
-    private String userHometown;
     private String userAddress;
     private String userPhoneNumber;
     private ArrayList<String> liked_product;
@@ -27,27 +27,32 @@ public class User {
         this.salt = generateSalt();
     }
 
-    public User(int userID, String userName, String userPassword, String userEmail, String userFullName, String userDob, String userGender, String userHometown, String userAddress, String userPhoneNumber, ArrayList<String> liked_product, String pin) {
-        this.userID = userID;
+    public User(String userName, String userPassword, String userEmail,
+                String userFullName, String userDob, String userGender, String userPhoneNumber) {
         this.userName = userName;
-        this.userPassword = userPassword;
+        this.userPassword = hashAndSaltPassword(userPassword);
         this.userEmail = userEmail;
-//        this.IdCard = ID_card;// CCCD/CMT
         this.userFullName = userFullName;
         this.userDob = userDob;
         this.userGender = userGender;
-        this.userHometown = userHometown;
-        this.userAddress = userAddress;
         this.userPhoneNumber = userPhoneNumber;
-        this.liked_product = liked_product;
         this.salt = generateSalt();
-        this.hashedPIN = hashPIN(pin, this.salt);
     }
+
+    private String hashAndSaltPassword(String userPassword) {
+        String saltedPassword = userPassword + this.salt;
+        // Use a secure hashing algorithm like bcrypt
+        // For example, using a simple demonstration (not recommended for production):
+        return BCrypt.hashpw(saltedPassword, BCrypt.gensalt());
+    }
+
+    // Methods for hashing PIN
     private String generateSalt() {
         byte[] saltBytes = new byte[16];
         new SecureRandom().nextBytes(saltBytes);
         return Base64.getEncoder().encodeToString(saltBytes);
     }
+
     private String hashPIN(String pin, String salt) {
         try {
             String saltedPIN = pin + salt;
@@ -74,71 +79,108 @@ public class User {
     }
 
     // Getters and Setters
-    public int getUserID() {
-        return userID;
-    }
-
-    public ArrayList<String> getLiked_products() {
-        return liked_product;
-    }
-
     public String getUserName() {
         return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getUserPassword() {
         return userPassword;
     }
 
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
     public String getUserEmail() {
         return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getUserFullName() {
         return userFullName;
     }
 
+    public void setUserFullName(String userFullName) {
+        this.userFullName = userFullName;
+    }
+
     public String getUserDob() {
         return userDob;
+    }
+
+    public void setUserDob(String userDob) {
+        this.userDob = userDob;
     }
 
     public String getUserGender() {
         return userGender;
     }
 
-    public String getUserHometown() {
-        return userHometown;
+    public void setUserGender(String userGender) {
+        this.userGender = userGender;
     }
-
-//    public String getIdCard() {
-//        return IdCard;
-//    }
 
     public String getUserAddress() {
         return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
 
     public String getUserPhoneNumber() {
         return userPhoneNumber;
     }
 
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
+    }
+
+    public ArrayList<String> getLikedProduct() {
+        return liked_product;
+    }
+
+    public void setLikedProduct(ArrayList<String> liked_product) {
+        this.liked_product = liked_product;
+    }
+
+    public String getHashedPIN() {
+        return hashedPIN;
+    }
+
+    public void setHashedPIN(String hashedPIN) {
+        this.hashedPIN = hashedPIN;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "userID=" + userID +
-                ", userName='" + userName + '\'' +
-                ", password='" + userPassword + '\'' +
-                ", email='" + userEmail + '\'' +
-                ", fullName='" + userFullName + '\'' +
-//                ", ID_card='" + IdCard + '\'' +
-                ", dob='" + userDob + '\'' +
-                ", gender='" + userGender + '\'' +
-                ", hometown='" + userHometown + '\'' +
-                ", address='" + userAddress + '\'' +
-                ", phoneNumber='" + userPhoneNumber + '\'' +
-                ", likedProduct='" + liked_product + '\'' +
-                ", Pin='" + hashedPIN + '\'' +
+                "userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userFullName='" + userFullName + '\'' +
+                ", userDob='" + userDob + '\'' +
+                ", userGender='" + userGender + '\'' +
+                ", userAddress='" + userAddress + '\'' +
+                ", userPhoneNumber='" + userPhoneNumber + '\'' +
+                ", liked_product=" + liked_product +
+                ", hashedPIN='" + hashedPIN + '\'' +
+                ", salt='" + salt + '\'' +
                 '}';
     }
 }
-

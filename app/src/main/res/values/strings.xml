@@ -74,5 +74,18 @@
             <u>Đăng ký</u>
         </a>
     </string>
+    <string-array name="gender_array">
+        <item>Nam</item>
+        <item>Nữ</item>
+    </string-array>
+    <string-array name="category_array">
+        <item></item>
+        <item>Laptop</item>
+        <item>Balo</item>
+        <item>Giày</item>
+        <item>Tủ lạnh</item>
+        <item>Tủ giày</item>
+        <item>Sách</item>
+    </string-array>
     <string name="default_web_client_id">7234215807-1b9jmh325dhiuqu60b75dpl7dbqu08mb.apps.googleusercontent.com</string>
 </resources>
