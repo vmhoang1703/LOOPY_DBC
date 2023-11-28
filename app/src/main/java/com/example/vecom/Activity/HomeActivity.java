@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.vecom.Adapter.CardSliderAdapter;
@@ -23,6 +26,8 @@ import com.example.vecom.Model.CardItem;
 import com.example.vecom.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.example.vecom.Adapter.ProductAdapter;
+import com.example.vecom.Model.Product;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,6 +49,11 @@ public class HomeActivity extends AppCompatActivity {
     private List<CardItem> cardItems1;
     private DatabaseReference userReference;
     private FirebaseAuth mAuth;
+
+    private DatabaseReference productsRef;
+    private List<Product> productList;
+    private ProductAdapter productAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +89,42 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
         }
+
+//        // Khởi tạo Firebase
+//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//        productsRef = firebaseDatabase.getReference("products");
+//
+//        // Khởi tạo RecyclerView
+//        recyclerView = findViewById(R.id.recyclerView);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        productList = new ArrayList<>();
+//        productAdapter = new ProductAdapter(productList);
+//        recyclerView.setAdapter(productAdapter);
+//
+//        productsRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                productList.clear();
+//
+//                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+//                    Product product = productSnapshot.getValue(Product.class);
+//                    if (product != null) {
+//                        productList.add(product);
+//                    }
+//                }
+//
+//                productAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Log.e("Firebase", "Failed to read value.", error.toException());
+//            }
+//        });
+
+
+
+
 
         viewPagerAds = findViewById(R.id.viewPagerAds);
         ImageSliderAdapter adapter = new ImageSliderAdapter(this, images);
