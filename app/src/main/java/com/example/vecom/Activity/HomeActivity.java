@@ -11,7 +11,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -19,6 +21,14 @@ import com.example.vecom.Adapter.CardSliderAdapter;
 import com.example.vecom.Adapter.ImageSliderAdapter;
 import com.example.vecom.Model.CardItem;
 import com.example.vecom.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +42,43 @@ public class HomeActivity extends AppCompatActivity {
     private Timer timer;
     private List<CardItem> cardItems; // Khai báo danh sách cardItems
     private List<CardItem> cardItems1;
+    private DatabaseReference userReference;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String userEmail = currentUser.getEmail();
+
+            // Assuming you have a node in your database named "users" where emails are stored
+            userReference = FirebaseDatabase.getInstance().getReference().child("users");
+
+            // Query the database based on email
+            Query query = userReference.orderByChild("userEmail").equalTo(userEmail);
+
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                        String username = userSnapshot.child("userName").getValue(String.class);
+
+                        // Set the username and phone number in TextViews
+                        TextView userNameTextView = findViewById(R.id.userName);
+                        userNameTextView.setText(username);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle errors
+                }
+            });
+        }
 
         viewPagerAds = findViewById(R.id.viewPagerAds);
         ImageSliderAdapter adapter = new ImageSliderAdapter(this, images);
