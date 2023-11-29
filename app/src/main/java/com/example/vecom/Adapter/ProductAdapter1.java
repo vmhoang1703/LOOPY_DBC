@@ -1,6 +1,7 @@
 package com.example.vecom.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.example.vecom.Activity.ProductDescriptionActivity;
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
 
@@ -45,6 +47,15 @@ public class ProductAdapter1 extends RecyclerView.Adapter<ProductAdapter1.ViewHo
 
         // Use Glide to load the image from the URL
         Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Pass the product details to the ProductDescriptionActivity
+                Intent intent = new Intent(context, ProductDescriptionActivity.class);
+                intent.putExtra("productId", product.getProductId()); // Pass the product ID or any other identifier
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

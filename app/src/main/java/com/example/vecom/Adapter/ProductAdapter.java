@@ -33,7 +33,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate the layout for each list item
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_product_card, parent, false);
         return new ViewHolder(view);
     }
 
@@ -44,6 +44,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         // Set data to views
         holder.productName.setText(product.getName());
         holder.productPrice.setText(String.valueOf(product.getPrice()));
+        holder.productDescription.setText(product.getDesc());
         // Use Glide to load the image from the URL
         Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
 
@@ -53,7 +54,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             public void onClick(View view) {
                 // Pass the product details to the ProductDescriptionActivity
                 Intent intent = new Intent(context, ProductDescriptionActivity.class);
-                intent.putExtra("productId", product.getProductId()); // Pass the product ID or any other identifier
+                intent.putExtra("productId", product.getProductId());
                 context.startActivity(intent);
             }
         });

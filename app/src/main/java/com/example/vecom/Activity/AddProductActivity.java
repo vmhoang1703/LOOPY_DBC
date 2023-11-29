@@ -202,7 +202,7 @@ public class AddProductActivity extends AppCompatActivity {
 
         if (requestCode == 100 && data != null && data.getData() != null) {
             imageUri = data.getData();
-            saveProductToDatabase(); // Now calling this here to ensure it's triggered after selecting an image
+//            saveProductToDatabase(); // Now calling this here to ensure it's triggered after selecting an image
         }
     }
 

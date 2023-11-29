@@ -27,6 +27,7 @@
         </RelativeLayout>
         
         <ImageView
+            android:id="@+id/productImg1"
             android:layout_width="428dp"
             android:layout_height="150dp"
             android:src="@drawable/product_test"
