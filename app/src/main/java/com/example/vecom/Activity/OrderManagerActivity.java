@@ -32,7 +32,7 @@ import java.util.List;
 
 public class OrderManagerActivity extends AppCompatActivity {
     private List<Order> orderList;
-
+    private ListView orderListView;
     private LinearLayout emptyOrderText;
     private DatabaseReference userReference;
     private DatabaseReference productsRef;
@@ -40,11 +40,11 @@ public class OrderManagerActivity extends AppCompatActivity {
 
     private OderManagerAdapter oderManagerAdapter;
 
-    private RecyclerView orderListView;
+    private RecyclerView recyclerView;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
 
-    private double totalCartPrice = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,12 +95,12 @@ public class OrderManagerActivity extends AppCompatActivity {
             }
         });
 
-        orderListView = findViewById(R.id.orderListView); // Ánh xạ RecyclerView từ layout
+        recyclerView = findViewById(R.id.cartListView); // Ánh xạ RecyclerView từ layout
         productList = new ArrayList<>(); // Initialize the product list
         oderManagerAdapter = new OderManagerAdapter(this, productList); // Initialize the product adapter with context
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
-        orderListView.setLayoutManager(gridLayoutManager);
-        orderListView.setAdapter(oderManagerAdapter); // Set the product adapter to RecyclerView
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(oderManagerAdapter); // Set the product adapter to RecyclerView
 
         createProductItems();
 
@@ -135,7 +135,9 @@ public class OrderManagerActivity extends AppCompatActivity {
 
                         if (cardItem != null && cardItem.getUserEmail().equals(userEmail)) {
                             productList.add(cardItem);
-                            
+
+                            // Cập nhật tổng giá mỗi khi thêm một CardItem
+
                         }
                     } catch (Exception e) {
                         Log.e("Firebase", "Error converting to CardItem", e);
