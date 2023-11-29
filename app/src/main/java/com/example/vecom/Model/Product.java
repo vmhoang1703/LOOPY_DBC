@@ -55,7 +55,7 @@ public class Product {
         return userEmail;
     }
     public String getFormattedPrice() {
-        DecimalFormat decimalFormat = new DecimalFormat("0.000");
+        DecimalFormat decimalFormat = new DecimalFormat("0");
         return decimalFormat.format(price);
     }
 //    public int getImageResourceId() {
@@ -67,7 +67,7 @@ public class Product {
     }
 
     public String getFormattedRate() {
-        DecimalFormat decimalFormat = new DecimalFormat("0.0");
+        DecimalFormat decimalFormat = new DecimalFormat("0");
         return decimalFormat.format(rate);
     }
 
