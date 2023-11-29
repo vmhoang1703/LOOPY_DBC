@@ -114,10 +114,11 @@
 
             <RelativeLayout
                 android:id="@+id/personalMenu"
-                android:layout_width="380dp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/line">
+                android:layout_below="@+id/line"
+                android:layout_marginTop="10dp">
 
                 <RelativeLayout
                     android:id="@+id/workAccount"

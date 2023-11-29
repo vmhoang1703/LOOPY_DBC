@@ -23,8 +23,8 @@
             android:layout_width="224dp"
             android:layout_height="116dp"
             android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp">
+            android:layout_toRightOf="@+id/productImg"
+            android:layout_marginLeft="20dp">
             
             <TextView
                 android:id="@+id/productName"
@@ -87,10 +87,11 @@
                     android:layout_marginLeft="1dp"/>
                 <RelativeLayout
                     android:id="@+id/followBtn"
-                    android:layout_width="88dp"
+                    android:layout_width="78dp"
                     android:layout_height="32dp"
                     android:background="@drawable/addtocart_btn"
-                    android:layout_alignParentEnd="true">
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -98,7 +99,7 @@
                         android:id="@+id/paymentText"
                         android:text="Theo dõi"
                         android:textColor="@color/white"
-                        android:textSize="14dp"
+                        android:textSize="13dp"
                         android:textStyle="bold"
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"/>
