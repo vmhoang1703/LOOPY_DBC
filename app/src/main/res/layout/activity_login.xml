@@ -22,7 +22,7 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="313.74dp"
-        android:layout_height="135.6dp"
+        android:layout_height="35.6dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/biglogo1"
         android:layout_below="@+id/back"

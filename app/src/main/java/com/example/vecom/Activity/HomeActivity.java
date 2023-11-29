@@ -16,18 +16,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.vecom.Adapter.CardSliderAdapter;
 import com.example.vecom.Adapter.ImageSliderAdapter;
-import com.example.vecom.Model.CardItem;
+import com.example.vecom.Adapter.ProductAdapter;
+import com.example.vecom.Adapter.ProductAdapter1;
+import com.example.vecom.Model.Product;
 import com.example.vecom.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.example.vecom.Adapter.ProductAdapter;
-import com.example.vecom.Model.Product;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,15 +45,17 @@ public class HomeActivity extends AppCompatActivity {
     private int[] images = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
     private int currentPage = 0;
     private Timer timer;
-    private List<CardItem> cardItems; // Khai báo danh sách cardItems
-    private List<CardItem> cardItems1;
+
     private DatabaseReference userReference;
     private FirebaseAuth mAuth;
 
     private DatabaseReference productsRef;
     private List<Product> productList;
+    private List<Product> productList1;
     private ProductAdapter productAdapter;
+    private ProductAdapter1 productAdapter1;
     private RecyclerView recyclerView;
+    private RecyclerView recyclerView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,42 +92,6 @@ public class HomeActivity extends AppCompatActivity {
             });
         }
 
-//        // Khởi tạo Firebase
-//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//        productsRef = firebaseDatabase.getReference("products");
-//
-//        // Khởi tạo RecyclerView
-//        recyclerView = findViewById(R.id.recyclerView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        productList = new ArrayList<>();
-//        productAdapter = new ProductAdapter(productList);
-//        recyclerView.setAdapter(productAdapter);
-//
-//        productsRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                productList.clear();
-//
-//                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
-//                    Product product = productSnapshot.getValue(Product.class);
-//                    if (product != null) {
-//                        productList.add(product);
-//                    }
-//                }
-//
-//                productAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.e("Firebase", "Failed to read value.", error.toException());
-//            }
-//        });
-
-
-
-
-
         viewPagerAds = findViewById(R.id.viewPagerAds);
         ImageSliderAdapter adapter = new ImageSliderAdapter(this, images);
         viewPagerAds.setAdapter(adapter);
@@ -152,15 +118,23 @@ public class HomeActivity extends AppCompatActivity {
             }
         }, 5000, 5000); // 5 giây delay và chuyển sau mỗi 5 giây
 
-        ViewPager viewPager = findViewById(R.id.viewPager); // Ánh xạ ViewPager từ layout
-        cardItems = createCardItems(); // Tạo danh sách card giả lập
-        CardSliderAdapter cardSliderAdapter = new CardSliderAdapter(this, cardItems); // Sử dụng dữ liệu cardItems
-        viewPager.setAdapter(cardSliderAdapter); // Gắn Adapter vào ViewPager
+        recyclerView = findViewById(R.id.recyclerView); // Ánh xạ RecyclerView từ layout
+        productList = new ArrayList<>(); // Initialize the product list
+        productAdapter = new ProductAdapter(this, productList); // Initialize the product adapter with context
+        recyclerView.setAdapter(productAdapter); // Set the product adapter to RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-//        ViewPager viewPager1 = findViewById(R.id.viewPager1); // Ánh xạ ViewPager từ layout
-//        cardItems1 = createCardItems(); // Tạo danh sách card giả lập
-//        CardSliderAdapter cardSliderAdapter1 = new CardSliderAdapter(this, cardItems1); // Sử dụng dữ liệu cardItems
-//        viewPager1.setAdapter(cardSliderAdapter); // Gắn Adapter vào ViewPager
+        // Create product items from Firebase
+        createProductItems();
+
+        recyclerView1 = findViewById(R.id.recyclerView1);
+        productList1 = new ArrayList<>();
+        productAdapter1 = new ProductAdapter1(this, productList1);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView1.setLayoutManager(gridLayoutManager);
+        recyclerView1.setAdapter(productAdapter1);
+        createProductItems1();
 
         ImageView customIcon = findViewById(R.id.customIcon);
         customIcon.setOnClickListener(new View.OnClickListener() {
@@ -181,23 +155,6 @@ public class HomeActivity extends AppCompatActivity {
 
                 // Show the second dialog
                 filterDialog.show();
-            }
-        });
-
-//        viewPager.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(HomeActivity.this, ProductDescription.class);
-//                startActivity(intent);
-//            }
-//        });
-
-        RelativeLayout homeNavi = findViewById(R.id.homeNavi);
-        homeNavi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -238,18 +195,69 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private List<CardItem> createCardItems() {
-        // Tạo danh sách card giả lập
-        List<CardItem> cardItems = new ArrayList<>();
-        cardItems.add(new CardItem(R.drawable.product_test, "Bàn phím cơ Dareu EK87", R.string.description_text, 100.0));
-//        cardItems.add(new CardItem(R.drawable.maclenin, "Bộ giáo trình Triết học", R.string.descriptionMaclenin, 30.0));
-//        cardItems.add(new CardItem(R.drawable.balo, "Balo Kim Long KL024", R.string.descriptionBalo, 299.0));
-//        cardItems.add(new CardItem(R.drawable.tugiay, "Tủ đựng giày gỗ Lương Sơn", R.string.descriptionTugiay, 199.0));
-//        cardItems.add(new CardItem(R.drawable.tulanh, "Tủ lạnh Sharp chính hãng", R.string.descriptionTulanh, 1099.0));
-//        cardItems.add(new CardItem(R.drawable.laptop, "Laptop cũ Dell inspiron 15R", R.string.descriptionLaptop, 5000.0));
+    private void createProductItems() {
+        productsRef = FirebaseDatabase.getInstance().getReference("products");
 
-        // Thêm các CardItem khác vào danh sách ở đây
-        return cardItems;
+        productsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                    Product product = productSnapshot.getValue(Product.class);
+
+                    try {
+                         product = productSnapshot.getValue(Product.class);
+
+                        if (product != null) {
+                            productList.add(product);
+                        }
+                    } catch (Exception e) {
+                        Log.e("Firebase", "Error converting to Product", e);
+                    }
+                }
+
+                // Update the product adapter
+                productAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "Failed to read value.", error.toException());
+            }
+        });
+    }
+    private void createProductItems1() {
+        productsRef = FirebaseDatabase.getInstance().getReference("products");
+
+        productsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                    Product product = productSnapshot.getValue(Product.class);
+
+                    try {
+                        product = productSnapshot.getValue(Product.class);
+
+                        if (product != null) {
+                            productList1.add(product);
+                        }
+                    } catch (Exception e) {
+                        Log.e("Firebase", "Error converting to Product", e);
+                    }
+                }
+
+                // Update the product adapter
+                productAdapter1.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "Failed to read value.", error.toException());
+            }
+        });
     }
 
     private void addIndicator(int count) {
@@ -284,6 +292,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
     private void updateIndicator(int position) {
         LinearLayout indicatorLayout = findViewById(R.id.indicatorLayout);
         int childCount = indicatorLayout.getChildCount();

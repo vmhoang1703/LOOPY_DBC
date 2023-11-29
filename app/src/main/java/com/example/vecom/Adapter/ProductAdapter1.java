@@ -9,20 +9,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
-import com.example.vecom.Fragment.ProductCardFragment;
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+public class ProductAdapter1 extends RecyclerView.Adapter<ProductAdapter1.ViewHolder> {
 
     private List<Product> productList;
     private List<Product> filteredList;
     private Context context;
 
-    public ProductAdapter(Context context, List<Product> productList) {
+    public ProductAdapter1(Context context, List<Product> productList) {
         this.context = context;
         this.productList = productList;
         this.filteredList = new ArrayList<>(productList);
@@ -31,16 +30,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Create a new instance of the ProductCardFragment
-        ProductCardFragment productCardFragment = new ProductCardFragment();
-
-        // Get the LayoutInflater from the parent context
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-
-        // Inflate the layout from the ProductCardFragment
-        View view = productCardFragment.onCreateView(inflater, parent, null);
-
-        // Return a new ViewHolder for the inflated view
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_card, parent, false);
         return new ViewHolder(view);
     }
 

@@ -38,7 +38,7 @@ public class SearchActivity extends AppCompatActivity {
         searchResultsRecyclerView = findViewById(R.id.searchResultsRecyclerView);
         productList = new ArrayList<>(); // Khởi tạo danh sách sản phẩm
 
-        productAdapter = new ProductAdapter(productList);
+        productAdapter = new ProductAdapter(this, productList);
         searchResultsRecyclerView.setAdapter(productAdapter);
         searchResultsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -91,6 +91,6 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void filterProducts(String searchText) {
-        productAdapter.filter(searchText);
+        productAdapter.filterByName(searchText);
     }
 }

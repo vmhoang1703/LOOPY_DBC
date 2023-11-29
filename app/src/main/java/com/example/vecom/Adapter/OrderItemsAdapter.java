@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
 
@@ -40,7 +41,7 @@ public class OrderItemsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.order_list_items, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_addtocart_items, parent, false);
         }
 
         Product product = productList.get(position);
@@ -49,10 +50,12 @@ public class OrderItemsAdapter extends BaseAdapter {
         TextView productName = convertView.findViewById(R.id.productName);
         TextView productPrice = convertView.findViewById(R.id.productPrice);
 
-        productImage.setImageResource(product.getImageResourceId());
+
+        Glide.with(context).load(product.getImageUrl()).into(productImage);
         productName.setText(product.getName());
         productPrice.setText(product.getFormattedPrice());
 
         return convertView;
     }
+
 }

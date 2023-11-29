@@ -40,10 +40,16 @@
         </RelativeLayout>
 
         <include
+            android:id="@+id/no_myproduct"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             layout="@layout/no_myproduct_layout"
             android:layout_below="@+id/top"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_below="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <RelativeLayout
             android:id="@+id/addProductBtn"

@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-        <ImageView
+    android:layout_height="wrap_content">
+        <RelativeLayout
             android:id="@+id/bg_product"
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:background="@drawable/product_bg"/>
+            android:background="@drawable/product_bg">
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="-50dp"
-            android:layout_marginBottom="-50dp"
-            android:layout_toRightOf="@+id/bg_product"
-            android:src="@drawable/favorite" />
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/favorite"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="10dp"/>
 
-        <ImageView
-            android:id="@+id/product_img"
-            android:layout_below="@+id/bg_product"
-            android:layout_width="240dp"
-            android:layout_height="240dp"
-            android:src="@drawable/product_test"
-            android:layout_marginTop="-240dp"/>
+                <ImageView
+                    android:id="@+id/product_img"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/product_test" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/product_name"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:text="Bàn phím cơ Dareu EK87"
-            android:layout_below="@+id/product_img"
+            android:layout_below="@+id/bg_product"
             android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:textStyle="bold"/>
@@ -82,7 +82,8 @@
             android:textStyle="bold"
             android:textSize="17dp"
             android:layout_below="@+id/descriptionText"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="50dp"/>
 
         <TextView
             android:id="@+id/price"
@@ -108,4 +109,5 @@
             android:textColor="#ee8f1b"
             android:layout_marginTop="5dp"
             android:textStyle="bold"/>
+
 </RelativeLayout>

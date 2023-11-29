@@ -14,8 +14,16 @@
             <!-- RecyclerView with id "recyclerView" -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
+                android:layout_below="@+id/newestText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView1"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/optionsBar"
+                android:layout_marginTop="36dp"
+                android:layout_centerHorizontal="true"/>
 
             <ImageView
                 android:id="@+id/beeImage"
@@ -183,16 +191,15 @@
             <!--                android:layout_marginEnd="20dp"-->
             <!--                android:layout_marginBottom="100dp"/>-->
 
-            <include
-                android:id="@+id/row1"
-                layout="@layout/product_card"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/optionsBar"
-                android:layout_marginTop="36dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"/>
-
+<!--            <include-->
+<!--                android:id="@+id/row1"-->
+<!--                layout="@layout/product_card"-->
+<!--                android:layout_width="170dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/optionsBar"-->
+<!--                android:layout_marginTop="36dp"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_marginStart="20dp"/>-->
 
 
         </RelativeLayout>
