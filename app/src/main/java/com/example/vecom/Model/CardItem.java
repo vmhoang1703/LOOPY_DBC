@@ -1,19 +1,28 @@
 package com.example.vecom.Model;
 
 public class CardItem {
-    private int imageUrl;
+
+    private String productId;
+    private String imageUrl;
     private String name;
     private int description;
+    private double totalPrice;
     private double price;
+    private String userEmail;
 
-    public CardItem(int imageUrl, String name, int description, double price) {
+    public CardItem(String productId, String name, double price, String imageUrl,String userEmail) {
+        this.productId = productId;
         this.imageUrl = imageUrl;
         this.name = name;
         this.description = description;
         this.price = price;
-    }
+        this.userEmail = userEmail;
 
-    public int getImageUrl() {
+    }
+    public String getProductId() {
+        return productId;
+    }
+    public String getImageUrl() {
         return imageUrl;
     }
 
@@ -27,5 +36,11 @@ public class CardItem {
 
     public double getPrice() {
         return price;
+    }
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+    public String getUserEmail() {
+        return userEmail;
     }
 }

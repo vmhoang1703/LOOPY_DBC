@@ -2,25 +2,48 @@ package com.example.vecom.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.vecom.Adapter.CartAdapter;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.vecom.Adapter.AddToCardAdapter;
+
+
+import com.example.vecom.Adapter.MyProductAdapter;
+import com.example.vecom.Model.CardItem;
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddToCartActivity extends AppCompatActivity {
     private View paymentBtn;
-    private List<Product> cartList;
-    private ListView cartListView;
     private LinearLayout emptyCartText;
+    private DatabaseReference userReference;
+
+    private DatabaseReference productsRef;
+    private List<CardItem> productList;
+
+    private AddToCardAdapter addToCardAdapter;
+
+    private RecyclerView recyclerView;
+    private FirebaseAuth mAuth=FirebaseAuth.getInstance();
+    FirebaseUser currentUser = mAuth.getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,24 +85,14 @@ public class AddToCartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        recyclerView = findViewById(R.id.cartListView); // Ánh xạ RecyclerView từ layout
+        productList = new ArrayList<>(); // Initialize the product list
+        addToCardAdapter = new AddToCardAdapter(this, productList); // Initialize the product adapter with context
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(addToCardAdapter); // Set the product adapter to RecyclerView
 
-        cartListView = findViewById(R.id.cartListView);
-        emptyCartText = findViewById(R.id.noAddToCartLayout);
-
-        cartList = new ArrayList<>();
-        // Thêm sản phẩm vào giỏ hàng
-//        cartList.add(new Product("Bàn phím cơ EK87", 299.000, desc, rate, quantity, cmt, R.drawable.product_test, productType));
-//        cartList.add(new Product("Bàn phím cơ EK87", 299.000, R.drawable.product_test));
-//        cartList.add(new Product("Bàn phím cơ EK87", 299.000, R.drawable.product_test));
-//        cartList.add(new Product("Bàn phím cơ EK87", 299.000, R.drawable.product_test));
-
-        updateCartView();
-
-        // Xử lý sự kiện khi giỏ hàng trống
-        if (cartList.isEmpty()) {
-            cartListView.setVisibility(View.GONE);
-            emptyCartText.setVisibility(View.VISIBLE);
-        }
+        createProductItems();
 
         // Khởi tạo paymentBtn
         paymentBtn = findViewById(R.id.paymentBtn);
@@ -95,8 +108,43 @@ public class AddToCartActivity extends AppCompatActivity {
         });
     }
 
-    private void updateCartView() {
-        CartAdapter cartAdapter = new CartAdapter(this, cartList);
-        cartListView.setAdapter(cartAdapter);
+    private void createProductItems() {
+        productsRef = FirebaseDatabase.getInstance().getReference("carditems");
+        productsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                productList.clear(); // Xóa danh sách sản phẩm hiện tại
+                String userEmail = currentUser.getEmail();
+                userReference = FirebaseDatabase.getInstance().getReference().child("users");
+
+                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                    try {
+                        CardItem cardItem = productSnapshot.getValue(CardItem.class);
+
+                        if (cardItem != null && cardItem.getUserEmail().equals(userEmail)) {
+                            productList.add(cardItem);
+                        }
+                    } catch (Exception e) {
+                        Log.e("Firebase", "Error converting to CardItem", e);
+                    }
+                }
+
+                // Kiểm tra nếu danh sách sản phẩm rỗng thì hiển thị no_myproduct, ngược lại hiển thị RecyclerView
+                if (productList.isEmpty()) {
+                    findViewById(R.id.cartListView).setVisibility(View.GONE);
+                    findViewById(R.id.noAddToCartLayout).setVisibility(View.VISIBLE);
+                } else {
+                    findViewById(R.id.cartListView).setVisibility(View.VISIBLE);
+                    findViewById(R.id.noAddToCartLayout).setVisibility(View.GONE);
+                    // Update the product adapter
+                    addToCardAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "Failed to read value.", error.toException());
+            }
+        });
     }
 }

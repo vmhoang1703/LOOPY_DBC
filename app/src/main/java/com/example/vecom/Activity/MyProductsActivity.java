@@ -34,7 +34,6 @@ public class MyProductsActivity extends AppCompatActivity {
 
     private DatabaseReference userReference;
 
-
     private DatabaseReference productsRef;
     private List<Product> productList;
 

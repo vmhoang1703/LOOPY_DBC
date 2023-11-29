@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.vecom.Model.CardItem;
 import com.example.vecom.R;
 
@@ -34,7 +35,7 @@ public class ProductCardFragment extends Fragment {
                 TextView productDescription = view.findViewById(R.id.descriptionText);
                 TextView productPrice = view.findViewById(R.id.price);
 
-                productImg.setImageResource(cardItem.getImageUrl());
+                Glide.with(this).load(cardItem.getImageUrl()).into(productImg);
                 productName.setText(cardItem.getName());
                 productDescription.setText(cardItem.getDescription());
                 productPrice.setText((int) cardItem.getPrice());
