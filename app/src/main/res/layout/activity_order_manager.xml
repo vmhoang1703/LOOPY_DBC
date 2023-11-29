@@ -50,11 +50,12 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cartListView"
+        android:id="@+id/orderListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/orderTitle"
-        android:layout_marginTop="47dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="43dp" />
 
     <include
         layout="@layout/no_order_layout"
