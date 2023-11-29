@@ -9,6 +9,7 @@ public class CardItem {
     private double totalPrice;
     private double price;
     private String userEmail;
+    public CardItem(){}
 
     public CardItem(String productId, String name, double price, String imageUrl,String userEmail) {
         this.productId = productId;
@@ -17,6 +18,7 @@ public class CardItem {
         this.description = description;
         this.price = price;
         this.userEmail = userEmail;
+        this.totalPrice = calculateTotalPrice();
 
     }
     public String getProductId() {
@@ -24,6 +26,9 @@ public class CardItem {
     }
     public String getImageUrl() {
         return imageUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -42,5 +47,9 @@ public class CardItem {
     }
     public String getUserEmail() {
         return userEmail;
+    }
+    private double calculateTotalPrice() {
+
+        return totalPrice;
     }
 }

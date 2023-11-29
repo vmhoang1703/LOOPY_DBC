@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,6 +45,8 @@ public class AddToCartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth=FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
+
+    private double totalCartPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +112,7 @@ public class AddToCartActivity extends AppCompatActivity {
     }
 
     private void createProductItems() {
-        productsRef = FirebaseDatabase.getInstance().getReference("carditems");
+        productsRef = FirebaseDatabase.getInstance().getReference("cardItems");
         productsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -123,6 +126,9 @@ public class AddToCartActivity extends AppCompatActivity {
 
                         if (cardItem != null && cardItem.getUserEmail().equals(userEmail)) {
                             productList.add(cardItem);
+
+                            // Cập nhật tổng giá mỗi khi thêm một CardItem
+                            totalCartPrice += cardItem.getPrice();
                         }
                     } catch (Exception e) {
                         Log.e("Firebase", "Error converting to CardItem", e);
@@ -133,11 +139,17 @@ public class AddToCartActivity extends AppCompatActivity {
                 if (productList.isEmpty()) {
                     findViewById(R.id.cartListView).setVisibility(View.GONE);
                     findViewById(R.id.noAddToCartLayout).setVisibility(View.VISIBLE);
+                    findViewById(R.id.paymentBtn).setVisibility(View.GONE);
+                    findViewById(R.id.totalBox).setVisibility(View.GONE);
                 } else {
                     findViewById(R.id.cartListView).setVisibility(View.VISIBLE);
                     findViewById(R.id.noAddToCartLayout).setVisibility(View.GONE);
+                    findViewById(R.id.paymentBtn).setVisibility(View.VISIBLE);
+                    findViewById(R.id.totalBox).setVisibility(View.VISIBLE);
                     // Update the product adapter
                     addToCardAdapter.notifyDataSetChanged();
+                    TextView priceTextView = findViewById(R.id.price);
+                    priceTextView.setText(String.valueOf(totalCartPrice));
                 }
             }
 
