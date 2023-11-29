@@ -9,15 +9,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp">
 
         <RelativeLayout
             android:id="@+id/top"
-            android:layout_width="match_parent"
-            android:layout_height="48dp">
+            android:layout_width="380dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true">
 
             <ImageView
                 android:id="@+id/back"
@@ -53,9 +52,10 @@
 
         <RelativeLayout
             android:id="@+id/addProductBtn"
-            android:layout_width="match_parent"
+            android:layout_width="380dp"
             android:layout_height="58dp"
             android:background="@drawable/addtocart_btn"
+            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true">
 
             <RelativeLayout

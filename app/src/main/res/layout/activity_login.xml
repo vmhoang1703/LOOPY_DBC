@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.LoginActivity">
-    
+
     <RelativeLayout
         android:id="@+id/back"
-        android:layout_width="380dp"
+        android:layout_width="360dp"
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp">
@@ -19,204 +19,224 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="24dp"/>
     </RelativeLayout>
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="313.74dp"
-        android:layout_height="35.6dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/biglogo1"
-        android:layout_below="@+id/back"
-        android:layout_marginTop="6.68dp"/>
-    <TextView
-        android:id="@+id/loginText"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/logo"
-        android:layout_marginTop="26.68dp"/>
-
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="380dp"
-        android:layout_height="60dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/bg_back_des"
-        android:paddingLeft="52dp"
-        android:layout_below="@+id/loginText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26.68dp"/>
-    <ImageView
-        android:layout_width="16.67dp"
-        android:layout_height="15dp"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/email"
-        android:layout_below="@+id/loginText"
-        android:layout_marginTop="49.18dp"
-        android:layout_marginLeft="40.67dp"/>
-
-    <EditText
-        android:id="@+id/passEditText"
-        android:layout_width="380dp"
-        android:layout_height="60dp"
-        android:hint="Mật khẩu"
-        android:background="@drawable/bg_back_des"
-        android:paddingLeft="52dp"
-        android:inputType="textPassword"
-        android:layout_below="@+id/emailEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26.68dp" />
-    <ImageView
-        android:layout_width="16.67dp"
-        android:layout_height="15dp"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/pass"
-        android:layout_below="@+id/emailEditText"
-        android:layout_marginTop="49.18dp"
-        android:layout_marginLeft="40.67dp"/>
-    <ImageView
-        android:layout_width="16.67dp"
-        android:layout_height="15dp"
-        android:src="@drawable/not_see"
-        android:layout_below="@+id/emailEditText"
-        android:layout_marginTop="49.18dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="45.67dp"/>
-    
-    <RelativeLayout
-        android:id="@+id/rememberBox"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_below="@id/passEditText"
-        android:layout_marginTop="24dp"
+        android:layout_below="@+id/back"
         android:layout_centerHorizontal="true">
-        <CheckBox
-            android:id="@+id/rememberMeCheckBox"
-            android:layout_width="24dp"
-            android:layout_height="24dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/rememberMeCheckBox"
-            android:text="Ghi nhớ tôi"
-            android:layout_marginLeft="12dp"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            android:layout_centerVertical="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/loginBtn"
-        android:layout_width="336dp"
-        android:layout_height="48dp"
-        android:background="@drawable/addtocart_btn"
-        android:layout_below="@+id/rememberBox"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="313.74dp"
+                android:layout_height="135.6dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/biglogo1"
+                android:layout_marginTop="6.68dp"/>
             <TextView
+                android:id="@+id/loginText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đăng nhập"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/logo"
+                android:layout_marginTop="26.68dp"/>
+
+            <RelativeLayout
+                android:id="@+id/typeEmail"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loginText"
+                android:layout_marginTop="26.68dp"
+                android:layout_centerHorizontal="true" >
+                <EditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="380dp"
+                    android:layout_height="60dp"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:background="@drawable/bg_back_des"
+                    android:paddingLeft="60dp"/>
+                <ImageView
+                    android:layout_width="16.67dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/email"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30.67dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/typePassword"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/typeEmail"
+                android:layout_marginTop="26.68dp"
+                android:layout_centerHorizontal="true">
+                <EditText
+                    android:id="@+id/passEditText"
+                    android:layout_width="380dp"
+                    android:layout_height="60dp"
+                    android:hint="Mật khẩu"
+                    android:background="@drawable/bg_back_des"
+                    android:paddingLeft="60dp"
+                    android:inputType="textPassword"/>
+                <ImageView
+                    android:layout_width="16.67dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/pass"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30.67dp"/>
+                <ImageView
+                    android:layout_width="16.67dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/not_see"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="35.67dp"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rememberBox"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_below="@id/typePassword"
+                android:layout_marginTop="24dp"
+                android:layout_centerHorizontal="true">
+                <CheckBox
+                    android:id="@+id/rememberMeCheckBox"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/rememberMeCheckBox"
+                    android:text="Ghi nhớ tôi"
+                    android:layout_marginLeft="12dp"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/loginBtn"
+                android:layout_width="336dp"
+                android:layout_height="48dp"
+                android:background="@drawable/addtocart_btn"
+                android:layout_below="@+id/rememberBox"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đăng nhập"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/forgotPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quên mật khẩu?"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:layout_below="@id/loginBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                android:textSize="16dp"/>
+
+            <RelativeLayout
+                android:id="@+id/continueWithText"
+                android:layout_width="380dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/forgotPass"
+                android:layout_marginTop="26.68dp"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:id="@+id/line1"
+                    android:layout_width="95dp"
+                    android:layout_height="1dp"
+                    android:background="@drawable/line"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:id="@+id/line2"
+                    android:layout_width="95dp"
+                    android:layout_height="1dp"
+                    android:background="@drawable/line"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hoặc tiếp tục với"
+                    android:layout_centerInParent="true"
+                    android:textSize="18dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/otherLoginOptions"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/continueWithText"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:id="@+id/fbLogin"
+                    android:layout_width="88dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/fblogin"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="38.5dp"/>
+                <ImageView
+                    android:id="@+id/ggLogin"
+                    android:layout_width="88dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/gglogin"
+                    android:layout_centerHorizontal="true"/>
+                <ImageView
+                    android:id="@+id/appleLogin"
+                    android:layout_width="88dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/applelogin"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="38.5dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dangky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/otherLoginOptions"
+                android:layout_marginTop="26.68dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/LinkToRegister"/>
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/forgotPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quên mật khẩu?"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        android:layout_below="@id/loginBtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:textSize="16dp"/>
-    
-    <RelativeLayout
-        android:id="@+id/continueWithText"
-        android:layout_width="380dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/forgotPass"
-        android:layout_marginTop="26.68dp"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:id="@+id/line1"
-            android:layout_width="95dp"
-            android:layout_height="1dp"
-            android:background="@drawable/line"
-            android:layout_alignParentStart="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"/>
-        <TextView
-            android:id="@+id/line2"
-            android:layout_width="95dp"
-            android:layout_height="1dp"
-            android:background="@drawable/line"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="10dp"
-            android:layout_centerVertical="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="hoặc tiếp tục với"
-            android:layout_centerInParent="true"
-            android:textSize="18dp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/otherLoginOptions"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/continueWithText"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true">
-        <ImageView
-            android:id="@+id/fbLogin"
-            android:layout_width="88dp"
-            android:layout_height="60dp"
-            android:src="@drawable/fblogin"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="38.5dp"/>
-        <ImageView
-            android:id="@+id/ggLogin"
-            android:layout_width="88dp"
-            android:layout_height="60dp"
-            android:src="@drawable/gglogin"
-            android:layout_centerHorizontal="true"/>
-        <ImageView
-            android:id="@+id/appleLogin"
-            android:layout_width="88dp"
-            android:layout_height="60dp"
-            android:src="@drawable/applelogin"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="38.5dp"/>
-    </RelativeLayout>
-    
-    <RelativeLayout
-        android:id="@+id/dangky"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/otherLoginOptions"
-        android:layout_marginTop="26.68dp"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/LinkToRegister"/>
-    </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

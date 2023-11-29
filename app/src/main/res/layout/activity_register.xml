@@ -41,7 +41,8 @@
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/top"
-            android:layout_marginTop="63.71dp">
+            android:layout_marginTop="63.71dp"
+            android:layout_marginBottom="50dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -232,10 +233,8 @@
                         android:textSize="16.5dp"
                         android:textStyle="bold"
                         android:layout_centerInParent="true"/>
-
                 </RelativeLayout>
             </RelativeLayout>
-
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>
 </RelativeLayout>

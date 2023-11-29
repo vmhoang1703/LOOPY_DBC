@@ -310,7 +310,7 @@
 
                 <TextView
                     android:id="@+id/showBtn"
-                    android:layout_width="158dp"
+                    android:layout_width="138dp"
                     android:layout_height="58dp"
                     android:background="@drawable/shadowbtn"
                     android:elevation="5dp"
@@ -326,7 +326,7 @@
 
                 <TextView
                     android:id="@+id/saveBtn"
-                    android:layout_width="158dp"
+                    android:layout_width="138dp"
                     android:layout_height="58dp"
                     android:background="@drawable/shadowbtn_grren"
                     android:elevation="5dp"
