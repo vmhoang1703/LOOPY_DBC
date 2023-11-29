@@ -12,10 +12,17 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.vecom.Model.Product;
 import com.example.vecom.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProductDescriptionActivity extends AppCompatActivity {
-
+    private DatabaseReference databaseReference;
+    private String productId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,12 @@ public class ProductDescriptionActivity extends AppCompatActivity {
                 finish();
             }
         });
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("products");
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("productId")) {
+            productId = intent.getStringExtra("productId");
+            loadProductData();
+        }
 
         RelativeLayout addToCartBtn = findViewById(R.id.addToCartBtn);
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
@@ -87,5 +100,35 @@ public class ProductDescriptionActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+    private void loadProductData() {
+        databaseReference.child(productId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Product product = dataSnapshot.getValue(Product.class);
+                    if (product != null) {
+                        // Update views with the product data
+                        updateViews(product);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle the error
+            }
+        });
+    }
+    private void updateViews(Product product) {
+        // Update views with the product data
+        TextView productName = findViewById(R.id.productName);
+        TextView descriptionText = findViewById(R.id.descriptionText);
+        TextView price = findViewById(R.id.price);
+
+        productName.setText(product.getName());
+        descriptionText.setText(product.getDesc());
+        price.setText(product.getFormattedPrice());
+
+        // You can continue updating other views as needed
     }
 }

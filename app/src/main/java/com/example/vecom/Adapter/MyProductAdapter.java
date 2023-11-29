@@ -1,29 +1,29 @@
 package com.example.vecom.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
-import com.example.vecom.Activity.ProductDescriptionActivity;
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.ViewHolder> {
 
     private List<Product> productList;
     private List<Product> filteredList;
     private Context context;
 
-    public ProductAdapter(Context context, List<Product> productList) {
+    public MyProductAdapter(Context context, List<Product> productList) {
         this.context = context;
         this.productList = productList;
         this.filteredList = new ArrayList<>(productList);
@@ -32,8 +32,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflate the layout for each list item
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_addtocart_items, parent, false);
         return new ViewHolder(view);
     }
 
@@ -46,17 +45,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.productPrice.setText(String.valueOf(product.getPrice()));
         // Use Glide to load the image from the URL
         Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
-
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Pass the product details to the ProductDescriptionActivity
-                Intent intent = new Intent(context, ProductDescriptionActivity.class);
-                intent.putExtra("productId", product.getProductId()); // Pass the product ID or any other identifier
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -65,15 +53,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView productName, productPrice, productDescription;
+        TextView productName, productPrice;
         ImageView productImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.product_name);
-            productPrice = itemView.findViewById(R.id.price);
-            productDescription = itemView.findViewById(R.id.descriptionText);
-            productImage = itemView.findViewById(R.id.product_img);
+            productName = itemView.findViewById(R.id.productName);
+            productPrice = itemView.findViewById(R.id.productPrice);
+
+            productImage = itemView.findViewById(R.id.productImg);
+
+
         }
     }
 

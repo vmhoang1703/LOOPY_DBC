@@ -158,6 +158,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
         RelativeLayout cartNavi = findViewById(R.id.cartNavi);
         cartNavi.setOnClickListener(new View.OnClickListener() {
             @Override

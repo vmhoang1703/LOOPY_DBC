@@ -10,7 +10,6 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/bg_back_des">
 
-
         <RelativeLayout
             android:layout_width="428dp"
             android:layout_height="48dp"
