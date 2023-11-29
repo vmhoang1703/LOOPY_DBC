@@ -145,7 +145,7 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-                    <ListView
+                    <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/cartListView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -285,6 +285,7 @@
                             android:textSize="14dp" />
 
                         <TextView
+                            android:id="@+id/price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="299.000"

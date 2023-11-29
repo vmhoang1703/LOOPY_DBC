@@ -48,12 +48,13 @@
 <!--        android:layout_marginTop="42dp"-->
 <!--        android:layout_marginBottom="100dp"/>-->
 
-    <include
-        layout="@layout/list_order_items"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/orderTitle"
-        android:layout_marginTop="47dp"/>
+        android:layout_marginTop="47dp" />
 
     <include
         layout="@layout/no_order_layout"
