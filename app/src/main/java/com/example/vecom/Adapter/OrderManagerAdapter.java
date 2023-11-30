@@ -1,29 +1,32 @@
 package com.example.vecom.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.vecom.Activity.FollowOrderActivity;
 import com.example.vecom.Model.CardItem;
 import com.example.vecom.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OderManagerAdapter extends RecyclerView.Adapter<OderManagerAdapter.ViewHolder> {
+public class OrderManagerAdapter extends RecyclerView.Adapter<OrderManagerAdapter.ViewHolder> {
 
     private List<CardItem> cardItemList;
     private List<CardItem> filteredList;
     private Context context;
 
-    public OderManagerAdapter(Context context, List<CardItem> cardItemList) {
+    public OrderManagerAdapter(Context context, List<CardItem> cardItemList) {
         this.context = context;
         this.cardItemList = cardItemList;
         this.filteredList = new ArrayList<>(cardItemList);
@@ -44,6 +47,18 @@ public class OderManagerAdapter extends RecyclerView.Adapter<OderManagerAdapter.
         holder.productPrice.setText(String.valueOf(product.getPrice()));
         // Use Glide to load the image from the URL
         Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, FollowOrderActivity.class);
+                intent.putExtra("productId", product.getProductId());
+                intent.putExtra("productName", product.getName());
+                intent.putExtra("productPrice", String.valueOf(product.getPrice()));
+                intent.putExtra("productImg", product.getImageUrl());
+
+                context.startActivity(intent);
+            }
+        });
 
     }
 

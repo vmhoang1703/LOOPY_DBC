@@ -24,7 +24,7 @@ public class Order {
     }
 
     public String getFormattedTotalPrice() {
-        DecimalFormat decimalFormat = new DecimalFormat("0.000");
+        DecimalFormat decimalFormat = new DecimalFormat("0");
         return decimalFormat.format(totalPrice);
     }
 

@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.vecom.Adapter.OderInformationAdapter;
+import com.example.vecom.Adapter.OrderInformationAdapter;
 import com.example.vecom.Model.CardItem;
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
@@ -36,7 +36,7 @@ public class OrderInformationActivity extends AppCompatActivity {
     private DatabaseReference productsRef;
     private List<CardItem> productList;
 
-    private OderInformationAdapter OderInformationAdapter;
+    private OrderInformationAdapter OrderInformationAdapter;
 
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -60,10 +60,10 @@ public class OrderInformationActivity extends AppCompatActivity {
         });
         recyclerView = findViewById(R.id.cartListView); // Ánh xạ RecyclerView từ layout
         productList = new ArrayList<>(); // Initialize the product list
-        OderInformationAdapter = new OderInformationAdapter(this, productList); // Initialize the product adapter with context
+        OrderInformationAdapter = new OrderInformationAdapter(this, productList); // Initialize the product adapter with context
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setAdapter(OderInformationAdapter); // Set the product adapter to RecyclerView
+        recyclerView.setAdapter(OrderInformationAdapter); // Set the product adapter to RecyclerView
 
         createProductItems();
 

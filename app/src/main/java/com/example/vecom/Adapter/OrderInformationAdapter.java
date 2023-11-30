@@ -17,13 +17,13 @@ import com.example.vecom.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OderInformationAdapter extends RecyclerView.Adapter<OderInformationAdapter.ViewHolder> {
+public class OrderInformationAdapter extends RecyclerView.Adapter<OrderInformationAdapter.ViewHolder> {
 
     private List<CardItem> cardItemList;
     private List<CardItem> filteredList;
     private Context context;
 
-    public OderInformationAdapter(Context context, List<CardItem> cardItemList) {
+    public OrderInformationAdapter(Context context, List<CardItem> cardItemList) {
         this.context = context;
         this.cardItemList = cardItemList;
         this.filteredList = new ArrayList<>(cardItemList);
