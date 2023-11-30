@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PersonalActivity1">
+
+    <RelativeLayout
+        android:id="@+id/forMeTitle"
+        android:layout_width="395dp"
+        android:layout_height="60.77dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="38dp"
+            android:layout_height="40.77dp"
+            android:src="@drawable/logo"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp" />
+
+        <TextView
+            android:id="@+id/giohangText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dành cho tôi"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/option"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="17dp" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/forMeTitle">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/basicInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp">
+
+                <RelativeLayout
+                    android:id="@+id/avatarImg"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/bee" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/edit"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avatarImg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Eisen Nguyen"
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/phoneNumber"
+                        android:text="033 987 457"
+                        android:layout_below="@id/userName"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line"
+                android:layout_width="380dp"
+                android:layout_height="0.8dp"
+                android:background="@drawable/line"
+                android:layout_below="@+id/basicInfo"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:id="@+id/personalMenu"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/line"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/workAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:id="@+id/workIcon"
+                        android:src="@drawable/work" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tài khoản dành cho doanh nghiệp"
+                        android:textSize="18dp"
+                        android:layout_toRightOf="@+id/workIcon"
+                        android:layout_marginLeft="16dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/choose_arrow"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/workAccount"
+                    android:layout_marginTop="20dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:id="@+id/settingIcon"
+                        android:src="@drawable/setting" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cài đặt"
+                        android:textSize="18dp"
+                        android:layout_toRightOf="@+id/settingIcon"
+                        android:layout_marginLeft="16dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/choose_arrow"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/setting"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="100dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:id="@+id/logoutIcon"
+                        android:src="@drawable/logout" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đăng xuất"
+                        android:textColor="#f75555"
+                        android:textSize="18dp"
+                        android:layout_toRightOf="@+id/logoutIcon"
+                        android:layout_marginLeft="16dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/navigationMenu"
+        layout="@layout/activity_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

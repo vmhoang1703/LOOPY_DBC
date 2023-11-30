@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.vecom.Model.Product;
 import com.example.vecom.R;
 
@@ -49,11 +50,11 @@ public class CartAdapter extends BaseAdapter {
         TextView productName = convertView.findViewById(R.id.productName);
         TextView productPrice = convertView.findViewById(R.id.productPrice);
 
-        productImage.setImageResource(product.getImageResourceId());
+        // Sử dụng Glide để load ảnh từ URL
+        Glide.with(context).load(product.getImageUrl()).into(productImage);
         productName.setText(product.getName());
         productPrice.setText(product.getFormattedPrice());
 
         return convertView;
-    }
-}
+    }}
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderInformationActivity">
+    tools:context=".Activity.OrderInformationActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,9 +41,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/top">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/addProductImg"
                     android:layout_width="128dp"
@@ -57,7 +59,8 @@
                     android:gravity="center"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="24dp"/>
+                    android:layout_marginBottom="24dp" />
+
 
                 <TextView
                     android:id="@+id/line"
@@ -91,21 +94,25 @@
                         android:layout_alignParentEnd="true"
                         android:text="0/120"
                         android:textSize="20dp"
-                        android:textColor="#C1C0C0"/>
+                        android:textColor="#C1C0C0" />
+
                     <EditText
+                        android:id="@+id/edit_addProductName"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_below="@id/tensanphamText"
                         android:background="@drawable/white_bg"
                         android:hint="Nhập tên sản phẩm"
-                        android:layout_marginTop="18dp"/>
+                        android:layout_marginTop="18dp" />
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/line1"
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
                     android:background="@drawable/line2"
                     android:layout_below="@+id/addProductNameBox" />
+
                 <RelativeLayout
                     android:id="@+id/addProductDescriptionBox"
                     android:layout_width="match_parent"
@@ -130,21 +137,25 @@
                         android:layout_alignParentEnd="true"
                         android:text="0/2500"
                         android:textSize="20dp"
-                        android:textColor="#C1C0C0"/>
+                        android:textColor="#C1C0C0" />
+
                     <EditText
+                        android:id="@+id/edit_addProductDesc"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_below="@id/motasanphamText"
                         android:background="@drawable/white_bg"
                         android:hint="Nhập mô tả sản phẩm"
-                        android:layout_marginTop="18dp"/>
+                        android:layout_marginTop="18dp" />
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/line2"
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
                     android:background="@drawable/line2"
                     android:layout_below="@+id/addProductDescriptionBox" />
+
                 <RelativeLayout
                     android:id="@+id/addMoreInfoBox"
                     android:layout_width="match_parent"
@@ -159,12 +170,14 @@
                         android:id="@+id/phanloaiOption"
                         android:layout_width="match_parent"
                         android:layout_height="36dp">
+
                         <ImageView
                             android:id="@+id/optionIcon"
                             android:layout_width="14dp"
                             android:layout_height="14dp"
                             android:src="@drawable/option1"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerVertical="true" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -172,12 +185,14 @@
                             android:layout_toRightOf="@+id/optionIcon"
                             android:layout_marginLeft="28dp"
                             android:layout_centerVertical="true"
-                            android:textSize="20dp"/>
-                        <ImageView
-                            android:layout_width="36dp"
+                            android:textSize="20dp" />
+
+                        <Spinner
+                            android:id="@+id/categorySpinner"
+                            android:layout_width="150dp"
                             android:layout_height="36dp"
-                            android:src="@drawable/choose_cate"
-                            android:layout_alignParentEnd="true"/>
+                            android:layout_alignParentEnd="true">
+                        </Spinner>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -185,12 +200,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_below="@+id/phanloaiOption">
+
                         <ImageView
                             android:id="@+id/priceIcon"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/price"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerVertical="true" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -198,13 +215,15 @@
                             android:layout_toRightOf="@+id/priceIcon"
                             android:layout_marginLeft="24dp"
                             android:layout_centerVertical="true"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
+
                         <EditText
+                            android:id="@+id/edit_addProductPrice"
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:background="@color/white"
                             android:hint="Nhập"
-                            android:layout_alignParentEnd="true"/>
+                            android:layout_alignParentEnd="true" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -212,12 +231,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_below="@+id/priceOption">
+
                         <ImageView
                             android:id="@+id/stockIcon"
                             android:layout_width="14dp"
                             android:layout_height="14dp"
                             android:src="@drawable/stock"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerVertical="true" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -225,21 +246,25 @@
                             android:layout_toRightOf="@+id/stockIcon"
                             android:layout_marginLeft="28dp"
                             android:layout_centerVertical="true"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
+
                         <EditText
+                            android:id="@+id/edit_addProductQuantity"
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:background="@color/white"
                             android:hint="Nhập"
-                            android:layout_alignParentEnd="true"/>
+                            android:layout_alignParentEnd="true" />
                     </RelativeLayout>
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/line3"
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
                     android:background="@drawable/line2"
-                    android:layout_below="@+id/addMoreInfoBox"/>
+                    android:layout_below="@+id/addMoreInfoBox" />
+
                 <RelativeLayout
                     android:id="@+id/deliveryPrice"
                     android:layout_width="match_parent"
@@ -248,12 +273,14 @@
                     android:layout_marginTop="19.92dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp">
+
                     <ImageView
                         android:id="@+id/deliveryIcon"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:src="@drawable/truck1"
-                        android:layout_centerVertical="true"/>
+                        android:layout_centerVertical="true" />
+
                     <TextView
                         android:id="@+id/deliveryPriceText"
                         android:layout_width="wrap_content"
@@ -262,7 +289,8 @@
                         android:layout_toRightOf="@+id/deliveryIcon"
                         android:layout_marginLeft="28dp"
                         android:layout_centerVertical="true"
-                        android:textSize="20dp"/>
+                        android:textSize="20dp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -271,16 +299,18 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="7dp"
                         android:layout_marginLeft="5dp"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:src="@drawable/choose_cate"
-                        android:layout_alignParentEnd="true"/>
+                        android:layout_alignParentEnd="true" />
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/showBtn"
-                    android:layout_width="158dp"
+                    android:layout_width="138dp"
                     android:layout_height="58dp"
                     android:background="@drawable/shadowbtn"
                     android:elevation="5dp"
@@ -292,11 +322,11 @@
                     android:layout_below="@+id/deliveryPrice"
                     android:layout_marginTop="81dp"
                     android:layout_marginBottom="40dp"
-                    android:layout_marginLeft="42dp"/>
+                    android:layout_marginLeft="42dp" />
 
                 <TextView
                     android:id="@+id/saveBtn"
-                    android:layout_width="158dp"
+                    android:layout_width="138dp"
                     android:layout_height="58dp"
                     android:background="@drawable/shadowbtn_grren"
                     android:elevation="5dp"
@@ -309,7 +339,7 @@
                     android:layout_below="@+id/deliveryPrice"
                     android:layout_marginTop="81dp"
                     android:layout_marginBottom="40dp"
-                    android:layout_marginEnd="42dp"/>
+                    android:layout_marginEnd="42dp" />
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>

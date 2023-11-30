@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderInformationActivity">
+    tools:context=".Activity.OrderInformationActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -73,6 +73,7 @@
                             android:id="@+id/avatarImg" />
 
                         <TextView
+                            android:id="@+id/userName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Minh Minh"
@@ -83,6 +84,7 @@
                             android:layout_marginLeft="20dp" />
 
                         <TextView
+                            android:id="@+id/userEmail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="loopy.vn/minhminh"
@@ -97,7 +99,7 @@
                             android:src="@drawable/edit2"
                             android:layout_toLeftOf="@+id/seeShopBtn"
                             android:layout_alignParentTop="true"
-                            android:layout_marginRight="20dp" />
+                            android:layout_marginRight="10dp" />
 
                         <RelativeLayout
                             android:id="@+id/seeShopBtn"

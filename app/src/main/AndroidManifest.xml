@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,19 +16,25 @@
         android:theme="@style/Theme.VECOM"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.PersonalActivity2"
             android:exported="false" />
         <activity
-            android:name=".Welcome4Activity"
+            android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".Welcome3Activity"
+            android:name=".Activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Welcome2Activity"
+            android:name=".Activity.Welcome4Activity"
             android:exported="false" />
         <activity
-            android:name=".Welcome1Activity"
+            android:name=".Activity.Welcome3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Welcome2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Welcome1Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,53 +43,53 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ForumActivity"
+            android:name=".Activity.ForumActivity"
             android:exported="false" />
         <activity
-            android:name=".PINHandlerActivity"
+            android:name=".Activity.PINHandlerActivity"
             android:exported="false" />
         <activity
-            android:name=".AddProductActivity"
+            android:name=".Activity.AddProductActivity"
             android:exported="false" />
         <activity
-            android:name=".MyProductsActivity"
+            android:name=".Activity.MyProductsActivity"
             android:exported="false" />
         <activity
-            android:name=".PersonalStoreActivity"
+            android:name=".Activity.PersonalStoreActivity"
             android:exported="false" />
         <activity
-            android:name=".PersonalActivity"
+            android:name=".Activity.PersonalActivity1"
             android:exported="false" />
         <activity
-            android:name=".FollowOrderActivity"
+            android:name=".Activity.FollowOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".OrderManagerActivity"
+            android:name=".Activity.OrderManagerActivity"
             android:exported="false" />
         <activity
-            android:name=".PaymentOptionsActivity"
+            android:name=".Activity.PaymentOptionsActivity"
             android:exported="false" />
         <activity
-            android:name=".OrderInformationActivity"
+            android:name=".Activity.OrderInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".AddToCartActivity"
+            android:name=".Activity.AddToCartActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".Activity.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductDescriptionActivity"
+            android:name=".Activity.ProductDescriptionActivity"
             android:exported="false" />
         <activity
-            android:name=".NavigationMenu"
+            android:name=".Activity.NavigationMenu"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
-            android:exported="false"></activity>
+            android:name=".Activity.HomeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Welcome1Activity">
+    tools:context=".Activity.Welcome1Activity">
 
     <ImageView
         android:id="@+id/welcome2"
         android:layout_width="440dp"
-        android:layout_height="406dp"
-        android:src="@drawable/welcome2"/>
+        android:layout_height="306dp"
+        android:src="@drawable/welcome2"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/welcomeText"
@@ -22,7 +23,7 @@
         android:layout_below="@+id/welcome2"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="20dp"/>
 
     <RelativeLayout
         android:layout_width="80dp"

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PersonalActivity2">
+
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/back"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cài đặt"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/back"
+                android:layout_marginLeft="16dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/personalMenu"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="20dp">
+
+            <RelativeLayout
+                android:id="@+id/editPersonalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/userIcon"
+                    android:src="@drawable/user" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sửa thông tin"
+                    android:textSize="18dp"
+                    android:layout_toRightOf="@+id/userIcon"
+                    android:layout_marginLeft="16dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/choose_arrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/addressInfo"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/editPersonalInfo"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/mapIcon"
+                    android:src="@drawable/map" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Địa chỉ"
+                    android:textSize="18dp"
+                    android:layout_toRightOf="@+id/mapIcon"
+                    android:layout_marginLeft="16dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/choose_arrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/notiSetting"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/addressInfo"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/notiIcon"
+                    android:src="@drawable/noti" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thông báo"
+                    android:textSize="18dp"
+                    android:layout_toRightOf="@+id/notiIcon"
+                    android:layout_marginLeft="16dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/choose_arrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/languageSetting"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/notiSetting"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/languageSettingIcon"
+                    android:src="@drawable/language" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ngôn ngữ"
+                    android:textSize="18dp"
+                    android:layout_toRightOf="@+id/languageSettingIcon"
+                    android:layout_marginLeft="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tiếng Việt"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_toLeftOf="@+id/chooseArrow"
+                    android:layout_marginRight="16dp" />
+
+                <ImageView
+                    android:id="@+id/chooseArrow"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/choose_arrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/darkMode"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/languageSetting"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/eyesIcon"
+                    android:src="@drawable/eyes" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chế độ tối"
+                    android:textSize="18dp"
+                    android:layout_toRightOf="@+id/eyesIcon"
+                    android:layout_marginLeft="16dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/choose_arrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/privacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/darkMode"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/lockIcon"
+                    android:src="@drawable/lock" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chính sách bảo mật"
+                    android:textSize="18dp"
+                    android:layout_toRightOf="@+id/lockIcon"
+                    android:layout_marginLeft="16dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/choose_arrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/helper"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/privacyPolicy"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/helperIcon"
+                    android:src="@drawable/help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trợ giúp"
+                    android:textSize="18dp"
+                    android:layout_toRightOf="@+id/helperIcon"
+                    android:layout_marginLeft="16dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/choose_arrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <include
+        android:id="@+id/navigationMenu"
+        layout="@layout/activity_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
