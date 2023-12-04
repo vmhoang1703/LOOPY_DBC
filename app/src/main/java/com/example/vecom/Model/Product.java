@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 public class Product {
     private String productId;
     private String name;
-    private double price;
+    private int price;
     private String desc;
 
     private double rate;
@@ -27,7 +27,7 @@ public class Product {
     public Product() {
 
     }
-    public Product(String name, double price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail) {
+    public Product(String name, int price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail) {
 
         this.productId = generateProductId();
         this.name = name;
@@ -40,10 +40,12 @@ public class Product {
         this.imageUrl = imageUrl;
         this.userEmail = userEmail;
     }
+
     private String generateProductId() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("products");
         return databaseReference.push().getKey();
     }
+
     public String getDesc(){return desc;};
     public String getProductId() {
         return productId;
@@ -54,15 +56,12 @@ public class Product {
     public String getUserEmail() {
         return userEmail;
     }
-    public String getFormattedPrice() {
-        DecimalFormat decimalFormat = new DecimalFormat("0");
-        return decimalFormat.format(price);
-    }
+
 //    public int getImageResourceId() {
 //        return imageResourceId;
 //    }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 

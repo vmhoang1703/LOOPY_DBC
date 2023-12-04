@@ -4,14 +4,14 @@ public class Delivery {
     private String trackingNumber;
     private String deliveryStatus;
     private String deliveryAddress;
-    private double deliveryCost;
+    private int deliveryCost;
     private String deliveryType;
 
     public Delivery() {
 
     }
 
-    public Delivery(String trackingNumber, String deliveryStatus, String deliveryAddress, double deliveryCost, String deliveryType) {
+    public Delivery(String trackingNumber, String deliveryStatus, String deliveryAddress, int deliveryCost, String deliveryType) {
         this.trackingNumber = trackingNumber;
         this.deliveryStatus = deliveryStatus;
         this.deliveryAddress = deliveryAddress;
@@ -39,7 +39,7 @@ public class Delivery {
     }
 
 
-    public double getDeliveryCost() {
+    public int getDeliveryCost() {
         return deliveryCost;
     }
 

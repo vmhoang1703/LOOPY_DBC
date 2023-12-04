@@ -35,234 +35,249 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/detailedProduct"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="404dp"
-        android:layout_height="280dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/productImg"
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="24dp">
+        android:layout_centerHorizontal="true">
 
-        <TextView
-            android:id="@+id/productName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bàn phím cơ Dareu EK87"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/detailedProduct"
+                android:layout_width="404dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="24dp">
 
-        <ImageView
-            android:id="@+id/inboxIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/inbox"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="7.25dp"
-            android:layout_marginEnd="10dp"/>
+                <TextView
+                    android:id="@+id/productName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bàn phím cơ Dareu EK87"
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
 
-        <ImageView
-            android:id="@+id/heartIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/favorite"
-            android:layout_marginTop="7.25dp"
-            android:layout_toLeftOf="@+id/inboxIcon"
-            android:layout_marginRight="18dp"/>
+                <ImageView
+                    android:id="@+id/inboxIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/inbox"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="7.25dp"
+                    android:layout_marginEnd="10dp"/>
 
-        <TextView
-            android:id="@+id/line"
-            android:layout_width="404dp"
-            android:layout_height="1dp"
-            android:background="@drawable/line"
-            android:layout_below="@+id/productName"
-            android:layout_marginTop="16dp"/>
+                <ImageView
+                    android:id="@+id/heartIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/favorite"
+                    android:layout_marginTop="7.25dp"
+                    android:layout_toLeftOf="@+id/inboxIcon"
+                    android:layout_marginRight="18dp"/>
 
-        <TextView
-            android:id="@+id/motaText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mô tả"
-            android:textSize="20dp"
-            android:layout_below="@+id/line"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/line"
+                    android:layout_width="404dp"
+                    android:layout_height="1dp"
+                    android:background="@drawable/line"
+                    android:layout_below="@+id/productName"
+                    android:layout_marginTop="16dp"/>
 
-        <TextView
-            android:id="@+id/descriptionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/descriptionText"
-            android:layout_below="@+id/motaText"
-            android:layout_marginTop="8dp"
-            android:textSize="16dp"/>
+                <TextView
+                    android:id="@+id/motaText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mô tả"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/line"
+                    android:layout_marginTop="16dp"
+                    android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/damphangiaText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đàm phán giá"
-            android:textSize="20dp"
-            android:layout_below="@+id/line"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/green"
-            android:layout_marginEnd="10dp"
-            android:layout_alignParentEnd="true"
-            android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/descriptionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/descriptionText"
+                    android:layout_below="@+id/motaText"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16dp"/>
 
-        <TextView
-            android:id="@+id/countText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Số lượng"
-            android:textSize="20dp"
-            android:layout_below="@+id/descriptionText"
-            android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/damphangiaText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đàm phán giá"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/line"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/green"
+                    android:layout_marginEnd="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"/>
 
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_toRightOf="@+id/countText"
-            android:text="1"
-            android:textSize="20dp"
-            android:layout_below="@+id/descriptionText"
-            android:layout_marginTop="1dp"
-            android:layout_marginLeft="20dp"
-            android:gravity="center"
-            android:textColor="@color/green"
-            android:textStyle="bold"/>
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/countText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số lượng"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/descriptionText"
+                    android:textStyle="bold"/>
 
-<!--    <TextView-->
-<!--        android:id="@+id/damphanBtn"-->
-<!--        android:layout_width="154dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_below="@+id/detailedProduct"-->
-<!--        android:layout_marginLeft="16dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:background="@drawable/addtocart_btn"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Đàm phán giá"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="16dp"-->
-<!--        android:textStyle="bold" />-->
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:layout_toRightOf="@+id/countText"
+                    android:text="1"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/descriptionText"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:textColor="@color/green"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/totalPrice"
-        android:layout_width="126dp"
-        android:layout_height="44dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="67.5dp"
-        android:layout_marginLeft="30dp">
-        
-        <TextView
-            android:id="@+id/total"
-            android:layout_width="53dp"
-            android:layout_height="14dp"
-            android:text="Tổng tiền"
-            android:textSize="12dp"/>
+            <!--    <TextView-->
+            <!--        android:id="@+id/damphanBtn"-->
+            <!--        android:layout_width="154dp"-->
+            <!--        android:layout_height="40dp"-->
+            <!--        android:layout_below="@+id/detailedProduct"-->
+            <!--        android:layout_marginLeft="16dp"-->
+            <!--        android:layout_marginTop="20dp"-->
+            <!--        android:layout_marginBottom="40dp"-->
+            <!--        android:background="@drawable/addtocart_btn"-->
+            <!--        android:gravity="center"-->
+            <!--        android:text="Đàm phán giá"-->
+            <!--        android:textColor="@color/white"-->
+            <!--        android:textSize="16dp"-->
+            <!--        android:textStyle="bold" />-->
 
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="126dp"
-            android:layout_height="24dp"
-            android:layout_below="@+id/total"
-            android:text="299.000"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
+            <RelativeLayout
+                android:id="@+id/totalPrice"
+                android:layout_width="126dp"
+                android:layout_height="44dp"
+                android:layout_below="@+id/detailedProduct"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="67.5dp"
+                android:layout_marginLeft="30dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="-45dp"
-            android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@+id/price"
-            android:text="@string/currency"
-            android:textStyle="bold"
-            android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="53dp"
+                    android:layout_height="14dp"
+                    android:text="Tổng tiền"
+                    android:textSize="12dp"/>
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/total"
+                    android:text="299.000"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
 
-    <ImageView
-        android:id="@+id/sellerAva"
-        android:layout_width="41dp"
-        android:layout_height="41dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="154dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="27dp"
-        android:src="@drawable/ellipse32"/>
-    
-    <TextView
-        android:id="@+id/sellerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thùy Trang"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="26dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="141dp"
-        android:textSize="10dp"
-        android:textStyle="bold"/>
-    
-    <ImageView
-        android:id="@+id/arrow_1"
-        android:layout_width="88dp"
-        android:layout_height="8dp"
-        android:src="@drawable/arrow_1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="168dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="80dp"/>
-    
-    <TextView
-        android:id="@+id/xem_trang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Xem trang"
-        android:textColor="@color/green"
-        android:lineSpacingExtra="2sp"
-        android:layout_above="@+id/arrow_1"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="99.5dp"
-        android:layout_marginBottom="4dp"
-        android:textSize="11dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/total"
+                    android:layout_toRightOf="@+id/price"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/currency"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
 
+            </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/addToCartBtn"
-        android:layout_width="214dp"
-        android:layout_height="58dp"
-        android:background="@drawable/addtocart_btn"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60.5dp"
-        android:layout_marginLeft="27dp"
-        android:layout_toRightOf="@+id/totalPrice">
+            <ImageView
+                android:id="@+id/sellerAva"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_below="@+id/detailedProduct"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="27dp"
+                android:src="@drawable/ellipse32"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/addToCartText"
-            android:text="Thêm vào giỏ hàng"
-            android:layout_marginLeft="50dp"
-            android:textColor="@color/white"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/sellerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thùy Trang"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="26dp"
+                android:layout_below="@+id/detailedProduct"
+                android:textSize="10dp"
+                android:textStyle="bold"/>
 
-        <ImageView
-            android:id="@+id/cartIcon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/cart"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/addToCartText"
-            android:layout_marginRight="-40dp"/>
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/arrow_1"
+                android:layout_width="88dp"
+                android:layout_height="8dp"
+                android:src="@drawable/arrow_1"
+                android:layout_below="@+id/detailedProduct"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="80dp"/>
+
+            <TextView
+                android:id="@+id/xem_trang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xem trang"
+                android:textColor="@color/green"
+                android:lineSpacingExtra="2sp"
+                android:layout_below="@+id/detailedProduct"
+                android:layout_marginTop="17dp"
+                android:layout_toLeftOf="@+id/sellerAva"
+                android:layout_marginRight="30dp"
+                android:textSize="11dp"/>
 
 
+            <RelativeLayout
+                android:id="@+id/addToCartBtn"
+                android:layout_width="214dp"
+                android:layout_height="58dp"
+                android:background="@drawable/addtocart_btn"
+                android:layout_marginLeft="27dp"
+                android:layout_toRightOf="@+id/totalPrice"
+                android:layout_below="@+id/detailedProduct"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="67.5dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addToCartText"
+                    android:text="Thêm vào giỏ hàng"
+                    android:layout_marginLeft="50dp"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:id="@+id/cartIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/cart"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/addToCartText"
+                    android:layout_marginRight="-40dp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/overlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
 </RelativeLayout>
 
 

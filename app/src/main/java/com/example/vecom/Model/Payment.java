@@ -3,14 +3,14 @@ package com.example.vecom.Model;
 public class Payment {
     private int paymentId;
     private String paymentMethod;
-    private double amount;
+    private int amount;
     private String transactionId;
 
     public Payment() {
 
     }
 
-    public Payment(int paymentId, String paymentMethod, double amount, String transactionId) {
+    public Payment(int paymentId, String paymentMethod, int amount, String transactionId) {
         this.paymentId = paymentId;
         this.paymentMethod = paymentMethod;
         this.amount = amount;
@@ -36,11 +36,11 @@ public class Payment {
     }
 
     // Getter và Setter cho thuộc tính amount
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

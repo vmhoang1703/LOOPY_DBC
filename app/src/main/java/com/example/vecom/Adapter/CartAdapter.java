@@ -53,7 +53,7 @@ public class CartAdapter extends BaseAdapter {
         // Sử dụng Glide để load ảnh từ URL
         Glide.with(context).load(product.getImageUrl()).into(productImage);
         productName.setText(product.getName());
-        productPrice.setText(product.getFormattedPrice());
+        productPrice.setText((int) product.getPrice());
 
         return convertView;
     }}

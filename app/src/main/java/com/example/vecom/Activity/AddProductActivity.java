@@ -130,7 +130,7 @@ public class AddProductActivity extends AppCompatActivity {
 
             String productName = productNameEditText.getText().toString();
             String productDescription = productDescriptionEditText.getText().toString();
-            double price = priceEditText.getText().toString().isEmpty() ? 0 : Double.parseDouble(priceEditText.getText().toString());
+            int price = priceEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(priceEditText.getText().toString());
             int stock = stockEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(stockEditText.getText().toString());
 
             // Create a Product object with only non-image information

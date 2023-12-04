@@ -4,13 +4,13 @@ import java.text.DecimalFormat;
 
 public class Order {
     private String productName;
-    private double totalPrice;
+    private int totalPrice;
     private int productImgRsc;
     private int quantity;
     private String status;
     // Add more fields as needed...
 
-    public Order(String productName, double totalPrice, int productImgRsc, int quantity, String status) {
+    public Order(String productName, int totalPrice, int productImgRsc, int quantity, String status) {
         this.productName = productName;
         this.totalPrice = totalPrice;
         this.productImgRsc = productImgRsc;
@@ -23,9 +23,8 @@ public class Order {
         return productName;
     }
 
-    public String getFormattedTotalPrice() {
-        DecimalFormat decimalFormat = new DecimalFormat("0");
-        return decimalFormat.format(totalPrice);
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
     public int getProductImgRsc() {

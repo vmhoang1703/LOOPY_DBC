@@ -20,13 +20,13 @@ public class SuccessfulOrderPopupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_dathangthanhcong);
 
-//        TextView xemDonHangBtn = findViewById(R.id.xemdonhangBtn);
-//        xemDonHangBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(SuccessfulOrderPopupActivity.this, OrderManagerActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        TextView xemDonHangBtn = findViewById(R.id.xemdonhangBtn);
+        xemDonHangBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SuccessfulOrderPopupActivity.this, OrderManagerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

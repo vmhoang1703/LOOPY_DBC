@@ -6,12 +6,13 @@ public class CardItem {
     private String imageUrl;
     private String name;
     private int description;
-    private double totalPrice;
-    private double price;
+    private int totalPrice;
+    private int price;
     private String userEmail;
-    public CardItem(){}
 
-    public CardItem(String productId, String name, double price, String imageUrl,String userEmail) {
+    public CardItem() {}
+
+    public CardItem(String productId, String name, int price, String imageUrl, String userEmail) {
         this.productId = productId;
         this.imageUrl = imageUrl;
         this.name = name;
@@ -19,14 +20,16 @@ public class CardItem {
         this.price = price;
         this.userEmail = userEmail;
         this.totalPrice = calculateTotalPrice();
-
     }
+
     public String getProductId() {
         return productId;
     }
+
     public String getImageUrl() {
         return imageUrl;
     }
+
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
@@ -39,17 +42,20 @@ public class CardItem {
         return description;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
+
     public double getTotalPrice() {
         return totalPrice;
     }
+
     public String getUserEmail() {
         return userEmail;
     }
-    private double calculateTotalPrice() {
 
+    private int calculateTotalPrice() {
+        // Thực hiện tính toán total price tại đây
         return totalPrice;
     }
 }

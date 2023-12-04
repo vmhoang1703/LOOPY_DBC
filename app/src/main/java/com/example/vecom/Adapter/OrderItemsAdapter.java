@@ -53,7 +53,7 @@ public class OrderItemsAdapter extends BaseAdapter {
 
         Glide.with(context).load(product.getImageUrl()).into(productImage);
         productName.setText(product.getName());
-        productPrice.setText(product.getFormattedPrice());
+        productPrice.setText((int) product.getPrice());
 
         return convertView;
     }

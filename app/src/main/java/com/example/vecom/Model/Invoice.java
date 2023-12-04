@@ -6,14 +6,14 @@ public class Invoice {
     private int invoiceId;
     private String customerName;
     private Date issueDate;
-    private double totalAmount;
+    private int totalAmount;
     private boolean isPaid;
 
     public Invoice() {
 
     }
 
-    public Invoice(int invoiceId, String customerName, Date issueDate, double totalAmount, boolean isPaid) {
+    public Invoice(int invoiceId, String customerName, Date issueDate, int totalAmount, boolean isPaid) {
         this.invoiceId = invoiceId;
         this.customerName = customerName;
         this.issueDate = issueDate;
@@ -49,11 +49,11 @@ public class Invoice {
     }
 
     // Getter và Setter cho thuộc tính totalAmount
-    public double getTotalAmount() {
+    public int getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(double totalAmount) {
+    public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
     }
 
