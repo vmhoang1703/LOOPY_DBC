@@ -1,5 +1,8 @@
 package com.example.vecom.Model;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.security.MessageDigest;
@@ -9,7 +12,8 @@ import java.util.ArrayList;
 import java.util.Base64;
 
 public class User {
-    private int userID;
+    private static int lastUserID = 0;
+    private String userID;
     private String userName;
     private String userPassword;
     private String userEmail;
@@ -24,11 +28,13 @@ public class User {
 
     // Constructors
     public User() {
+        this.userID = generateUserID();
         this.salt = generateSalt();
     }
 
     public User(String userName, String userPassword, String userEmail,
                 String userFullName, String userDob, String userGender, String userPhoneNumber) {
+        this.userID = generateUserID();
         this.userName = userName;
         this.userPassword = hashAndSaltPassword(userPassword);
         this.userEmail = userEmail;
@@ -166,11 +172,16 @@ public class User {
     public void setSalt(String salt) {
         this.salt = salt;
     }
+    private String generateUserID() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
+        return "UID" + String.format("%09d", ++lastUserID);
+    }
 
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "userID='" + userID + '\'' +
+                ",userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userFullName='" + userFullName + '\'' +

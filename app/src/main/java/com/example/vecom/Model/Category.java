@@ -1,27 +1,28 @@
 package com.example.vecom.Model;
 
 public class Category {
+    private static int lastCategoryId = 0;
+
     private int categoryId;
     private String categoryName;
-    private String description;
+    private String categoryDescription;
 
     public Category() {
-
+        this.categoryId = generateCategoryId();
     }
 
-    public Category(int categoryId, String categoryName, String description) {
-        this.categoryId = categoryId;
+    public Category(String categoryName, String categoryDescription) {
+        this.categoryId = generateCategoryId();
         this.categoryName = categoryName;
-        this.description = description;
+        this.categoryDescription = categoryDescription;
     }
 
+    private int generateCategoryId() {
+        return ++lastCategoryId;
+    }
 
     public int getCategoryId() {
         return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     // Getter và Setter cho thuộc tính categoryName
@@ -34,12 +35,12 @@ public class Category {
     }
 
     // Getter và Setter cho thuộc tính description
-    public String getDescription() {
-        return description;
+    public String getCategoryDescription() {
+        return categoryDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategoryDescription(String categoryDescription) {
+        this.categoryDescription = categoryDescription;
     }
 
     @Override
@@ -47,8 +48,7 @@ public class Category {
         return "Category{" +
                 "categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
-                ", description='" + description + '\'' +
+                ", description='" + categoryDescription + '\'' +
                 '}';
     }
 }
-

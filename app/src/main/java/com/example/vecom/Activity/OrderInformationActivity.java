@@ -30,7 +30,7 @@ import java.util.List;
 
 public class OrderInformationActivity extends AppCompatActivity {
     private View continuePaymentBtn;
-    private List<Product> cartList;
+
     private LinearLayout emptyCartText;
     private DatabaseReference userReference;
     private DatabaseReference productsRef;

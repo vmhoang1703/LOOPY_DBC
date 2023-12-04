@@ -8,81 +8,105 @@ import java.text.DecimalFormat;
 
 @IgnoreExtraProperties
 public class Product {
+    private static int lastProductID = 0;
     private String productId;
-    private String name;
-    private double price;
-    private String desc;
-
-    private double rate;
-
-    private int quantity;
-
-    private String cmt;
-
+    private String productName;
+    private double productPrice;
+    private String productDesc;
+    private double productRate;
+    private int productQuantity;
+    private String productComment;
     private String productType;
-    private String imageUrl;
-
+    private String productImageUrl;
     private String userEmail;
+    private String userID;
 
     public Product() {
-
-    }
-    public Product(String name, double price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail) {
-
         this.productId = generateProductId();
-        this.name = name;
-        this.price = price;
-        this.desc = desc;
-        this.rate = rate;
-        this.quantity = quantity;
-        this.cmt = cmt;
+        // Firebase sẽ tự động gán productId khi thêm vào
+    }
+
+    public Product(String productName, double productPrice, String productDesc, double productRate, int productQuantity, String productComment, String productImageUrl, String productType, String userEmail) {
+        this.productId = generateProductId();
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productDesc = productDesc;
+        this.productRate = productRate;
+        this.productQuantity = productQuantity;
+        this.productComment = productComment;
         this.productType = productType;
-        this.imageUrl = imageUrl;
+        this.productImageUrl = productImageUrl;
         this.userEmail = userEmail;
     }
+
     private String generateProductId() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("products");
-        return databaseReference.push().getKey();
+        return "productID" + String.format("%09d", ++lastProductID);
     }
-    public String getDesc(){return desc;};
+
     public String getProductId() {
         return productId;
     }
-    public String getName() {
-        return name;
-    }
-    public String getUserEmail() {
-        return userEmail;
-    }
-    public String getFormattedPrice() {
-        DecimalFormat decimalFormat = new DecimalFormat("0");
-        return decimalFormat.format(price);
-    }
-//    public int getImageResourceId() {
-//        return imageResourceId;
-//    }
 
-    public double getPrice() {
-        return price;
+    public String getProductName() {
+        return productName;
     }
 
-    public String getFormattedRate() {
-        DecimalFormat decimalFormat = new DecimalFormat("0");
-        return decimalFormat.format(rate);
+    public double getProductPrice() {
+        return productPrice;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getProductDesc() {
+        return productDesc;
     }
 
-    public String getComment() {
-        return cmt;
+    public double getProductRate() {
+        return productRate;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public String getProductComment() {
+        return productComment;
     }
 
     public String getProductType() {
         return productType;
     }
-    public String getImageUrl() {
-        return imageUrl;
+
+    public String getProductImageUrl() {
+        return productImageUrl;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public String getFormattedProductPrice() {
+        DecimalFormat decimalFormat = new DecimalFormat("0");
+        return decimalFormat.format(productPrice);
+    }
+
+    public String getFormattedProductRate() {
+        DecimalFormat decimalFormat = new DecimalFormat("0");
+        return decimalFormat.format(productRate);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId='" + productId + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productPrice=" + productPrice +
+                ", productDesc='" + productDesc + '\'' +
+                ", productRate=" + productRate +
+                ", productQuantity=" + productQuantity +
+                ", productComment='" + productComment + '\'' +
+                ", productType='" + productType + '\'' +
+                ", productImageUrl='" + productImageUrl + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                '}';
     }
 }

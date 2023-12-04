@@ -1,30 +1,33 @@
 package com.example.vecom.Model;
 
 public class Payment {
-    private int paymentId;
+    private static int lastPaymentId = 0;
+
+    private String paymentId;
     private String paymentMethod;
-    private double amount;
-    private String transactionId;
+    private double paymentAmount;
+    private String paymentTransactionId;
 
     public Payment() {
-
+        this.paymentId = generatePaymentId();
     }
 
-    public Payment(int paymentId, String paymentMethod, double amount, String transactionId) {
-        this.paymentId = paymentId;
+    public Payment(String paymentMethod, double paymentAmount, String paymentTransactionId) {
+        this.paymentId = generatePaymentId();
         this.paymentMethod = paymentMethod;
-        this.amount = amount;
-        this.transactionId = transactionId;
+        this.paymentAmount = paymentAmount;
+        this.paymentTransactionId = paymentTransactionId;
+    }
+
+    private String generatePaymentId() {
+        return "PM" + String.format("%09d", ++lastPaymentId);
     }
 
     // Getter và Setter cho thuộc tính paymentId
-    public int getPaymentId() {
+    public String getPaymentId() {
         return paymentId;
     }
-
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
-    }
+    
 
     // Getter và Setter cho thuộc tính paymentMethod
     public String getPaymentMethod() {
@@ -35,32 +38,12 @@ public class Payment {
         this.paymentMethod = paymentMethod;
     }
 
-    // Getter và Setter cho thuộc tính amount
-    public double getAmount() {
-        return amount;
+    // Getter và Setter cho thuộc tính paymentAmount
+    public double getPaymentAmount() {
+        return paymentAmount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    // Getter và Setter cho thuộc tính transactionId
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "paymentId=" + paymentId +
-                ", paymentMethod='" + paymentMethod + '\'' +
-                ", amount=" + amount +
-                ", transactionId='" + transactionId + '\'' +
-                '}';
+    public void setPaymentAmount(double paymentAmount) {
+        this.paymentAmount = paymentAmount;
     }
 }
-
