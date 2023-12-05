@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="450dp">
+            android:layout_width="wrap_content"
+            android:layout_height="470dp"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp">
                 <RelativeLayout
                     android:id="@+id/bg_product"
                     android:layout_width="220dp"
@@ -31,7 +33,7 @@
                 <TextView
                     android:id="@+id/product_name"
                     android:layout_width="220dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:text="Bàn phím cơ Dareu EK87"
                     android:layout_below="@+id/bg_product"
                     android:layout_marginTop="10dp"

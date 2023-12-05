@@ -42,7 +42,7 @@ import java.util.TimerTask;
 
 public class HomeActivity extends AppCompatActivity {
     private ViewPager viewPagerAds;
-    private int[] images = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+    private int[] images = {R.drawable.slide4, R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
     private int currentPage = 0;
     private Timer timer;
 
@@ -56,6 +56,9 @@ public class HomeActivity extends AppCompatActivity {
     private ProductAdapter1 productAdapter1;
     private RecyclerView recyclerView;
     private RecyclerView recyclerView1;
+    private View searchBar;
+    private View notiIcon;
+    private View topBg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,23 +76,23 @@ public class HomeActivity extends AppCompatActivity {
             // Query the database based on email
             Query query = userReference.orderByChild("userEmail").equalTo(userEmail);
 
-            query.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        String username = userSnapshot.child("userName").getValue(String.class);
-
-                        // Set the username and phone number in TextViews
-                        TextView userNameTextView = findViewById(R.id.userName);
-                        userNameTextView.setText(username);
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // Handle errors
-                }
-            });
+//            query.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+//                        String username = userSnapshot.child("userName").getValue(String.class);
+//
+//                        // Set the username and phone number in TextViews
+//                        TextView userNameTextView = findViewById(R.id.userName);
+//                        userNameTextView.setText(username);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//                    // Handle errors
+//                }
+//            });
         }
 
         viewPagerAds = findViewById(R.id.viewPagerAds);

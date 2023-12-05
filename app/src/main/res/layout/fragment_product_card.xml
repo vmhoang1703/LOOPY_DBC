@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="243dp"
     android:layout_height="490dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="16dp"
@@ -16,24 +16,21 @@
             android:id="@+id/bg_product"
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:background="@drawable/product_bg"
-            android:layout_centerHorizontal="true"/>
+            android:background="@drawable/product_bg"/>
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginBottom="-50dp"
-            android:layout_toRightOf="@+id/product_img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
             android:src="@drawable/favorite" />
 
         <ImageView
             android:id="@+id/product_img"
             android:layout_below="@+id/bg_product"
-            android:layout_width="300dp"
-            android:layout_height="240dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:src="@drawable/product_test"
-            android:layout_marginTop="-240dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_marginTop="-200dp"/>
 
         <TextView
             android:id="@+id/product_name"
@@ -44,8 +41,7 @@
             android:layout_marginTop="10dp"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"/>
+            android:layout_alignParentStart="true"/>
 
         <ImageView
             android:id="@+id/descriptIcon"
@@ -53,7 +49,6 @@
             android:layout_height="25dp"
             android:layout_below="@+id/product_name"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/description" />
 
@@ -76,7 +71,6 @@
             android:layout_marginTop="10dp"
             android:text="@string/description_text"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"
             android:textSize="16dp" />
 
 <!--        <TextView-->
@@ -99,8 +93,7 @@
             android:textSize="20dp"
             android:layout_below="@+id/descriptionText"
             android:layout_marginTop="5dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="35dp"/>
+            android:layout_alignParentStart="true"/>
 
         <TextView
             android:id="@+id/price"

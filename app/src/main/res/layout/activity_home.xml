@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="360dp"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/top_bg_home">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                layout="@layout/search"
+                android:id="@+id/searchBar"
+                android:layout_width="252dp"
+                android:layout_height="39.79dp"
+                android:layout_marginTop="22.11dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="9dp"/>
+
+            <ImageView
+                android:id="@+id/notiIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/noti1" />
+        </RelativeLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true">
 
@@ -12,196 +45,410 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- RecyclerView with id "recyclerView" -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_below="@+id/newestText"
+            <RelativeLayout
+                android:id="@+id/sliderAds"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView1"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/optionsBar"
-                android:layout_marginTop="36dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="100dp"/>
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/beeImage"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/bee" />
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="213.24dp"
+                    android:layout_centerHorizontal="true">
 
-            <TextView
-                android:id="@+id/welcomeText"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:text="Chào ngày mới 👋"
-                android:layout_toRightOf="@+id/beeImage"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="16dp"
-                android:textSize="16dp"
-                android:textColor="#757575" />
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewPagerAds"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
 
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:text="Esien Nguyen"
-                android:textStyle="bold"
-                android:layout_toRightOf="@+id/beeImage"
-                android:layout_below="@+id/welcomeText"
-                android:layout_marginLeft="16dp"
-                android:textSize="20dp" />
+                    <LinearLayout
+                        android:id="@+id/indicatorLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+            </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/notiIcon"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="38dp"
-                android:layout_toRightOf="@+id/welcomeText"
-                android:src="@drawable/notification" />
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/heart"
-                android:layout_toRightOf="@+id/notiIcon"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="38dp" />
+<!--            <TextView-->
+<!--                android:id="@+id/top_bg1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="90dp"-->
+<!--                android:background="@drawable/bg_back_des"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_alignParentTop="true"/>-->
 
             <include
                 layout="@layout/search"
-                android:id="@+id/searchBar"
-                android:layout_below="@+id/beeImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp" />
+                android:id="@+id/searchBar1"
+                android:layout_width="252dp"
+                android:layout_height="39.79dp"
+                android:layout_marginTop="22.11dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="9dp"/>
+
+            <ImageView
+                android:id="@+id/notiIcon1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/noti1" />
 
             <RelativeLayout
-                android:id="@+id/sliderAds"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="400dp"
-                android:layout_height="193dp"
-                android:layout_below="@+id/searchBar"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sliderAds"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="61dp">
+                android:layout_marginTop="30dp">
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/viewPagerAds"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"/>
-
-                <LinearLayout
-                    android:id="@+id/indicatorLayout"
+                <!-- RecyclerView with id "recyclerView" -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_below="@+id/newestText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:layout_alignParentBottom="true"/>
+                    android:layout_marginTop="24dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/optionsBar"
+                    android:layout_marginTop="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="100dp"/>
+
+                <!--            <ImageView-->
+                <!--                android:id="@+id/beeImage"-->
+                <!--                android:layout_width="48dp"-->
+                <!--                android:layout_height="48dp"-->
+                <!--                android:layout_alignParentStart="true"-->
+                <!--                android:layout_alignParentTop="true"-->
+                <!--                android:layout_marginTop="30dp"-->
+                <!--                android:src="@drawable/bee" />-->
+
+                <!--            <TextView-->
+                <!--                android:id="@+id/welcomeText"-->
+                <!--                android:layout_width="220dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="Chào ngày mới 👋"-->
+                <!--                android:layout_toRightOf="@+id/beeImage"-->
+                <!--                android:layout_alignParentTop="true"-->
+                <!--                android:layout_marginTop="30dp"-->
+                <!--                android:layout_marginLeft="16dp"-->
+                <!--                android:textSize="16dp"-->
+                <!--                android:textColor="#757575" />-->
+
+                <!--            <TextView-->
+                <!--                android:id="@+id/userName"-->
+                <!--                android:layout_width="220dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="Esien Nguyen"-->
+                <!--                android:textStyle="bold"-->
+                <!--                android:layout_toRightOf="@+id/beeImage"-->
+                <!--                android:layout_below="@+id/welcomeText"-->
+                <!--                android:layout_marginLeft="16dp"-->
+                <!--                android:textSize="20dp" />-->
+
+                <!--            <ImageView-->
+                <!--                android:layout_width="28dp"-->
+                <!--                android:layout_height="28dp"-->
+                <!--                android:src="@drawable/heart"-->
+                <!--                android:layout_toRightOf="@+id/notiIcon"-->
+                <!--                android:layout_alignParentTop="true"-->
+                <!--                android:layout_marginLeft="16dp"-->
+                <!--                android:layout_marginTop="38dp" />-->
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/utilityBox">
+
+                    <TextView
+                        android:id="@+id/utilityText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiện ích"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tất cả"
+                        android:textSize="12dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_toLeftOf="@+id/rightArrow"
+                        android:layout_marginRight="5dp"/>
+                    
+                    <ImageView
+                        android:id="@+id/rightArrow"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/right_arrow2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="7dp"/>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:scrollbars="none"
+                        android:layout_below="@+id/utilityText">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="18dp">
+
+                            <RelativeLayout
+                                android:id="@+id/forumUti"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:id="@+id/forumIcon"
+                                    android:layout_width="48.05dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/forum_bg">
+
+                                    <ImageView
+                                        android:layout_width="29.03dp"
+                                        android:layout_height="24dp"
+                                        android:src="@drawable/community1"
+                                        android:layout_centerInParent="true"/>
+                                </RelativeLayout>
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Forum"
+                                    android:layout_below="@+id/forumIcon"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="11dp"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/voucherUti"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="39dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/voucherIcon"
+                                    android:layout_width="48.05dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/voucher_bg">
+
+                                    <ImageView
+                                        android:layout_width="29.03dp"
+                                        android:layout_height="24dp"
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/voucher_icon" />
+                                </RelativeLayout>
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Voucher"
+                                    android:layout_below="@+id/voucherIcon"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="11dp"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/freeshipUti"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="39dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/freeshipIcon"
+                                    android:layout_width="48.05dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/freeship_bg">
+
+                                    <ImageView
+                                        android:layout_width="29.03dp"
+                                        android:layout_height="24dp"
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/freeship_icon" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Freeship"
+                                    android:layout_below="@+id/freeshipIcon"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="11dp"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/tailieuUti"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="19dp">
+
+                                <RelativeLayout
+                                    android:id="@+id/tailieuIcon"
+                                    android:layout_width="48.05dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/tailieu_bg"
+                                    android:layout_centerHorizontal="true">
+
+                                    <ImageView
+                                        android:layout_width="29.03dp"
+                                        android:layout_height="24dp"
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/tailieu_icon"/>
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tài liệu miễn phí"
+                                    android:layout_below="@+id/tailieuIcon"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="11dp"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/jobUti"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="19dp">
+
+                                <ImageView
+                                    android:id="@+id/jobIcon"
+                                    android:layout_width="48.05dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/job_bg"
+                                    android:layout_centerHorizontal="true">
+                                </ImageView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cơ hội thực tập, việc làm"
+                                    android:layout_below="@+id/jobIcon"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="11dp"
+                                    android:gravity="center"/>
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+
+
+                <TextView
+                    android:id="@+id/newestText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mới nhất"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/utilityBox"
+                    android:layout_marginTop="52dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tất cả"
+                    android:textSize="12dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_toLeftOf="@+id/rightArrow1"
+                    android:layout_marginRight="5dp"
+                    android:layout_below="@+id/utilityBox" />
+
+                <ImageView
+                    android:id="@+id/rightArrow1"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/right_arrow2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="59dp"
+                    android:layout_below="@+id/utilityBox"/>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="500dp"
+                    android:layout_below="@+id/newestText"
+                    android:layout_marginTop="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp" />
+
+                <TextView
+                    android:id="@+id/commonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/viewPager"
+                    android:layout_marginTop="34dp"
+                    android:text="Phổ biến"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/allText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/viewPager"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="Tất cả"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:textColor="#30c480" />
+
+                <include
+                    android:id="@+id/optionsBar"
+                    layout="@layout/options_bar"
+                    android:layout_below="@+id/commonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="36dp" />
+
+
+                <!--            <androidx.viewpager.widget.ViewPager-->
+                <!--                android:id="@+id/viewPager1"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="450dp"-->
+                <!--                android:layout_below="@+id/optionsBar"-->
+                <!--                android:layout_marginTop="36dp"-->
+                <!--                android:layout_alignParentStart="true"-->
+                <!--                android:layout_marginStart="20dp"-->
+                <!--                android:layout_alignParentEnd="true"-->
+                <!--                android:layout_marginEnd="20dp"-->
+                <!--                android:layout_marginBottom="100dp"/>-->
+
+                <!--            <include-->
+                <!--                android:id="@+id/row1"-->
+                <!--                layout="@layout/product_card"-->
+                <!--                android:layout_width="170dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_below="@+id/optionsBar"-->
+                <!--                android:layout_marginTop="36dp"-->
+                <!--                android:layout_alignParentStart="true"-->
+                <!--                android:layout_marginStart="20dp"/>-->
+
             </RelativeLayout>
-            <TextView
-                android:id="@+id/newestText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/sliderAds"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="29dp"
-                android:text="Mới nhất"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/allText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/sliderAds"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="15dp"
-                android:text="Tất cả"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="#30c480" />
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewPager"
-                android:layout_width="wrap_content"
-                android:layout_height="500dp"
-                android:layout_below="@+id/allText"
-                android:layout_marginTop="24dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp" />
-
-            <TextView
-                android:id="@+id/commonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/viewPager"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="34dp"
-                android:text="Phổ biến"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/allText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/viewPager"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="15dp"
-                android:text="Tất cả"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="#30c480" />
-
-            <include
-                android:id="@+id/optionsBar"
-                layout="@layout/options_bar"
-                android:layout_below="@+id/commonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="36dp" />
-
-
-            <!--            <androidx.viewpager.widget.ViewPager-->
-            <!--                android:id="@+id/viewPager1"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="450dp"-->
-            <!--                android:layout_below="@+id/optionsBar"-->
-            <!--                android:layout_marginTop="36dp"-->
-            <!--                android:layout_alignParentStart="true"-->
-            <!--                android:layout_marginStart="20dp"-->
-            <!--                android:layout_alignParentEnd="true"-->
-            <!--                android:layout_marginEnd="20dp"-->
-            <!--                android:layout_marginBottom="100dp"/>-->
-
-<!--            <include-->
-<!--                android:id="@+id/row1"-->
-<!--                layout="@layout/product_card"-->
-<!--                android:layout_width="170dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/optionsBar"-->
-<!--                android:layout_marginTop="36dp"-->
-<!--                android:layout_alignParentStart="true"-->
-<!--                android:layout_marginStart="20dp"/>-->
-
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
@@ -211,7 +458,8 @@
         layout="@layout/activity_navigation_menu"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_alignParentBottom="true" />
-</RelativeLayout>
+        android:layout_gravity="bottom" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
