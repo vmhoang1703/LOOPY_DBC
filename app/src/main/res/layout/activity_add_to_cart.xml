@@ -127,6 +127,6 @@
         android:id="@+id/navigationMenu"
         layout="@layout/activity_navigation_menu"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"/>
 </RelativeLayout>

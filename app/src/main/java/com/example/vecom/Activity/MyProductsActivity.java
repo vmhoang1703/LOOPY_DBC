@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,6 +55,11 @@ public class MyProductsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyProductsActivity.this, PersonalStoreActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
                 startActivity(intent);
                 finish();
             }

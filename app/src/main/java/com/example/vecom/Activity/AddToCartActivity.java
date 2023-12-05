@@ -1,5 +1,6 @@
 package com.example.vecom.Activity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +47,7 @@ public class AddToCartActivity extends AppCompatActivity {
     private FirebaseAuth mAuth=FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
 
-    private double totalCartPrice = 0;
+    private int totalCartPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,11 @@ public class AddToCartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Xử lý khi button được nhấn
                 Intent intent = new Intent(AddToCartActivity.this, OrderInformationActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(paymentBtn, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
                 startActivity(intent);
             }
         });

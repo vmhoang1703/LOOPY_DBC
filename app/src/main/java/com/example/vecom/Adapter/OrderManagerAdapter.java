@@ -1,5 +1,6 @@
 package com.example.vecom.Adapter;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -55,6 +56,10 @@ public class OrderManagerAdapter extends RecyclerView.Adapter<OrderManagerAdapte
                 intent.putExtra("productName", product.getName());
                 intent.putExtra("productPrice", String.valueOf(product.getPrice()));
                 intent.putExtra("productImg", product.getImageUrl());
+
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(holder.itemView, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
 
                 context.startActivity(intent);
             }

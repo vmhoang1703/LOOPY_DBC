@@ -1,5 +1,6 @@
 package com.example.vecom.Activity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vecom.Adapter.OrderInformationAdapter;
@@ -42,7 +44,7 @@ public class OrderInformationActivity extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
 
-    private double totalCartPrice = 0;
+    private int totalCartPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,11 @@ public class OrderInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OrderInformationActivity.this, AddToCartActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
                 startActivity(intent);
                 finish();
             }
@@ -61,8 +68,9 @@ public class OrderInformationActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.cartListView); // Ánh xạ RecyclerView từ layout
         productList = new ArrayList<>(); // Initialize the product list
         OrderInformationAdapter = new OrderInformationAdapter(this, productList); // Initialize the product adapter with context
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         recyclerView.setAdapter(OrderInformationAdapter); // Set the product adapter to RecyclerView
 
         createProductItems();
@@ -74,6 +82,11 @@ public class OrderInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OrderInformationActivity.this, PaymentOptionsActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(continuePaymentBtn, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
                 startActivity(intent);
             }
         });
@@ -84,7 +97,9 @@ public class OrderInformationActivity extends AppCompatActivity {
         productsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                productList.clear(); // Xóa danh sách sản phẩm hiện tại
+                productList.clear(); // Clear the list before updating
+                totalCartPrice = 0; // Reset totalCartPrice
+
                 String userEmail = currentUser.getEmail();
                 userReference = FirebaseDatabase.getInstance().getReference().child("users");
 
@@ -95,16 +110,24 @@ public class OrderInformationActivity extends AppCompatActivity {
                         if (cardItem != null && cardItem.getUserEmail().equals(userEmail)) {
                             productList.add(cardItem);
 
-                            // Cập nhật tổng giá mỗi khi thêm một CardItem
+                            // Update totalCartPrice for each CardItem
                             totalCartPrice += cardItem.getPrice();
                         }
                     } catch (Exception e) {
                         Log.e("Firebase", "Error converting to CardItem", e);
                     }
                 }
-                TextView priceTextView = findViewById(R.id.price);
-                priceTextView.setText(String.valueOf(totalCartPrice));
 
+                Log.d("Firebase", "Product list size: " + productList.size());
+
+                // Move these lines outside the loop
+                TextView priceTextView = findViewById(R.id.price);
+                TextView totalTextView = findViewById(R.id.total);
+                priceTextView.setText(String.valueOf(totalCartPrice));
+                totalTextView.setText(String.valueOf(totalCartPrice));
+
+                // Notify the adapter after updating the data
+                OrderInformationAdapter.notifyDataSetChanged();
             }
 
             @Override

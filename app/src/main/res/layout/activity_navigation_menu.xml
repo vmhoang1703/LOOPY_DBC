@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="14dp"
         android:layout_centerHorizontal="true">
         <RelativeLayout
             android:id="@+id/homeNavi"
@@ -39,7 +39,7 @@
             android:layout_height="38dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/homeNavi"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="30dp">
             <ImageView
                 android:id="@+id/cartIcon"
                 android:layout_width="24dp"
@@ -56,36 +56,36 @@
                 android:layout_centerHorizontal="true"/>
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/forumNavi"
-            android:layout_width="53.43dp"
-            android:layout_height="38dp"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/cartNavi"
-            android:layout_marginLeft="20dp">
-            <ImageView
-                android:id="@+id/forumIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/community1"
-                android:layout_centerHorizontal="true"/>
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/forumNavi"-->
+<!--            android:layout_width="53.43dp"-->
+<!--            android:layout_height="38dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_toRightOf="@+id/cartNavi"-->
+<!--            android:layout_marginLeft="20dp">-->
+<!--            <ImageView-->
+<!--                android:id="@+id/forumIcon"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:src="@drawable/community1"-->
+<!--                android:layout_centerHorizontal="true"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cộng đồng"
-                android:textSize="10dp"
-                android:layout_below="@+id/forumIcon"
-                android:layout_centerHorizontal="true"/>
-        </RelativeLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Cộng đồng"-->
+<!--                android:textSize="10dp"-->
+<!--                android:layout_below="@+id/forumIcon"-->
+<!--                android:layout_centerHorizontal="true"/>-->
+<!--        </RelativeLayout>-->
 
         <RelativeLayout
             android:id="@+id/orderNavi"
             android:layout_width="53.43dp"
             android:layout_height="38dp"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/forumNavi"
-            android:layout_marginLeft="20dp">
+            android:layout_toRightOf="@+id/cartNavi"
+            android:layout_marginLeft="30dp">
             <ImageView
                 android:id="@+id/orderIcon"
                 android:layout_width="24dp"
@@ -108,7 +108,7 @@
             android:layout_height="38dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/orderNavi"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="30dp">
             <ImageView
                 android:id="@+id/profileIcon"
                 android:layout_width="24dp"

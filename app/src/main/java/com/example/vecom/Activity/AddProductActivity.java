@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -78,8 +80,9 @@ public class AddProductActivity extends AppCompatActivity {
 
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 navigateToMyProductsActivity();
+                applyClickEffect(view);
             }
         });
 
@@ -87,6 +90,7 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 displayProductInformation();
+                applyClickEffect(view);
             }
         });
 
@@ -94,15 +98,24 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveProductToDatabase();
+                applyClickEffect(view);
             }
         });
 
         addProductImg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 selectImage();
+                applyClickEffect(view);
             }
         });
+    }
+
+    private void applyClickEffect(View view) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.9f, 1.0f, 0.9f, 1.0f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleAnimation.setDuration(200); // You can adjust the duration as needed
+        view.startAnimation(scaleAnimation);
     }
 
     private void navigateToMyProductsActivity() {
@@ -130,8 +143,17 @@ public class AddProductActivity extends AppCompatActivity {
 
             String productName = productNameEditText.getText().toString();
             String productDescription = productDescriptionEditText.getText().toString();
-            int price = priceEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(priceEditText.getText().toString());
-            int stock = stockEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(stockEditText.getText().toString());
+            String priceStr = priceEditText.getText().toString();
+            String stockStr = stockEditText.getText().toString();
+
+            // Check if any of the required fields are empty
+            if (productName.isEmpty() || productDescription.isEmpty() || priceStr.isEmpty() || stockStr.isEmpty()) {
+                Toast.makeText(this, "Please enter all required information", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            int price = Integer.parseInt(priceStr);
+            int stock = Integer.parseInt(stockStr);
 
             // Create a Product object with only non-image information
             Product newProduct = new Product(productName, price, productDescription, 0, stock, "", "", "", userEmail);
@@ -151,6 +173,7 @@ public class AddProductActivity extends AppCompatActivity {
             }
         }
     }
+
 
     private void uploadImage(Uri imageUri, String imageName) {
         progressDialog = createProgressDialog(this);

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -80,14 +81,14 @@ public class PersonalActivity1 extends AppCompatActivity {
             }
         });
 
-        RelativeLayout forumNavi = findViewById(R.id.forumNavi);
-        forumNavi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity1.this, ForumActivity.class);
-                startActivity(intent);
-            }
-        });
+//        RelativeLayout forumNavi = findViewById(R.id.forumNavi);
+//        forumNavi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(PersonalActivity1.this, ForumActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         RelativeLayout orderNavi = findViewById(R.id.orderNavi);
         orderNavi.setOnClickListener(new View.OnClickListener() {
@@ -111,8 +112,20 @@ public class PersonalActivity1 extends AppCompatActivity {
         workAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity1.this, PersonalStoreActivity.class);
-                startActivity(intent);
+                // Thực hiện hiệu ứng khi nút được nhấn
+                applyButtonClickEffect(workAccount);
+
+                // Đặt thời gian trễ là 500ms (hoặc bất kỳ thời gian nào bạn muốn)
+                int delayMillis = 300;
+
+                // Tạo một Handler và sử dụng postDelayed để thực hiện bước tiếp theo sau khoảng thời gian trễ
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(PersonalActivity1.this, PersonalStoreActivity.class);
+                        startActivity(intent);
+                    }
+                }, delayMillis);
             }
         });
 
@@ -128,8 +141,19 @@ public class PersonalActivity1 extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signOut();
+                // Thực hiện hiệu ứng khi nút được nhấn
+                applyButtonClickEffect(logoutBtn);
 
+                // Đặt thời gian trễ là 500ms (hoặc bất kỳ thời gian nào bạn muốn)
+                int delayMillis = 300;
+
+                // Tạo một Handler và sử dụng postDelayed để thực hiện bước tiếp theo sau khoảng thời gian trễ
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        signOut();
+                    }
+                }, delayMillis);
             }
         });
     }
@@ -140,5 +164,23 @@ public class PersonalActivity1 extends AppCompatActivity {
         Intent intent = new Intent(PersonalActivity1.this, LoginActivity.class);
         startActivity(intent);
         finish(); // Đảm bảo người dùng không thể quay lại màn hình PersonalActivity bằng nút back.
+    }
+
+    private void applyButtonClickEffect(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .alpha(0.7f)
+                .setDuration(100)
+                .withEndAction(() -> {
+                    // Khôi phục trạng thái ban đầu khi kết thúc animation
+                    view.animate()
+                            .scaleX(1.0f)
+                            .scaleY(1.0f)
+                            .alpha(1.0f)
+                            .setDuration(100)
+                            .start();
+                })
+                .start();
     }
 }

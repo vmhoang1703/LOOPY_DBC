@@ -46,7 +46,7 @@ public class CardItem {
         return price;
     }
 
-    public double getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 

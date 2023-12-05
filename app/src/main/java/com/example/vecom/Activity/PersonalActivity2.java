@@ -1,5 +1,6 @@
 package com.example.vecom.Activity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,14 +37,14 @@ public class PersonalActivity2 extends AppCompatActivity {
             }
         });
 
-        RelativeLayout forumNavi = findViewById(R.id.forumNavi);
-        forumNavi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PersonalActivity2.this, ForumActivity.class);
-                startActivity(intent);
-            }
-        });
+//        RelativeLayout forumNavi = findViewById(R.id.forumNavi);
+//        forumNavi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(PersonalActivity2.this, ForumActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         RelativeLayout orderNavi = findViewById(R.id.orderNavi);
         orderNavi.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +69,11 @@ public class PersonalActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PersonalActivity2.this, PersonalActivity1.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
                 startActivity(intent);
                 finish();
             }

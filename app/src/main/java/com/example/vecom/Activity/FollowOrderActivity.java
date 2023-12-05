@@ -3,6 +3,7 @@ package com.example.vecom.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -92,6 +93,11 @@ public class FollowOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FollowOrderActivity.this, OrderManagerActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
                 startActivity(intent);
                 finish();
             }

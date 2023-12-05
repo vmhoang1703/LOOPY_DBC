@@ -7,7 +7,7 @@
     tools:context=".Activity.OrderInformationActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="match_parent"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
@@ -115,4 +115,11 @@
                 android:elevation="3dp"/>
         </RelativeLayout>
     </RelativeLayout>
+
+    <View
+        android:id="@+id/overlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
 </RelativeLayout>

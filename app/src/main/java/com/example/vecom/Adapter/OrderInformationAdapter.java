@@ -36,21 +36,23 @@ public class OrderInformationAdapter extends RecyclerView.Adapter<OrderInformati
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CardItem product = cardItemList.get(position);
-
-        // Set data to views
-        holder.productName.setText(product.getName());
-        holder.productPrice.setText(String.valueOf(product.getPrice()));
-        // Use Glide to load the image from the URL
-        Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
-
+    public int getItemCount() {
+        return cardItemList != null ? cardItemList.size() : 0;
     }
 
     @Override
-    public int getItemCount() {
-        return cardItemList.size();
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if (cardItemList != null && position < cardItemList.size()) {
+            CardItem product = cardItemList.get(position);
+
+            // Set data to views
+            holder.productName.setText(product.getName());
+            holder.productPrice.setText(String.valueOf(product.getPrice()));
+            // Use Glide to load the image from the URL
+            Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
+        }
     }
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView productName, productPrice;

@@ -1,5 +1,6 @@
 package com.example.vecom.Activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -101,6 +102,11 @@ public class ProductDescriptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProductDescriptionActivity.this, HomeActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
                 startActivity(intent);
                 finish();
             }
@@ -110,7 +116,20 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addToCart();
+                // Thực hiện hiệu ứng khi nút được nhấn
+                applyButtonClickEffect(addToCartBtn);
+
+                // Đặt thời gian trễ là 500ms (hoặc bất kỳ thời gian nào bạn muốn)
+                int delayMillis = 300;
+
+                // Tạo một Handler và sử dụng postDelayed để thực hiện bước tiếp theo sau khoảng thời gian trễ
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Tiếp tục xử lý thêm vào giỏ hàng sau khi đã chờ
+                        addToCart();
+                    }
+                }, delayMillis);
             }
         });
 
@@ -118,11 +137,22 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         damphangia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDamPhanDialog();
+                // Thực hiện hiệu ứng khi nút được nhấn
+                applyButtonClickEffect(damphangia);
+
+                // Đặt thời gian trễ là 500ms (hoặc bất kỳ thời gian nào bạn muốn)
+                int delayMillis = 300;
+
+                // Tạo một Handler và sử dụng postDelayed để thực hiện bước tiếp theo sau khoảng thời gian trễ
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        showDamPhanDialog();
+                    }
+                }, delayMillis);
             }
         });
     }
-
     private void showDamPhanDialog() {
         // Lấy reference của overlay view
         View overlayView = findViewById(R.id.overlayView);
@@ -174,6 +204,8 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         damPhanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Thực hiện hiệu ứng khi nút được nhấn
+                applyButtonClickEffect(damPhanButton);
                 // Get the entered negotiation price
                 String damPhanPriceStr = damPhanEditText.getText().toString().trim();
 
@@ -290,6 +322,24 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         }
         Intent cartIntent = new Intent(ProductDescriptionActivity.this, AddToCartActivity.class);
         startActivity(cartIntent);
+    }
+
+    private void applyButtonClickEffect(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .alpha(0.7f)
+                .setDuration(100)
+                .withEndAction(() -> {
+                    // Khôi phục trạng thái ban đầu khi kết thúc animation
+                    view.animate()
+                            .scaleX(1.0f)
+                            .scaleY(1.0f)
+                            .alpha(1.0f)
+                            .setDuration(100)
+                            .start();
+                })
+                .start();
     }
 }
 

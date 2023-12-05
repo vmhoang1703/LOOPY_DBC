@@ -1,6 +1,9 @@
 package com.example.vecom.Activity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -69,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         googleLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Thực hiện hiệu ứng khi nút được nhấn
+                applyButtonClickEffect(googleLoginBtn);
                 googleSignin();
             }
         });
@@ -87,12 +92,12 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                performLogin();
+                performLogin(loginBtn);
             }
         });
     }
 
-    private void performLogin() {
+    private void performLogin(RelativeLayout loginBtn) {
         EditText emailEditText = findViewById(R.id.emailEditText);
         EditText passEditText = findViewById(R.id.passEditText);
 
@@ -110,12 +115,12 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Sign in success
                         FirebaseUser user = auth.getCurrentUser();
-                        updateUI(user);
+                        updateUI(user, loginBtn);
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(LoginActivity.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
-                        updateUI(null);
+                        updateUI(null, null);
                     }
                 });
     }
@@ -152,21 +157,44 @@ public class LoginActivity extends AppCompatActivity {
                         map.put("name", user.getDisplayName());
                         map.put("profile", user.getPhotoUrl().toString());
                         usersRef.child(user.getUid()).setValue(map);
-                        updateUI(user);
+                        updateUI(user, null);
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(LoginActivity.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
-                        updateUI(null);
+                        updateUI(null, null);
                     }
                 });
     }
 
-    private void updateUI(FirebaseUser user) {
+    private void updateUI(FirebaseUser user, RelativeLayout loginBtn) {
         if (user != null) {
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            // Tạo hiệu ứng làm mờ nút
+            ObjectAnimator fadeOut = ObjectAnimator.ofFloat(loginBtn, "alpha", 1f, 0.5f);
+            fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+            fadeOut.start();
+
             startActivity(intent);
             finish();
         }
+    }
+
+    private void applyButtonClickEffect(View view) {
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .alpha(0.7f)
+                .setDuration(100)
+                .withEndAction(() -> {
+                    // Khôi phục trạng thái ban đầu khi kết thúc animation
+                    view.animate()
+                            .scaleX(1.0f)
+                            .scaleY(1.0f)
+                            .alpha(1.0f)
+                            .setDuration(100)
+                            .start();
+                })
+                .start();
     }
 }
