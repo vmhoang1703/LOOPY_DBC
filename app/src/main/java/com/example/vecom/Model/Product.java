@@ -23,11 +23,13 @@ public class Product {
     private String imageUrl;
 
     private String userEmail;
+    private String deliveryOption;
+    private String deliveryLocation;
 
     public Product() {
 
     }
-    public Product(String name, int price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail) {
+    public Product(String name, int price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail, String deliveryOption, String deliveryLocation) {
 
         this.productId = generateProductId();
         this.name = name;
@@ -39,6 +41,8 @@ public class Product {
         this.productType = productType;
         this.imageUrl = imageUrl;
         this.userEmail = userEmail;
+        this.deliveryOption = deliveryOption;
+        this.deliveryLocation = deliveryLocation;
     }
 
     private String generateProductId() {
@@ -83,5 +87,12 @@ public class Product {
     }
     public String getImageUrl() {
         return imageUrl;
+    }
+    public String getDeliveryOption() {
+        return deliveryOption;
+    }
+
+    public String getDeliveryLocation() {
+        return deliveryLocation;
     }
 }

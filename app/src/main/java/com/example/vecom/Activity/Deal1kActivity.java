@@ -1,11 +1,17 @@
 package com.example.vecom.Activity;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,19 +19,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.vecom.Adapter.ImageSliderAdapter;
 import com.example.vecom.Adapter.ProductAdapter;
@@ -46,7 +43,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HomeActivity extends AppCompatActivity {
+public class Deal1kActivity extends AppCompatActivity {
     private ViewPager viewPagerAds;
     private int[] images = {R.drawable.slide4, R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
     private int currentPage = 0;
@@ -70,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_deal1k);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -102,61 +99,90 @@ public class HomeActivity extends AppCompatActivity {
 //            });
         }
 
-        viewPagerAds = findViewById(R.id.viewPagerAds);
-        ImageSliderAdapter adapter = new ImageSliderAdapter(this, images);
-        viewPagerAds.setAdapter(adapter);
+//        viewPagerAds = findViewById(R.id.viewPagerAds);
+//        ImageSliderAdapter adapter = new ImageSliderAdapter(this, images);
+//        viewPagerAds.setAdapter(adapter);
+//
+//        // Tạo chỉ mục (indicator)
+//        addIndicator(images.length);
+//
+//        // Tự động chuyển slider sau mỗi 5 giây
+//        final Handler handler = new Handler(Looper.getMainLooper());
+//        final Runnable update = new Runnable() {
+//            public void run() {
+//                if (currentPage == images.length) {
+//                    currentPage = 0;
+//                }
+//                viewPagerAds.setCurrentItem(currentPage++, true);
+//            }
+//        };
+//
+//        timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                handler.post(update);
+//            }
+//        }, 5000, 5000); // 5 giây delay và chuyển sau mỗi 5 giây
 
-        // Tạo chỉ mục (indicator)
-        addIndicator(images.length);
-
-        // Tự động chuyển slider sau mỗi 5 giây
-        final Handler handler = new Handler(Looper.getMainLooper());
-        final Runnable update = new Runnable() {
-            public void run() {
-                if (currentPage == images.length) {
-                    currentPage = 0;
-                }
-                viewPagerAds.setCurrentItem(currentPage++, true);
-            }
-        };
-
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
+//        recyclerView = findViewById(R.id.recyclerView); // Ánh xạ RecyclerView từ layout
+//        productList = new ArrayList<>(); // Initialize the product list
+//        productAdapter = new ProductAdapter(this, productList); // Initialize the product adapter with context
+//        recyclerView.setAdapter(productAdapter); // Set the product adapter to RecyclerView
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//
+//        // Create product items from Firebase
+//        createProductItems();
+//
+//        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+//            @Override
+//            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+//                // Handle the touch event when a product card is clicked
+//                if (e.getAction() == MotionEvent.ACTION_UP) {
+//                    View childView = rv.findChildViewUnder(e.getX(), e.getY());
+//                    if (childView != null) {
+//                        int position = rv.getChildAdapterPosition(childView);
+//                        onProductCardClicked(position);
+//                    }
+//                }
+//                return false;
+//            }
+//
+//            @Override
+//            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+//            }
+//
+//            @Override
+//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+//            }
+//        });
+        ImageView backArrow = findViewById(R.id.back);
+        backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                handler.post(update);
+            public void onClick(View v) {
+                Intent intent = new Intent(Deal1kActivity.this, HomeActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
+
+                startActivity(intent);
+                finish();
             }
-        }, 5000, 5000); // 5 giây delay và chuyển sau mỗi 5 giây
+        });
 
-        recyclerView = findViewById(R.id.recyclerView); // Ánh xạ RecyclerView từ layout
-        productList = new ArrayList<>(); // Initialize the product list
-        productAdapter = new ProductAdapter(this, productList); // Initialize the product adapter with context
-        recyclerView.setAdapter(productAdapter); // Set the product adapter to RecyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        // Create product items from Firebase
-        createProductItems();
-
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        ImageView backArrow1 = findViewById(R.id.back1);
+        backArrow1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-                // Handle the touch event when a product card is clicked
-                if (e.getAction() == MotionEvent.ACTION_UP) {
-                    View childView = rv.findChildViewUnder(e.getX(), e.getY());
-                    if (childView != null) {
-                        int position = rv.getChildAdapterPosition(childView);
-                        onProductCardClicked(position);
-                    }
-                }
-                return false;
-            }
+            public void onClick(View v) {
+                Intent intent = new Intent(Deal1kActivity.this, HomeActivity.class);
+                // Tạo hiệu ứng làm mờ nút
+                ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow1, "alpha", 1f, 0.5f);
+                fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
+                fadeOut.start();
 
-            @Override
-            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -201,7 +227,7 @@ public class HomeActivity extends AppCompatActivity {
                 View overlayView = findViewById(R.id.overlayView);
                 overlayView.setVisibility(View.VISIBLE);
                 // Create the first dialog
-                Dialog filterDialog = new Dialog(HomeActivity.this);
+                Dialog filterDialog = new Dialog(Deal1kActivity.this);
                 filterDialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Optional, removes title bar
                 filterDialog.setContentView(R.layout.popup_filter); // Your custom layout
                 filterDialog.getWindow().setBackgroundDrawableResource(R.drawable.damphan_popup); // Apply the rounded background
@@ -252,7 +278,7 @@ public class HomeActivity extends AppCompatActivity {
         cartNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, AddToCartActivity.class);
+                Intent intent = new Intent(Deal1kActivity.this, AddToCartActivity.class);
                 startActivity(intent);
             }
         });
@@ -270,7 +296,7 @@ public class HomeActivity extends AppCompatActivity {
         orderNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, OrderManagerActivity.class);
+                Intent intent = new Intent(Deal1kActivity.this, OrderManagerActivity.class);
                 startActivity(intent);
             }
         });
@@ -279,17 +305,7 @@ public class HomeActivity extends AppCompatActivity {
         profileNavi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, PersonalActivity1.class);
-                startActivity(intent);
-            }
-        });
-
-        RelativeLayout don1dUti = findViewById(R.id.don1dUti);
-        don1dUti.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, Deal1kActivity.class);
-                applyButtonClickEffect(don1dUti);
+                Intent intent = new Intent(Deal1kActivity.this, PersonalActivity1.class);
                 startActivity(intent);
             }
         });
@@ -301,15 +317,16 @@ public class HomeActivity extends AppCompatActivity {
         productsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                productList.clear(); // Xóa danh sách sản phẩm cũ
 
                 for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
                     Product product = productSnapshot.getValue(Product.class);
 
                     try {
-                         product = productSnapshot.getValue(Product.class);
+                        product = productSnapshot.getValue(Product.class);
 
-                        if (product != null) {
+                        // Kiểm tra xem sản phẩm có giá 1000 hay không
+                        if (product != null && product.getPrice() == 1000) {
                             productList.add(product);
                         }
                     } catch (Exception e) {
@@ -327,13 +344,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
     private void createProductItems1() {
         productsRef = FirebaseDatabase.getInstance().getReference("products");
 
         productsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                productList1.clear(); // Xóa danh sách sản phẩm cũ
 
                 for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
                     Product product = productSnapshot.getValue(Product.class);
@@ -341,7 +359,8 @@ public class HomeActivity extends AppCompatActivity {
                     try {
                         product = productSnapshot.getValue(Product.class);
 
-                        if (product != null) {
+                        // Kiểm tra xem sản phẩm có giá 1000 hay không
+                        if (product != null && product.getPrice() == 1000) {
                             productList1.add(product);
                         }
                     } catch (Exception e) {
@@ -359,6 +378,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void addIndicator(int count) {
         LinearLayout indicatorLayout = findViewById(R.id.indicatorLayout);

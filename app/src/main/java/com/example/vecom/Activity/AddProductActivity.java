@@ -16,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -155,8 +156,15 @@ public class AddProductActivity extends AppCompatActivity {
             int price = Integer.parseInt(priceStr);
             int stock = Integer.parseInt(stockStr);
 
-            // Create a Product object with only non-image information
-            Product newProduct = new Product(productName, price, productDescription, 0, stock, "", "", "", userEmail);
+            // Get the selected delivery option
+            String deliveryOption = getSelectedDeliveryOption();
+
+            // Get the delivery location from the EditText view
+            EditText deliveryLocationEditText = findViewById(R.id.editDeliveryLocation);
+            String deliveryLocation = deliveryLocationEditText.getText().toString();
+
+            // Create a Product object with the delivery option and location
+            Product newProduct = new Product(productName, price, productDescription, 0, stock, "", "", "", userEmail, deliveryOption, deliveryLocation);
 
             // Push the non-image information to Realtime Database
             DatabaseReference productRef = databaseReference.push();
@@ -174,6 +182,24 @@ public class AddProductActivity extends AppCompatActivity {
         }
     }
 
+    private String getSelectedDeliveryOption() {
+        // Implement the logic to get the selected delivery option based on checkboxes
+        // For example, if you have checkboxes with IDs checkBoxOption1, checkBoxOption2, checkBoxOption3
+        // Check which one is selected and return the corresponding delivery option
+        CheckBox checkBoxOption1 = findViewById(R.id.checkBoxOption1);
+        CheckBox checkBoxOption2 = findViewById(R.id.checkBoxOption2);
+        CheckBox checkBoxOption3 = findViewById(R.id.checkBoxOption3);
+
+        if (checkBoxOption1.isChecked()) {
+            return "Nhận tại điểm bán"; // Modify this based on your actual delivery option values
+        } else if (checkBoxOption2.isChecked()) {
+            return "Tự giao"; // Modify this based on your actual delivery option values
+        } else if (checkBoxOption3.isChecked()) {
+            return "Shipping"; // Modify this based on your actual delivery option values
+        } else {
+            return "Shipping"; // Provide a default option if none is selected
+        }
+    }
 
     private void uploadImage(Uri imageUri, String imageName) {
         progressDialog = createProgressDialog(this);

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bg_home">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/top"
+                android:layout_width="360dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/back"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đơn hàng 1k"
+                    android:textStyle="bold"
+                    android:textSize="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/back"
+                    android:layout_marginLeft="16dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/searchBox"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/top">
+
+                <include
+                    layout="@layout/search"
+                    android:id="@+id/searchBar"
+                    android:layout_width="300dp"
+                    android:layout_height="39.79dp"
+                    android:layout_marginTop="12.11dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentStart="true"/>
+
+                <ImageView
+                    android:id="@+id/notiIcon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="18dp"
+                    android:src="@drawable/noti" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/sliderAds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+<!--                <RelativeLayout-->
+<!--                    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="213.24dp"-->
+<!--                    android:layout_centerHorizontal="true">-->
+
+<!--                    <androidx.viewpager.widget.ViewPager-->
+<!--                        android:id="@+id/viewPagerAds"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"/>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/indicatorLayout"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:layout_alignParentBottom="true"/>-->
+<!--                </RelativeLayout>-->
+            </RelativeLayout>
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/top_bg1"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="90dp"-->
+            <!--                android:background="@drawable/bg_back_des"-->
+            <!--                android:visibility="gone"-->
+            <!--                android:layout_alignParentTop="true"/>-->
+
+            <RelativeLayout
+                android:id="@+id/top1"
+                android:layout_width="360dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/back1"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/back"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đơn hàng 1k"
+                    android:textStyle="bold"
+                    android:textSize="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/back1"
+                    android:layout_marginLeft="16dp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/searchBox1"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/top1">
+
+                <include
+                    layout="@layout/search"
+                    android:id="@+id/searchBar1"
+                    android:layout_width="300dp"
+                    android:layout_height="39.79dp"
+                    android:layout_marginTop="12.11dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentStart="true"/>
+
+                <ImageView
+                    android:id="@+id/notiIcon1"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="18dp"
+                    android:src="@drawable/noti" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/searchBox1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp">
+
+                <!-- RecyclerView with id "recyclerView" -->
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/recyclerView"-->
+<!--                    android:layout_below="@+id/newestText"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="24dp"/>-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/optionsBar"
+                    android:layout_marginTop="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="100dp"/>
+
+                <!--            <ImageView-->
+                <!--                android:id="@+id/beeImage"-->
+                <!--                android:layout_width="48dp"-->
+                <!--                android:layout_height="48dp"-->
+                <!--                android:layout_alignParentStart="true"-->
+                <!--                android:layout_alignParentTop="true"-->
+                <!--                android:layout_marginTop="30dp"-->
+                <!--                android:src="@drawable/bee" />-->
+
+                <!--            <TextView-->
+                <!--                android:id="@+id/welcomeText"-->
+                <!--                android:layout_width="220dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="Chào ngày mới 👋"-->
+                <!--                android:layout_toRightOf="@+id/beeImage"-->
+                <!--                android:layout_alignParentTop="true"-->
+                <!--                android:layout_marginTop="30dp"-->
+                <!--                android:layout_marginLeft="16dp"-->
+                <!--                android:textSize="16dp"-->
+                <!--                android:textColor="#757575" />-->
+
+                <!--            <TextView-->
+                <!--                android:id="@+id/userName"-->
+                <!--                android:layout_width="220dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="Esien Nguyen"-->
+                <!--                android:textStyle="bold"-->
+                <!--                android:layout_toRightOf="@+id/beeImage"-->
+                <!--                android:layout_below="@+id/welcomeText"-->
+                <!--                android:layout_marginLeft="16dp"-->
+                <!--                android:textSize="20dp" />-->
+
+                <!--            <ImageView-->
+                <!--                android:layout_width="28dp"-->
+                <!--                android:layout_height="28dp"-->
+                <!--                android:src="@drawable/heart"-->
+                <!--                android:layout_toRightOf="@+id/notiIcon"-->
+                <!--                android:layout_alignParentTop="true"-->
+                <!--                android:layout_marginLeft="16dp"-->
+                <!--                android:layout_marginTop="38dp" />-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:id="@+id/utilityBox">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/utilityText"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Tiện ích"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold"/>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Tất cả"-->
+<!--                        android:textSize="12dp"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:layout_toLeftOf="@+id/rightArrow"-->
+<!--                        android:layout_marginRight="5dp"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/rightArrow"-->
+<!--                        android:layout_width="12dp"-->
+<!--                        android:layout_height="12dp"-->
+<!--                        android:src="@drawable/right_arrow2"-->
+<!--                        android:layout_alignParentEnd="true"-->
+<!--                        android:layout_marginTop="7dp"/>-->
+
+<!--                    <HorizontalScrollView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentStart="true"-->
+<!--                        android:scrollbars="none"-->
+<!--                        android:layout_below="@+id/utilityText">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:layout_marginTop="18dp">-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/forumUti"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content">-->
+
+<!--                                <RelativeLayout-->
+<!--                                    android:id="@+id/forumIcon"-->
+<!--                                    android:layout_width="48.05dp"-->
+<!--                                    android:layout_height="48dp"-->
+<!--                                    android:background="@drawable/forum_bg">-->
+
+<!--                                    <ImageView-->
+<!--                                        android:layout_width="29.03dp"-->
+<!--                                        android:layout_height="24dp"-->
+<!--                                        android:layout_centerInParent="true"-->
+<!--                                        android:src="@drawable/community1" />-->
+<!--                                </RelativeLayout>-->
+
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Forum"-->
+<!--                                    android:layout_below="@+id/forumIcon"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_marginTop="11dp"/>-->
+
+<!--                            </RelativeLayout>-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/don1dUti"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="39dp">-->
+
+<!--                                <RelativeLayout-->
+<!--                                    android:id="@+id/don1dIcon"-->
+<!--                                    android:layout_width="48.05dp"-->
+<!--                                    android:layout_height="48dp"-->
+<!--                                    android:background="@drawable/don1d_bg"-->
+<!--                                    android:layout_centerHorizontal="true">-->
+
+<!--                                    <ImageView-->
+<!--                                        android:layout_width="22dp"-->
+<!--                                        android:layout_height="22dp"-->
+<!--                                        android:src="@drawable/don1d_bg1"-->
+<!--                                        android:layout_centerInParent="true"/>-->
+
+<!--                                    <TextView-->
+<!--                                        android:layout_width="16dp"-->
+<!--                                        android:layout_height="19dp"-->
+<!--                                        android:layout_centerInParent="true"-->
+<!--                                        android:text="Deal 1k"-->
+<!--                                        android:textSize="7.5dp"-->
+<!--                                        android:gravity="center"-->
+<!--                                        android:textColor="#D82727"/>-->
+
+<!--                                </RelativeLayout>-->
+
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Đơn hàng 1k"-->
+<!--                                    android:layout_below="@+id/don1dIcon"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_marginTop="11dp"/>-->
+
+<!--                            </RelativeLayout>-->
+
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/voucherUti"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="39dp">-->
+
+<!--                                <RelativeLayout-->
+<!--                                    android:id="@+id/voucherIcon"-->
+<!--                                    android:layout_width="48.05dp"-->
+<!--                                    android:layout_height="48dp"-->
+<!--                                    android:background="@drawable/voucher_bg">-->
+
+<!--                                    <ImageView-->
+<!--                                        android:layout_width="29.03dp"-->
+<!--                                        android:layout_height="24dp"-->
+<!--                                        android:layout_centerInParent="true"-->
+<!--                                        android:src="@drawable/voucher_icon" />-->
+<!--                                </RelativeLayout>-->
+
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Voucher"-->
+<!--                                    android:layout_below="@+id/voucherIcon"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_marginTop="11dp"/>-->
+
+<!--                            </RelativeLayout>-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/freeshipUti"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="39dp">-->
+
+<!--                                <RelativeLayout-->
+<!--                                    android:id="@+id/freeshipIcon"-->
+<!--                                    android:layout_width="48.05dp"-->
+<!--                                    android:layout_height="48dp"-->
+<!--                                    android:background="@drawable/freeship_bg">-->
+
+<!--                                    <ImageView-->
+<!--                                        android:layout_width="29.03dp"-->
+<!--                                        android:layout_height="24dp"-->
+<!--                                        android:layout_centerInParent="true"-->
+<!--                                        android:src="@drawable/freeship_icon" />-->
+<!--                                </RelativeLayout>-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Freeship"-->
+<!--                                    android:layout_below="@+id/freeshipIcon"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_marginTop="11dp"/>-->
+<!--                            </RelativeLayout>-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/tailieuUti"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="19dp">-->
+
+<!--                                <RelativeLayout-->
+<!--                                    android:id="@+id/tailieuIcon"-->
+<!--                                    android:layout_width="48.05dp"-->
+<!--                                    android:layout_height="48dp"-->
+<!--                                    android:background="@drawable/tailieu_bg"-->
+<!--                                    android:layout_centerHorizontal="true">-->
+
+<!--                                    <ImageView-->
+<!--                                        android:layout_width="29.03dp"-->
+<!--                                        android:layout_height="24dp"-->
+<!--                                        android:layout_centerInParent="true"-->
+<!--                                        android:src="@drawable/tailieu_icon"/>-->
+<!--                                </RelativeLayout>-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Tài liệu miễn phí"-->
+<!--                                    android:layout_below="@+id/tailieuIcon"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_marginTop="11dp"/>-->
+<!--                            </RelativeLayout>-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/jobUti"-->
+<!--                                android:layout_width="80dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="19dp">-->
+
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/jobIcon"-->
+<!--                                    android:layout_width="48.05dp"-->
+<!--                                    android:layout_height="48dp"-->
+<!--                                    android:background="@drawable/job_bg"-->
+<!--                                    android:layout_centerHorizontal="true">-->
+<!--                                </ImageView>-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Cơ hội thực tập, việc làm"-->
+<!--                                    android:layout_below="@+id/jobIcon"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_marginTop="11dp"-->
+<!--                                    android:gravity="center"/>-->
+<!--                            </RelativeLayout>-->
+
+
+<!--                        </LinearLayout>-->
+<!--                    </HorizontalScrollView>-->
+<!--                </RelativeLayout>-->
+
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/newestText"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Mới nhất"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_below="@+id/utilityBox"-->
+<!--                    android:layout_marginTop="32dp"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Tất cả"-->
+<!--                    android:textSize="12dp"-->
+<!--                    android:layout_marginTop="36dp"-->
+<!--                    android:layout_toLeftOf="@+id/rightArrow1"-->
+<!--                    android:layout_marginRight="5dp"-->
+<!--                    android:layout_below="@+id/utilityBox" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/rightArrow1"-->
+<!--                    android:layout_width="12dp"-->
+<!--                    android:layout_height="12dp"-->
+<!--                    android:src="@drawable/right_arrow2"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_marginTop="39dp"-->
+<!--                    android:layout_below="@+id/utilityBox"/>-->
+
+<!--                <androidx.viewpager.widget.ViewPager-->
+<!--                    android:id="@+id/viewPager"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="500dp"-->
+<!--                    android:layout_below="@+id/newestText"-->
+<!--                    android:layout_marginTop="24dp"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_marginEnd="20dp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/commonText"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/viewPager"-->
+<!--                    android:layout_marginTop="34dp"-->
+<!--                    android:text="Phổ biến"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/allText2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/viewPager"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_marginTop="35dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:text="Tất cả"-->
+<!--                    android:textSize="16dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="#30c480" />-->
+
+                <include
+                    android:id="@+id/optionsBar"
+                    layout="@layout/options_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true" />
+
+
+                <!--            <androidx.viewpager.widget.ViewPager-->
+                <!--                android:id="@+id/viewPager1"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="450dp"-->
+                <!--                android:layout_below="@+id/optionsBar"-->
+                <!--                android:layout_marginTop="36dp"-->
+                <!--                android:layout_alignParentStart="true"-->
+                <!--                android:layout_marginStart="20dp"-->
+                <!--                android:layout_alignParentEnd="true"-->
+                <!--                android:layout_marginEnd="20dp"-->
+                <!--                android:layout_marginBottom="100dp"/>-->
+
+                <!--            <include-->
+                <!--                android:id="@+id/row1"-->
+                <!--                layout="@layout/product_card"-->
+                <!--                android:layout_width="170dp"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_below="@+id/optionsBar"-->
+                <!--                android:layout_marginTop="36dp"-->
+                <!--                android:layout_alignParentStart="true"-->
+                <!--                android:layout_marginStart="20dp"/>-->
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+    <!-- Bottom Navigation Menu -->
+    <include
+        android:id="@+id/navigationMenu"
+        layout="@layout/activity_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom" />
+
+    <View
+        android:id="@+id/overlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
