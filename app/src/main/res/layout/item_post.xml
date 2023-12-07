@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="134dp"
+        android:background="@drawable/forum_bg"
+        android:layout_marginTop="29dp">
+
+        <ImageView
+            android:id="@+id/postImage"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="15.4dp"
+            android:layout_marginStart="15.4dp"/>
+
+        <TextView
+            android:id="@+id/postContent"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/postImage"
+            android:layout_marginStart="15.4dp"
+            android:layout_marginTop="15.4dp"
+            android:text="Nông nghiệp đang bước vào thời kỳ khủng khoảng"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forum Loopy"
+            android:background="@drawable/tag_bg"
+            android:textSize="11dp"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:paddingTop="4.4dp"
+            android:paddingBottom="4.4dp"
+            android:layout_below="@+id/postContent"
+            android:layout_toRightOf="@+id/postImage"
+            android:layout_marginLeft="15.4dp"
+            android:layout_marginTop="11dp"
+            android:textColor="@color/forum_text"/>
+
+        <TextView
+            android:id="@+id/tag2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mua bán đồ cũ"
+            android:background="@drawable/tag_bg"
+            android:textSize="11dp"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:paddingTop="4.4dp"
+            android:paddingBottom="4.4dp"
+            android:layout_below="@+id/postContent"
+            android:layout_toRightOf="@+id/tag1"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="11dp"
+            android:textColor="@color/forum_text"/>
+
+        <TextView
+            android:id="@+id/tag3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hỗ trợ"
+            android:background="@drawable/tag_bg"
+            android:textSize="11dp"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:paddingTop="4.4dp"
+            android:paddingBottom="4.4dp"
+            android:layout_below="@+id/postContent"
+            android:layout_toRightOf="@+id/tag2"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="11dp"
+            android:textColor="@color/forum_text"/>
+
+        <RelativeLayout
+            android:id="@+id/views"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/postImage"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4.82dp"
+            android:layout_marginLeft="15.4dp">
+
+            <TextView
+                android:id="@+id/viewNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="651324"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/viewText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/viewNumber"
+                android:text="lượt xem"
+                android:textSize="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="3dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/views"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4.82dp"
+            android:layout_marginLeft="33dp">
+
+            <TextView
+                android:id="@+id/likeNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="36654"
+                android:textSize="10dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/likeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/likeNumber"
+                android:text="thích"
+                android:textSize="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="3dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/like"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4.82dp"
+            android:layout_marginLeft="33dp">
+
+            <TextView
+                android:id="@+id/cmtNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="56"
+                android:textSize="10dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/cmtText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/cmtNumber"
+                android:text="bình luận"
+                android:textSize="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="3dp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -156,6 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                         map.put("id", user.getUid());
                         map.put("name", user.getDisplayName());
                         map.put("profile", user.getPhotoUrl().toString());
+                        map.put("userEmail", user.getEmail().toString());
                         usersRef.child(user.getUid()).setValue(map);
                         updateUI(user, null);
                     } else {

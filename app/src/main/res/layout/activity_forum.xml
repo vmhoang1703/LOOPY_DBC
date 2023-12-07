@@ -161,6 +161,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        android:id="@+id/postEditText"
                         android:layout_width="193dp"
                         android:layout_height="58dp"
                         android:background="@drawable/black_bg"
@@ -173,6 +174,7 @@
                         android:textSize="13dp"/>
 
                     <ImageView
+                        android:id="@+id/postButton"
                         android:layout_width="78dp"
                         android:layout_height="38dp"
                         android:layout_centerVertical="true"
@@ -181,74 +183,162 @@
                         android:layout_marginEnd="15.51dp"/>
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/post1"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/postRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="134dp"
-                    android:layout_below="@+id/uppost"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="29dp"
-                    android:layout_marginEnd="0dp"
-                    android:background="@drawable/forum_bg">
-                    
-                    <ImageView
-                        android:id="@+id/postImage"
-                        android:layout_width="62dp"
-                        android:layout_height="62dp"
-                        android:src="@drawable/post_image"
-                        android:layout_marginTop="15.4dp"
-                        android:layout_marginLeft="15.4dp"/>
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/uppost"/>
 
-                    <TextView
-                        android:id="@+id/postContent"
-                        android:layout_width="205dp"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/postImage"
-                        android:layout_marginLeft="15.4dp"
-                        android:layout_marginTop="15.4dp"
-                        android:text="Nông nghiệp đang bước vào thời kỳ khủng khoảng"
-                        android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/moreInfoTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xem thêm"
+                    android:textSize="15dp"
+                    android:layout_below="@+id/postRecyclerView"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
 
-                    <TextView
-                        android:id="@+id/tag1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kinh tế"
-                        android:background="@drawable/tag_bg"
-                        android:textSize="15dp"
-                        android:paddingLeft="11dp"
-                        android:paddingRight="11dp"
-                        android:paddingTop="4.4dp"
-                        android:paddingBottom="4.4dp"
-                        android:layout_below="@+id/postContent"
-                        android:layout_toRightOf="@+id/postImage"
-                        android:layout_marginLeft="15.4dp"
-                        android:layout_marginTop="11dp"
-                        android:textColor="@color/forum_text"/>
-                </RelativeLayout>
-
+                <ImageView
+                    android:id="@+id/rightArrow"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/right_arrow2"
+                    android:layout_toRightOf="@+id/moreInfoTextView"
+                    android:layout_below="@+id/postRecyclerView"
+                    android:layout_marginTop="15.5dp"/>
+                
                 <RelativeLayout
-                    android:id="@+id/post2"
+                    android:id="@+id/meetsupBox"
                     android:layout_width="match_parent"
-                    android:layout_height="134dp"
-                    android:background="@drawable/forum_bg"
-                    android:layout_below="@+id/post1"
-                    android:layout_marginTop="28dp">
+                    android:layout_height="335dp"
+                    android:layout_below="@+id/moreInfoTextView"
+                    android:background="@drawable/meetsup">
+
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginStart="20dp"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginEnd="20dp"-->
+<!--                        android:layout_marginBottom="20dp">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/meetups"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Hội thảo"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="20dp"-->
+<!--                            android:textStyle="bold" />-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="20dp"-->
+<!--                            android:layout_marginLeft="3dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:layout_toRightOf="@id/meetups"-->
+<!--                            android:src="@drawable/white_arrow" />-->
+
+<!--                        <RelativeLayout-->
+<!--                            android:id="@+id/meetsup1"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="68dp"-->
+<!--                            android:layout_below="@id/meetups"-->
+<!--                            android:layout_marginTop="20dp">-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/dateInfo"-->
+<!--                                android:layout_width="68dp"-->
+<!--                                android:layout_height="68dp"-->
+<!--                                android:background="@drawable/black_bg">-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/monthText"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginLeft="10dp"-->
+<!--                                    android:layout_marginTop="4dp"-->
+<!--                                    android:text="Tháng"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="13dp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/monthNumber"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginLeft="3dp"-->
+<!--                                    android:layout_marginTop="4dp"-->
+<!--                                    android:layout_toRightOf="@+id/monthText"-->
+<!--                                    android:text="2"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="13dp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/date"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_alignParentBottom="true"-->
+<!--                                    android:layout_centerHorizontal="true"-->
+<!--                                    android:layout_marginBottom="7dp"-->
+<!--                                    android:text="7"-->
+<!--                                    android:textColor="@color/date"-->
+<!--                                    android:textSize="30dp"-->
+<!--                                    android:textStyle="bold" />-->
+<!--                            </RelativeLayout>-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/meetsupContent"-->
+<!--                                android:layout_width="229dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="14dp"-->
+<!--                                android:layout_toEndOf="@+id/dateInfo"-->
+<!--                                android:text="Nông nghiệp và tiềm năng phát triển"-->
+<!--                                android:textColor="@color/white" />-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:layout_width="229dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_below="@id/meetsupContent"-->
+<!--                                android:layout_marginStart="14dp"-->
+<!--                                android:layout_toEndOf="@+id/dateInfo">-->
+
+<!--                            </RelativeLayout>-->
 
 
+<!--                        </RelativeLayout>-->
+<!--                    </RelativeLayout>-->
                 </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/podcastsBox"
+                android:layout_width="match_parent"
+                android:layout_height="335dp"
+                android:layout_below="@+id/meetsupBox"
+                android:background="@drawable/meetsup"
+                android:layout_marginTop="30dp">
 
-                <RelativeLayout
-                    android:id="@+id/post3"
-                    android:layout_width="match_parent"
-                    android:layout_height="134dp"
-                    android:background="@drawable/forum_bg"
-                    android:layout_below="@+id/post2"
-                    android:layout_marginTop="28dp">
+            </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/moreInfoTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xem thêm"
+                    android:textSize="15dp"
+                    android:layout_below="@+id/podcastsBox"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
 
-                </RelativeLayout>
-
+                <ImageView
+                    android:id="@+id/rightArrow1"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/right_arrow2"
+                    android:layout_toRightOf="@+id/moreInfoTextView1"
+                    android:layout_below="@+id/podcastsBox"
+                    android:layout_marginTop="15.5dp"/>
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>

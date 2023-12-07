@@ -293,6 +293,16 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        RelativeLayout forumUti = findViewById(R.id.forumUti);
+        forumUti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ForumActivity.class);
+                applyButtonClickEffect(forumUti);
+                startActivity(intent);
+            }
+        });
     }
 
     private void createProductItems() {
