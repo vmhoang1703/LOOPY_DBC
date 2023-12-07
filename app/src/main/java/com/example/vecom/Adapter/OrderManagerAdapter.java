@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.vecom.Activity.FollowOrderActivity;
 import com.example.vecom.Model.CardItem;
+import com.example.vecom.Model.Order;
 import com.example.vecom.R;
 
 import java.util.ArrayList;
@@ -23,14 +24,14 @@ import java.util.List;
 
 public class OrderManagerAdapter extends RecyclerView.Adapter<OrderManagerAdapter.ViewHolder> {
 
-    private List<CardItem> cardItemList;
-    private List<CardItem> filteredList;
+    private List<Order> OrderList;
+    private List<Order> filteredList;
     private Context context;
 
-    public OrderManagerAdapter(Context context, List<CardItem> cardItemList) {
+    public OrderManagerAdapter(Context context, List<Order> OrderList) {
         this.context = context;
-        this.cardItemList = cardItemList;
-        this.filteredList = new ArrayList<>(cardItemList);
+        this.OrderList = OrderList;
+        this.filteredList = new ArrayList<>(OrderList);
     }
     @NonNull
     @Override
@@ -41,10 +42,10 @@ public class OrderManagerAdapter extends RecyclerView.Adapter<OrderManagerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CardItem product = cardItemList.get(position);
+        Order product = OrderList.get(position);
 
         // Set data to views
-        holder.productName.setText(product.getName());
+        holder.productName.setText(product.getProductName());
         holder.productPrice.setText(String.valueOf(product.getPrice()));
         // Use Glide to load the image from the URL
         Glide.with(context).load(product.getImageUrl()).into(holder.productImage);
@@ -53,7 +54,7 @@ public class OrderManagerAdapter extends RecyclerView.Adapter<OrderManagerAdapte
             public void onClick(View v) {
                 Intent intent = new Intent(context, FollowOrderActivity.class);
                 intent.putExtra("productId", product.getProductId());
-                intent.putExtra("productName", product.getName());
+                intent.putExtra("productName", product.getProductName());
                 intent.putExtra("productPrice", String.valueOf(product.getPrice()));
                 intent.putExtra("productImg", product.getImageUrl());
 
@@ -68,8 +69,9 @@ public class OrderManagerAdapter extends RecyclerView.Adapter<OrderManagerAdapte
     }
 
     @Override
+
     public int getItemCount() {
-        return cardItemList.size();
+        return OrderList != null ? OrderList.size() : 0;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -90,13 +92,13 @@ public class OrderManagerAdapter extends RecyclerView.Adapter<OrderManagerAdapte
 
         if (text.isEmpty()) {
             // If the search string is empty, display the entire product list
-            filteredList.addAll(cardItemList);
+            filteredList.addAll(OrderList);
         } else {
             // If there is a search string, filter the product list based on the string
             String searchText = text.toLowerCase().trim();
 
-            for (CardItem product : cardItemList) {
-                if (product.getName().toLowerCase().contains(searchText)) {
+            for (Order product : OrderList) {
+                if (product.getProductName().toLowerCase().contains(searchText)) {
                     filteredList.add(product);
                 }
             }

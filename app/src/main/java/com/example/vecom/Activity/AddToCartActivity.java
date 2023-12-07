@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -90,6 +91,7 @@ public class AddToCartActivity extends AppCompatActivity {
             }
         });
         recyclerView = findViewById(R.id.cartListView); // Ánh xạ RecyclerView từ layout
+
         productList = new ArrayList<>(); // Initialize the product list
         addToCardAdapter = new AddToCardAdapter(this, productList); // Initialize the product adapter with context
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
@@ -123,6 +125,7 @@ public class AddToCartActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 productList.clear(); // Xóa danh sách sản phẩm hiện tại
+                totalCartPrice=0;
                 String userEmail = currentUser.getEmail();
                 userReference = FirebaseDatabase.getInstance().getReference().child("users");
 

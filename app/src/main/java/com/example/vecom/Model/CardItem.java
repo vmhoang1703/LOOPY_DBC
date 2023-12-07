@@ -1,6 +1,10 @@
 package com.example.vecom.Model;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CardItem {
+    private String cardItemId;
 
     private String productId;
     private String imageUrl;
@@ -13,6 +17,7 @@ public class CardItem {
     public CardItem() {}
 
     public CardItem(String productId, String name, int price, String imageUrl, String userEmail) {
+        this.cardItemId = generateCardItemId();
         this.productId = productId;
         this.imageUrl = imageUrl;
         this.name = name;
@@ -21,7 +26,13 @@ public class CardItem {
         this.userEmail = userEmail;
         this.totalPrice = calculateTotalPrice();
     }
-
+    private String generateCardItemId() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("cardItems");
+        return databaseReference.push().getKey();
+    }
+    public String getCardItemId() {
+        return cardItemId;
+    }
     public String getProductId() {
         return productId;
     }
