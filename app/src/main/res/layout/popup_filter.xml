@@ -122,7 +122,7 @@
             <TextView
                 android:layout_width="134dp"
                 android:layout_height="58dp"
-                android:background="@drawable/shadowbtn_grren"
+                android:background="@drawable/shadowbtn_green"
                 android:elevation="5dp"
                 android:text="Tiến hành"
                 android:textColor="@color/white"

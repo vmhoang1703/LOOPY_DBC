@@ -215,7 +215,7 @@
                                     android:id="@+id/forumIcon"
                                     android:layout_width="48.05dp"
                                     android:layout_height="48dp"
-                                    android:background="@drawable/forum_bg">
+                                    android:background="@drawable/forum_bg_img">
 
                                     <ImageView
                                         android:layout_width="29.03dp"

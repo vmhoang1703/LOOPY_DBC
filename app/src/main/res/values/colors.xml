@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#01b763</color>
     <color name="bg_des">#FAF6F6</color>
+    <color name="forum_text">#858EAD</color>
 </resources>
