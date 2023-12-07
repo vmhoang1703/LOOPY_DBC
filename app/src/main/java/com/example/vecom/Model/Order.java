@@ -26,7 +26,7 @@ public class Order {
         this.userEmail = userEmail;
         this.quantity = quantity;
         this.status = status;
-
+        
     }
     private String generateOrderId() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("orders");

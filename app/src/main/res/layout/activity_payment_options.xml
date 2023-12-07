@@ -63,162 +63,169 @@
                 android:layout_below="@+id/chooseText"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/bg_back_des">
-                
-                <RelativeLayout
-                    android:id="@+id/yourWalletOption"
+
+                <RadioGroup
+                    android:id="@+id/paymentOptionsGroup"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@color/white">
-                    
-                    <ImageView
-                        android:id="@+id/walletIcon"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/wallet"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/yourWalletText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ví của bạn"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:layout_toRightOf="@id/walletIcon"
-                        android:layout_marginLeft="12dp"
-                        android:layout_centerVertical="true"/>
+                    <RelativeLayout
+                        android:id="@+id/yourWalletOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@color/white">
 
-                    <RadioButton
-                        android:id="@+id/radioBtnYourWallet"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:buttonTint="@color/green"/>
+                        <ImageView
+                            android:id="@+id/walletIcon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/wallet"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="24dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 đ"
-                        android:textStyle="bold"
-                        android:textSize="16dp"
-                        android:layout_toLeftOf="@+id/radioBtnYourWallet"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="12dp"/>
+                        <TextView
+                            android:id="@+id/yourWalletText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ví của bạn"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:layout_toRightOf="@id/walletIcon"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"/>
 
-                </RelativeLayout>
+                        <RadioButton
+                            android:id="@+id/radioBtnYourWallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:buttonTint="@color/green" />
 
-                <RelativeLayout
-                    android:id="@+id/PaypalOption"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@color/white"
-                    android:layout_below="@+id/yourWalletOption"
-                    android:layout_marginTop="24dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 đ"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:layout_toLeftOf="@+id/radioBtnYourWallet"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="12dp"/>
 
-                    <ImageView
-                        android:id="@+id/paypalIcon"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/paypal"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"/>
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/paypalText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Paypal"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:layout_toRightOf="@id/paypalIcon"
-                        android:layout_marginLeft="12dp"
-                        android:layout_centerVertical="true"/>
+                    <RelativeLayout
+                        android:id="@+id/PaypalOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@color/white"
+                        android:layout_below="@+id/yourWalletOption"
+                        android:layout_marginTop="24dp">
 
-                    <RadioButton
-                        android:id="@+id/radioBtnPaypal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:buttonTint="@color/green"/>
+                        <ImageView
+                            android:id="@+id/paypalIcon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/paypal"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="24dp"/>
 
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/paypalText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paypal"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:layout_toRightOf="@id/paypalIcon"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"/>
 
-                <RelativeLayout
-                    android:id="@+id/MastercardOption"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@color/white"
-                    android:layout_below="@+id/PaypalOption"
-                    android:layout_marginTop="24dp">
+                        <RadioButton
+                            android:id="@+id/radioBtnPaypal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:buttonTint="@color/green" />
 
-                    <ImageView
-                        android:id="@+id/mastercardIcon"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/mastercard"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"/>
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/mastercardText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="**** **** **** **** 4679"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:layout_toRightOf="@id/mastercardIcon"
-                        android:layout_marginLeft="12dp"
-                        android:layout_centerVertical="true"/>
+                    <RelativeLayout
+                        android:id="@+id/MastercardOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@color/white"
+                        android:layout_below="@+id/PaypalOption"
+                        android:layout_marginTop="24dp">
 
-                    <RadioButton
-                        android:id="@+id/radioBtnMastercard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:buttonTint="@color/green"/>
+                        <ImageView
+                            android:id="@+id/mastercardIcon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/mastercard"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="24dp"/>
 
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/mastercardText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="**** **** **** **** 4679"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:layout_toRightOf="@id/mastercardIcon"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"/>
 
-                <RelativeLayout
-                    android:id="@+id/CodOption"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@color/white"
-                    android:layout_below="@+id/MastercardOption"
-                    android:layout_marginTop="24dp">
+                        <RadioButton
+                            android:id="@+id/radioBtnMastercard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:buttonTint="@color/green" />
 
-                    <TextView
-                        android:id="@+id/codIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="COD"
-                        android:textSize="20dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"/>
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/codText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thanh toán khi nhận hàng"
-                        android:textStyle="bold"
-                        android:textSize="18dp"
-                        android:layout_toRightOf="@id/codIcon"
-                        android:layout_marginLeft="12dp"
-                        android:layout_centerVertical="true"/>
+                    <RelativeLayout
+                        android:id="@+id/CodOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@color/white"
+                        android:layout_below="@+id/MastercardOption"
+                        android:layout_marginTop="24dp">
 
-                    <RadioButton
-                        android:id="@+id/radioBtnCod"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:buttonTint="@color/green"/>
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/codIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="COD"
+                            android:textSize="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="24dp"/>
+
+                        <TextView
+                            android:id="@+id/codText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thanh toán khi nhận hàng"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:layout_toRightOf="@id/codIcon"
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"/>
+
+                        <RadioButton
+                            android:id="@+id/radioBtnCod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:buttonTint="@color/green" />
+                    </RelativeLayout>
+                </RadioGroup>
             </RelativeLayout>
         </RelativeLayout>
 
@@ -231,6 +238,7 @@
             android:layout_marginBottom="36dp">
 
             <RelativeLayout
+                android:id="@+id/confirmBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -247,4 +255,10 @@
         </RelativeLayout>
 
     </RelativeLayout>
+    <View
+        android:id="@+id/overlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone" />
 </RelativeLayout>
