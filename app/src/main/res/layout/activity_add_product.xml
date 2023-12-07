@@ -484,7 +484,7 @@
                 android:id="@+id/saveBtn"
                 android:layout_width="138dp"
                 android:layout_height="58dp"
-                android:background="@drawable/shadowbtn_grren"
+                android:background="@drawable/shadowbtn_green"
                 android:elevation="5dp"
                 android:text="Lưu"
                 android:textColor="@color/white"
