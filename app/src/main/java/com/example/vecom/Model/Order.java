@@ -15,8 +15,9 @@ public class Order {
     private String userEmail;
     private int quantity;
     private String status;
+    public Order() {}
 
-    public Order( String productId, String imageUrl, String productName, int price, String userEmail, int quantity, String status) {
+    public Order( String productId, String productName, int price, String imageUrl,String userEmail, int quantity, String status) {
         this.orderId = generateOrderId();
         this.productId = productId;
         this.imageUrl = imageUrl;
@@ -25,7 +26,7 @@ public class Order {
         this.userEmail = userEmail;
         this.quantity = quantity;
         this.status = status;
-        // Initialize additional fields here...
+
     }
     private String generateOrderId() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("orders");

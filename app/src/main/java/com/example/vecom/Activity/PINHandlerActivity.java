@@ -183,9 +183,9 @@ public class PINHandlerActivity extends AppCompatActivity {
         // Create an Order object using CardItem data
         return new Order(
                 cardItem.getProductId(),
-                cardItem.getImageUrl(),
                 cardItem.getName(),
                 cardItem.getPrice(),
+                cardItem.getImageUrl(),
                 cardItem.getUserEmail(),
                 1, // Assuming quantity is 1 for each CardItem
                 "Đang vận chuyển" // Assuming the initial status is "pending"

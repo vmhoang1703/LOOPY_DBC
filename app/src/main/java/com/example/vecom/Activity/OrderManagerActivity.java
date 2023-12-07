@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 
 import com.example.vecom.Adapter.OrderManagerAdapter;
+import com.example.vecom.Model.CardItem;
 import com.example.vecom.Model.Order;
 import com.example.vecom.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +37,7 @@ public class OrderManagerActivity extends AppCompatActivity {
     private LinearLayout emptyOrderText;
     private DatabaseReference userReference;
     private DatabaseReference productsRef;
+    private List<CardItem> productList;
 
     private OrderManagerAdapter orderManagerAdapter;
 
@@ -88,8 +90,9 @@ public class OrderManagerActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.cartListView); // Ánh xạ RecyclerView từ layout
         orderList = new ArrayList<>(); // Initialize the product list
         orderManagerAdapter = new OrderManagerAdapter(this, orderList); // Initialize the product adapter with context
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
         recyclerView.setAdapter(orderManagerAdapter); // Set the product adapter to RecyclerView
 
         createOrderItems();
