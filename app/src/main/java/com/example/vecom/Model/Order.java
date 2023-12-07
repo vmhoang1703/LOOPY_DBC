@@ -1,34 +1,62 @@
 package com.example.vecom.Model;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DecimalFormat;
 
 public class Order {
+    private String orderId; // Add a unique order ID
+    private String productId;
+    private String imageUrl;
     private String productName;
+    private int price; // Consider changing this to match your use case
     private int totalPrice;
-    private int productImgRsc;
+    private String userEmail;
     private int quantity;
     private String status;
-    // Add more fields as needed...
 
-    public Order(String productName, int totalPrice, int productImgRsc, int quantity, String status) {
+    public Order( String productId, String imageUrl, String productName, int price, String userEmail, int quantity, String status) {
+        this.orderId = generateOrderId();
+        this.productId = productId;
+        this.imageUrl = imageUrl;
         this.productName = productName;
-        this.totalPrice = totalPrice;
-        this.productImgRsc = productImgRsc;
+        this.price = price;
+        this.userEmail = userEmail;
         this.quantity = quantity;
         this.status = status;
         // Initialize additional fields here...
+    }
+    private String generateOrderId() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("orders");
+        return databaseReference.push().getKey();
+    }
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public String getProductName() {
         return productName;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public int getTotalPrice() {
         return totalPrice;
     }
 
-    public int getProductImgRsc() {
-        return productImgRsc;
+    public String getUserEmail() {
+        return userEmail;
     }
 
     public int getQuantity() {
@@ -38,5 +66,5 @@ public class Order {
     public String getStatus() {
         return status;
     }
-
 }
+

@@ -3,6 +3,7 @@ package com.example.vecom.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -16,7 +17,6 @@ import android.widget.TextView;
 
 
 import com.example.vecom.Adapter.OrderManagerAdapter;
-import com.example.vecom.Model.CardItem;
 import com.example.vecom.Model.Order;
 import com.example.vecom.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +36,6 @@ public class OrderManagerActivity extends AppCompatActivity {
     private LinearLayout emptyOrderText;
     private DatabaseReference userReference;
     private DatabaseReference productsRef;
-    private List<CardItem> productList;
 
     private OrderManagerAdapter orderManagerAdapter;
 
@@ -87,52 +86,38 @@ public class OrderManagerActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.cartListView); // Ánh xạ RecyclerView từ layout
-        productList = new ArrayList<>(); // Initialize the product list
-        orderManagerAdapter = new OrderManagerAdapter(this, productList); // Initialize the product adapter with context
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        orderList = new ArrayList<>(); // Initialize the product list
+        orderManagerAdapter = new OrderManagerAdapter(this, orderList); // Initialize the product adapter with context
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(orderManagerAdapter); // Set the product adapter to RecyclerView
 
         createOrderItems();
 
 
-//        orderListView = findViewById(R.id.orderListView);
-//        emptyOrderText = findViewById(R.id.noOrderLayout);
-//
-//        orderList = new ArrayList<>();
-//        // Thêm sản phẩm vào giỏ hàng
-//        orderList.add(new Order("Bàn phím cơ EK87", 299.000, R.drawable.product_test, 1, "Đang vận chuyển"));
-//
-//        updateOrderView();
-//
-//        // Xử lý sự kiện khi giỏ hàng trống
-//        if (orderList.isEmpty()) {
-//            orderListView.setVisibility(View.GONE);
-//            emptyOrderText.setVisibility(View.VISIBLE);
-//        }
     }
     private void createOrderItems() {
-        productsRef = FirebaseDatabase.getInstance().getReference("cardItems");
+        productsRef = FirebaseDatabase.getInstance().getReference("orders");
         productsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                productList.clear(); // Xóa danh sách sản phẩm hiện tại
+                orderList.clear(); // Xóa danh sách sản phẩm hiện tại
                 String userEmail = currentUser.getEmail();
                 userReference = FirebaseDatabase.getInstance().getReference().child("users");
 
                 for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
                     try {
-                        CardItem cardItem = productSnapshot.getValue(CardItem.class);
+                        Order order = productSnapshot.getValue(Order.class);
 
-                        if (cardItem != null && cardItem.getUserEmail().equals(userEmail)) {
-                            productList.add(cardItem);
+                        if (order != null && order.getUserEmail().equals(userEmail)) {
+                            orderList.add(order);
                         }
                     } catch (Exception e) {
-                        Log.e("Firebase", "Error converting to CardItem", e);
+
                     }
                 }
 
-                if (productList.isEmpty()) {
+                if (orderList.isEmpty()) {
                     findViewById(R.id.cartListView).setVisibility(View.GONE);
                     findViewById(R.id.noOrderLayout).setVisibility(View.VISIBLE);
                 } else {

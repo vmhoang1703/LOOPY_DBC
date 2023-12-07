@@ -81,13 +81,36 @@ public class OrderInformationActivity extends AppCompatActivity {
         continuePaymentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OrderInformationActivity.this, PaymentOptionsActivity.class);
+
                 // Tạo hiệu ứng làm mờ nút
                 ObjectAnimator fadeOut = ObjectAnimator.ofFloat(continuePaymentBtn, "alpha", 1f, 0.5f);
                 fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh
                 fadeOut.start();
-
+//                deleteUserCardItems(currentUser.getEmail());
+                Intent intent = new Intent(OrderInformationActivity.this, PaymentOptionsActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+    private void deleteUserCardItems(String userEmail) {
+        DatabaseReference cardItemsRef = FirebaseDatabase.getInstance().getReference("cardItems");
+
+        // Query to find CardItems for the current user
+        cardItemsRef.orderByChild("userEmail").equalTo(userEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot cardItemSnapshot : dataSnapshot.getChildren()) {
+                    // Get the unique key of the CardItem to be deleted
+                    String cardItemKey = cardItemSnapshot.getKey();
+
+                    // Remove the CardItem from Firebase
+                    cardItemsRef.child(cardItemKey).removeValue();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "Failed to read value.", error.toException());
             }
         });
     }
@@ -136,4 +159,6 @@ public class OrderInformationActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

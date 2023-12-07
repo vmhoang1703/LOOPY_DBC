@@ -56,6 +56,9 @@ public class AddProductActivity extends AppCompatActivity {
         TextView showBtn = findViewById(R.id.showBtn);
         TextView saveBtn = findViewById(R.id.saveBtn);
         TextView addProductImg = findViewById(R.id.addProductImg);
+        CheckBox checkBoxOption1 = findViewById(R.id.checkBoxOption1);
+        CheckBox checkBoxOption2 = findViewById(R.id.checkBoxOption2);
+        CheckBox checkBoxOption3 = findViewById(R.id.checkBoxOption3);
 
         storageReference = FirebaseStorage.getInstance().getReference("images");
         databaseReference = FirebaseDatabase.getInstance().getReference("products");
@@ -129,6 +132,9 @@ public class AddProductActivity extends AppCompatActivity {
         EditText productNameEditText = findViewById(R.id.edit_addProductName);
         String productName = productNameEditText.getText().toString();
         Toast.makeText(this, "Tên sản phẩm: " + productName, Toast.LENGTH_SHORT).show();
+    }
+    public void onCheckboxClicked(View view) {
+        // Your implementation
     }
 
     private void saveProductToDatabase() {
