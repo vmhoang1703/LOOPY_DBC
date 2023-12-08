@@ -51,7 +51,7 @@ public class OrderInformationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_information);
-        initializeDeliveryOptions();
+//        initializeDeliveryOptions();
         ImageView backArrow = findViewById(R.id.back);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,68 +161,68 @@ public class OrderInformationActivity extends AppCompatActivity {
         });
     }
 
-    private void initializeDeliveryOptions() {
-        RelativeLayout option1Layout = findViewById(R.id.option1);
-        RelativeLayout option2Layout = findViewById(R.id.option2);
-        RelativeLayout option3Layout = findViewById(R.id.option3);
-
-        TextView option1Text = findViewById(R.id.option1Text);
-        TextView option2Text = findViewById(R.id.option2Text);
-        TextView option3Text = findViewById(R.id.option3Text);
-
-        // Check which delivery options are available and set their visibility
-        if (isOptionAvailable("Nhận tại điểm bán")) {
-            option1Layout.setVisibility(View.VISIBLE);
-            option1Text.setText("Nhận tại điểm bán");
-        } else {
-            option1Layout.setVisibility(View.GONE);
-        }
-
-        if (isOptionAvailable("Tự giao")) {
-            option2Layout.setVisibility(View.VISIBLE);
-            option2Text.setText("Tự giao");
-        } else {
-            option2Layout.setVisibility(View.GONE);
-        }
-
-        if (isOptionAvailable("Shipping")) {
-            option3Layout.setVisibility(View.VISIBLE);
-            option3Text.setText("Shipping");
-        } else {
-            option3Layout.setVisibility(View.GONE);
-        }
-    }
-
-    private boolean isOptionAvailable(String option) {
-        List<String> availableOptions = getAvailableDeliveryOptions(); // Implement this method
-
-        return availableOptions.contains(option);
-    }
-
-    private List<String> getAvailableDeliveryOptions() {
-        List<String> availableOptions = new ArrayList<>();
-
-        // Assuming your cartList contains products, and the first product is at index 0
-        if (!cartList.isEmpty()) {
-            Product firstProduct = cartList.get(0);
-
-            // Check the available delivery options for the first product
-            if (firstProduct != null) {
-                // Modify this condition based on your logic for checking available delivery options
-                if (firstProduct.getDeliveryOption().equals("Nhận tại điểm bán")) {
-                    availableOptions.add("Nhận tại điểm bán");
-                }
-
-                if (firstProduct.getDeliveryOption().equals("Tự giao")) {
-                    availableOptions.add("Tự giao");
-                }
-
-                if (firstProduct.getDeliveryOption().equals("Shipping")) {
-                    availableOptions.add("Shipping");
-                }
-            }
-        }
-
-        return availableOptions;
-    }
+//    private void initializeDeliveryOptions() {
+//        RelativeLayout option1Layout = findViewById(R.id.option1);
+//        RelativeLayout option2Layout = findViewById(R.id.option2);
+//        RelativeLayout option3Layout = findViewById(R.id.option3);
+//
+//        TextView option1Text = findViewById(R.id.option1Text);
+//        TextView option2Text = findViewById(R.id.option2Text);
+//        TextView option3Text = findViewById(R.id.option3Text);
+//
+//        // Check which delivery options are available and set their visibility
+//        if (isOptionAvailable("Nhận tại điểm bán")) {
+//            option1Layout.setVisibility(View.VISIBLE);
+//            option1Text.setText("Nhận tại điểm bán");
+//        } else {
+//            option1Layout.setVisibility(View.GONE);
+//        }
+//
+//        if (isOptionAvailable("Tự giao")) {
+//            option2Layout.setVisibility(View.VISIBLE);
+//            option2Text.setText("Tự giao");
+//        } else {
+//            option2Layout.setVisibility(View.GONE);
+//        }
+//
+//        if (isOptionAvailable("Shipping")) {
+//            option3Layout.setVisibility(View.VISIBLE);
+//            option3Text.setText("Shipping");
+//        } else {
+//            option3Layout.setVisibility(View.GONE);
+//        }
+//    }
+//
+//    private boolean isOptionAvailable(String option) {
+//        List<String> availableOptions = getAvailableDeliveryOptions(); // Implement this method
+//
+//        return availableOptions.contains(option);
+//    }
+//
+//    private String getAvailableDeliveryOptions() {
+//        String availableOptions = new ArrayList<>();
+//
+//        // Assuming your cartList contains products, and the first product is at index 0
+//        if (!cartList.isEmpty()) {
+//            Product firstProduct = cartList.get(0);
+//
+//            // Check the available delivery options for the first product
+//            if (firstProduct != null) {
+//                // Modify this condition based on your logic for checking available delivery options
+//                if (firstProduct.getDeliveryOption1().equals("Nhận tại điểm bán")) {
+//                    availableOptions.add("Nhận tại điểm bán");
+//                }
+//
+//                if (firstProduct.getDeliveryOption2().equals("Tự giao")) {
+//                    availableOptions.add("Tự giao");
+//                }
+//
+//                if (firstProduct.getDeliveryOption().equals("Shipping")) {
+//                    availableOptions.add("Shipping");
+//                }
+//            }
+//        }
+//
+//        return availableOptions;
+//    }
 }

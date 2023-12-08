@@ -24,13 +24,17 @@ public class Product {
     private String imageUrl;
 
     private String userEmail;
-    private List<String> deliveryOption;
-    private List<String> deliveryLocation;
+    private String deliveryOption;
+
+    private String deliveryOption1;
+    private String deliveryLocation1;
+    private String deliveryOption2;
+    private String deliveryLocation2;
 
     public Product() {
 
     }
-    public Product(String name, int price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail, List<String> deliveryOption, List<String> deliveryLocation) {
+    public Product(String name, int price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail, String deliveryOption, String deliveryOption1, String deliveryLocation1, String deliveryOption2, String deliveryLocation2) {
 
         this.productId = generateProductId();
         this.name = name;
@@ -43,7 +47,10 @@ public class Product {
         this.imageUrl = imageUrl;
         this.userEmail = userEmail;
         this.deliveryOption = deliveryOption;
-        this.deliveryLocation = deliveryLocation;
+        this.deliveryOption1 = deliveryOption1;
+        this.deliveryLocation1 = deliveryLocation1;
+        this.deliveryOption2 = deliveryOption2;
+        this.deliveryLocation2 = deliveryLocation2;
     }
 
     private String generateProductId() {
@@ -61,10 +68,6 @@ public class Product {
     public String getUserEmail() {
         return userEmail;
     }
-
-//    public int getImageResourceId() {
-//        return imageResourceId;
-//    }
 
     public int getPrice() {
         return price;
@@ -89,11 +92,22 @@ public class Product {
     public String getImageUrl() {
         return imageUrl;
     }
-    public List<String> getDeliveryOption() {
+    public String getDeliveryOption() {
         return deliveryOption;
     }
 
-    public List<String> getDeliveryLocation() {
-        return deliveryLocation;
+    public String getDeliveryOption1() {
+        return deliveryOption1;
+    }
+
+    public String getDeliveryLocation1() {
+        return deliveryLocation1;
+    }
+    public String getDeliveryOption2() {
+        return deliveryOption2;
+    }
+
+    public String getDeliveryLocation2() {
+        return deliveryLocation2;
     }
 }

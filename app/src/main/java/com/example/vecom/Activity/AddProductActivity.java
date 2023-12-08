@@ -36,9 +36,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 public class AddProductActivity extends AppCompatActivity {
@@ -49,6 +47,13 @@ public class AddProductActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     private DatabaseReference userReference;
     private FirebaseAuth mAuth;
+    private String deliveryOption1 ;
+    private String deliveryLocation1 ;
+    private String deliveryOption2 ;
+    private String deliveryLocation2 ;
+    private String deliveryOption;
+    private View clickedCheckboxView;
+    private boolean isChecked;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,26 @@ public class AddProductActivity extends AppCompatActivity {
         CheckBox checkBoxOption1 = findViewById(R.id.checkBoxOption1);
         CheckBox checkBoxOption2 = findViewById(R.id.checkBoxOption2);
         CheckBox checkBoxOption3 = findViewById(R.id.checkBoxOption3);
+        checkBoxOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked();
+            }
+        });
+
+        checkBoxOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked();
+            }
+        });
+
+        checkBoxOption3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked();
+            }
+        });
 
         storageReference = FirebaseStorage.getInstance().getReference("images");
         databaseReference = FirebaseDatabase.getInstance().getReference("products");
@@ -103,6 +128,7 @@ public class AddProductActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                onCheckboxClicked( );
                 saveProductToDatabase();
                 applyClickEffect(view);
             }
@@ -135,9 +161,6 @@ public class AddProductActivity extends AppCompatActivity {
         String productName = productNameEditText.getText().toString();
         Toast.makeText(this, "Tên sản phẩm: " + productName, Toast.LENGTH_SHORT).show();
     }
-    public void onCheckboxClicked(View view) {
-        // Your implementation
-    }
 
     private void saveProductToDatabase() {
         mAuth = FirebaseAuth.getInstance();
@@ -164,29 +187,10 @@ public class AddProductActivity extends AppCompatActivity {
             int price = Integer.parseInt(priceStr);
             int stock = Integer.parseInt(stockStr);
 
-            List<String> deliveryOptions = getSelectedDeliveryOptions();
-            List<String> deliveryLocationOptions = new ArrayList<>();
 
-            // Iterate over each selected delivery option
-            for (String deliveryOption : deliveryOptions) {
-                EditText deliveryLocationEditText;
-                // Use the appropriate EditText based on the selected delivery option
-                switch (deliveryOption) {
-                    case "Nhận tại điểm bán":
-                        deliveryLocationEditText = findViewById(R.id.editDeliveryLocation);
-                        deliveryLocationOptions.add(deliveryLocationEditText.getText().toString());
-                        break;
-                    case "Tự giao":
-                        deliveryLocationEditText = findViewById(R.id.editDeliveryLocation1);
-                        deliveryLocationOptions.add(deliveryLocationEditText.getText().toString());
-                        break;
-                    default:
-                        break;
-                }
-            }
 
-            // Create a Product object with the delivery options and locations
-            Product newProduct = new Product(productName, price, productDescription, 0, stock, "", "", "", userEmail, deliveryOptions, deliveryLocationOptions);
+            // Create a Product object with the delivery option and location
+            Product newProduct = new Product(productName, price, productDescription, 0, stock, "", "", "", userEmail, deliveryOption, deliveryOption1, deliveryLocation1, deliveryOption2, deliveryLocation2);
 
             // Push the non-image information to Realtime Database
             DatabaseReference productRef = databaseReference.push();
@@ -203,28 +207,59 @@ public class AddProductActivity extends AppCompatActivity {
             }
         }
     }
+    public void onCheckboxClicked() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                CheckBox checkBoxOption1 = findViewById(R.id.checkBoxOption1);
+                CheckBox checkBoxOption2 = findViewById(R.id.checkBoxOption2);
+                CheckBox checkBoxOption3 = findViewById(R.id.checkBoxOption3);
 
+                if (checkBoxOption1.isChecked()) {
+                    deliveryOption1 = "Nhận tại điểm bán";
+                    EditText editDeliveryLocation1 = findViewById(R.id.editDeliveryLocation);
+                    deliveryLocation1 = editDeliveryLocation1.getText().toString();
+                } else {
+                    deliveryOption1 = "";
+                    deliveryLocation1 = "";
+                }
 
-    private List<String> getSelectedDeliveryOptions() {
-        List<String> selectedOptions = new ArrayList<>();
+                if (checkBoxOption2.isChecked()) {
+                    deliveryOption2 = "Tự giao";
+                    EditText editDeliveryLocation2 = findViewById(R.id.editDeliveryLocation1);
+                    deliveryLocation2 = editDeliveryLocation2.getText().toString();
+                } else {
+                    deliveryOption2 = "";
+                    deliveryLocation2 = "";
+                }
 
+                if (checkBoxOption3.isChecked()) {
+                    deliveryOption = "Shipping";
+                } else {
+                    deliveryOption = "";
+                }
+            }
+        });
+    }
+
+    private String getSelectedDeliveryOption() {
+        // Implement the logic to get the selected delivery option based on checkboxes
+        // For example, if you have checkboxes with IDs checkBoxOption1, checkBoxOption2, checkBoxOption3
+        // Check which one is selected and return the corresponding delivery option
         CheckBox checkBoxOption1 = findViewById(R.id.checkBoxOption1);
         CheckBox checkBoxOption2 = findViewById(R.id.checkBoxOption2);
         CheckBox checkBoxOption3 = findViewById(R.id.checkBoxOption3);
 
         if (checkBoxOption1.isChecked()) {
-            selectedOptions.add("Nhận tại điểm bán");
+            return "Nhận tại điểm bán"; // Modify this based on your actual delivery option values
+        } else if (checkBoxOption2.isChecked()) {
+            return "Tự giao"; // Modify this based on your actual delivery option values
+        } else if (checkBoxOption3.isChecked()) {
+            return "Shipping"; // Modify this based on your actual delivery option values
+        } else {
+            return "Shipping"; // Provide a default option if none is selected
         }
-        if (checkBoxOption2.isChecked()) {
-            selectedOptions.add("Tự giao");
-        }
-        if (checkBoxOption3.isChecked()) {
-            selectedOptions.add("Shipping");
-        }
-
-        return selectedOptions;
     }
-
 
     private void uploadImage(Uri imageUri, String imageName) {
         progressDialog = createProgressDialog(this);
@@ -292,4 +327,3 @@ public class AddProductActivity extends AppCompatActivity {
         return progressDialog;
     }
 }
-
