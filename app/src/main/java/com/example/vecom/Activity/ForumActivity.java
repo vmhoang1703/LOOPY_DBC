@@ -73,7 +73,7 @@ public class ForumActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ForumActivity.this, PersonalActivity1.class);
+                Intent intent = new Intent(ForumActivity.this, HomeActivity.class);
                 // Tạo hiệu ứng làm mờ nút
                 ObjectAnimator fadeOut = ObjectAnimator.ofFloat(backArrow, "alpha", 1f, 0.5f);
                 fadeOut.setDuration(300); // Thời gian của hiệu ứng, có thể điều chỉnh

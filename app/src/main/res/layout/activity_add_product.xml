@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.OrderInformationActivity">
+    tools:context=".Activity.AddProductActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -417,7 +417,7 @@
 
                         <!-- Add this to your layout where you have EditText for delivery location -->
                         <EditText
-                            android:id="@id/editDeliveryLocation"
+                            android:id="@+id/editDeliveryLocation1"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_below="@id/option2Text"
@@ -425,8 +425,7 @@
                             android:layout_marginTop="10dp"
                             android:hint="Địa điểm"
                             android:paddingLeft="12dp"
-                            android:textSize="14dp"
-                            tools:ignore="DuplicateIds" />
+                            android:textSize="14dp" />
 
                     </RelativeLayout>
 

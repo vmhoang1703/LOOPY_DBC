@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.vecom.Model.CardItem;
+import com.example.vecom.Model.Product;
 import com.example.vecom.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +36,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.List;
+
 public class ProductDescriptionActivity extends AppCompatActivity {
     private DatabaseReference productsRef;
     private static final String TAG = "";
@@ -44,7 +47,7 @@ public class ProductDescriptionActivity extends AppCompatActivity {
     StorageReference storageReference;
     public String imageUrl1;
     public int pricePopup;
-
+    public List<String> deliveryOptions, deliveryLoactionOptions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +74,8 @@ public class ProductDescriptionActivity extends AppCompatActivity {
                     String productDesc = userSnapshot.child("desc").getValue(String.class);
                     int productPrice = userSnapshot.child("price").getValue(Integer.class);
                     String imageUrl = userSnapshot.child("imageUrl").getValue(String.class);
+                    deliveryOptions = userSnapshot.child("deliveryOption").getValue(List.class);
+                    deliveryLoactionOptions = userSnapshot.child("deliveryLocationOptions").getValue(List.class);
                     imageUrl1 = imageUrl;
                     pricePopup = productPrice;
                     TextView productNameTextView = findViewById(R.id.productName);
@@ -302,18 +307,16 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         String productId = intent.getStringExtra("productId");
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-
         // Lấy thông tin sản phẩm từ Firebase Realtime Database
         if (currentUser != null) {
             String userEmail = currentUser.getEmail();
-            TextView productNameEditText = findViewById(R.id.productName);
-            TextView priceEditText = findViewById(R.id.price);
+            TextView productNameText = findViewById(R.id.productName);
+            TextView priceText = findViewById(R.id.price);
 
-            String productName = productNameEditText.getText().toString();
-            int price = priceEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(priceEditText.getText().toString());
-
+            String productName = productNameText.getText().toString();
+            int price = priceText.getText().toString().isEmpty() ? 0 : Integer.parseInt(priceText.getText().toString());
             // Create a Product object with only non-image information
-            CardItem newCardItem = new CardItem(productId, productName, price, imageUrl1, userEmail);
+            CardItem newCardItem = new CardItem(productId, productName, price, imageUrl1, userEmail, deliveryOptions, deliveryLoactionOptions);
 
             // Push the non-image information to Realtime Database
             DatabaseReference cardItemRef = databaseReference.push();

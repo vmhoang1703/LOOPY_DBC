@@ -3,6 +3,8 @@ package com.example.vecom.Model;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
 public class CardItem {
     private String cardItemId;
 
@@ -13,10 +15,11 @@ public class CardItem {
     private int totalPrice;
     private int price;
     private String userEmail;
-
+    private List<String> deliveryOptions;
+    private List<String> deliveryLocationOptions;
     public CardItem() {}
 
-    public CardItem(String productId, String name, int price, String imageUrl, String userEmail) {
+    public CardItem(String productId, String name, int price, String imageUrl, String userEmail, List<String> deliveryOptions, List<String> deliveryLocationOptions) {
         this.cardItemId = generateCardItemId();
         this.productId = productId;
         this.imageUrl = imageUrl;
@@ -25,6 +28,8 @@ public class CardItem {
         this.price = price;
         this.userEmail = userEmail;
         this.totalPrice = calculateTotalPrice();
+        this.deliveryOptions = deliveryOptions;
+        this.deliveryLocationOptions = deliveryLocationOptions;
     }
     private String generateCardItemId() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("cardItems");
@@ -68,5 +73,11 @@ public class CardItem {
     private int calculateTotalPrice() {
         // Thực hiện tính toán total price tại đây
         return totalPrice;
+    }
+    public List<String> getDeliveryOptions(){
+        return deliveryOptions;
+    }
+    public List<String> getDeliveryLocationOptions() {
+        return deliveryLocationOptions;
     }
 }

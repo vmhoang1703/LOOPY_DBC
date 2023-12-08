@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 @IgnoreExtraProperties
 public class Product {
@@ -23,13 +24,13 @@ public class Product {
     private String imageUrl;
 
     private String userEmail;
-    private String deliveryOption;
-    private String deliveryLocation;
+    private List<String> deliveryOption;
+    private List<String> deliveryLocation;
 
     public Product() {
 
     }
-    public Product(String name, int price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail, String deliveryOption, String deliveryLocation) {
+    public Product(String name, int price, String desc, double rate, int quantity, String cmt, String imageUrl, String productType, String userEmail, List<String> deliveryOption, List<String> deliveryLocation) {
 
         this.productId = generateProductId();
         this.name = name;
@@ -88,11 +89,11 @@ public class Product {
     public String getImageUrl() {
         return imageUrl;
     }
-    public String getDeliveryOption() {
+    public List<String> getDeliveryOption() {
         return deliveryOption;
     }
 
-    public String getDeliveryLocation() {
+    public List<String> getDeliveryLocation() {
         return deliveryLocation;
     }
 }

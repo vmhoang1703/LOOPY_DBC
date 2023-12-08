@@ -166,7 +166,7 @@
                 <RelativeLayout
                     android:id="@+id/deliveryInfoBox"
                     android:layout_width="match_parent"
-                    android:layout_height="116dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/line1">
 
                     <TextView
@@ -212,11 +212,125 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/choose_arrow"
+                            android:src="@drawable/arrow_down"
                             android:layout_centerVertical="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="20dp" />
                     </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/deliveryInfo"
+                        android:layout_marginBottom="100dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginRight="30dp">
+
+                        <RelativeLayout
+                            android:id="@+id/option1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/option1Text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nhận tại điểm bán"
+                                android:textSize="18dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="12dp"/>
+
+                            <RadioButton
+                                android:id="@+id/checkBoxOption1"
+                                android:layout_width="26dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="10dp"
+                                android:onClick="onCheckboxClicked"
+                                android:tag="option1"/>
+
+                            <!-- Add this to your layout where you have EditText for delivery location -->
+                            <EditText
+                                android:id="@+id/editDeliveryLocation"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_below="@id/option1Text"
+                                android:background="@drawable/edittext_bg"
+                                android:layout_marginTop="10dp"
+                                android:hint="Địa điểm"
+                                android:paddingLeft="12dp"
+                                android:textSize="14dp"
+                                tools:ignore="DuplicateIds" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/option2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:layout_below="@+id/option1">
+
+                            <TextView
+                                android:id="@+id/option2Text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tự giao"
+                                android:textSize="18dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="12dp"/>
+
+                            <RadioButton
+                                android:id="@+id/checkBoxOption2"
+                                android:layout_width="26dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="10dp"
+                                android:onClick="onCheckboxClicked"
+                                android:tag="option2"/>
+
+                            <!-- Add this to your layout where you have EditText for delivery location -->
+                            <EditText
+                                android:id="@+id/editDeliveryLocation1"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_below="@id/option2Text"
+                                android:background="@drawable/edittext_bg"
+                                android:layout_marginTop="10dp"
+                                android:hint="Địa điểm"
+                                android:paddingLeft="12dp"
+                                android:textSize="14dp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/option3"
+                            android:layout_width="300dp"
+                            android:layout_height="50dp"
+                            android:background="@color/white"
+                            android:layout_below="@+id/option2"
+                            android:layout_marginTop="24dp">
+
+                            <TextView
+                                android:id="@+id/option3Text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Shipping"
+                                android:textSize="18dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_centerVertical="true"/>
+
+                            <RadioButton
+                                android:id="@+id/checkBoxOption3"
+                                android:layout_width="26dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="10dp"
+                                android:onClick="onCheckboxClicked"
+                                android:tag="option3"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
                 </RelativeLayout>
 
                 <TextView

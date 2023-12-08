@@ -36,7 +36,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class AddProductActivity extends AppCompatActivity {
@@ -162,15 +164,29 @@ public class AddProductActivity extends AppCompatActivity {
             int price = Integer.parseInt(priceStr);
             int stock = Integer.parseInt(stockStr);
 
-            // Get the selected delivery option
-            String deliveryOption = getSelectedDeliveryOption();
+            List<String> deliveryOptions = getSelectedDeliveryOptions();
+            List<String> deliveryLocationOptions = new ArrayList<>();
 
-            // Get the delivery location from the EditText view
-            EditText deliveryLocationEditText = findViewById(R.id.editDeliveryLocation);
-            String deliveryLocation = deliveryLocationEditText.getText().toString();
+            // Iterate over each selected delivery option
+            for (String deliveryOption : deliveryOptions) {
+                EditText deliveryLocationEditText;
+                // Use the appropriate EditText based on the selected delivery option
+                switch (deliveryOption) {
+                    case "Nhận tại điểm bán":
+                        deliveryLocationEditText = findViewById(R.id.editDeliveryLocation);
+                        deliveryLocationOptions.add(deliveryLocationEditText.getText().toString());
+                        break;
+                    case "Tự giao":
+                        deliveryLocationEditText = findViewById(R.id.editDeliveryLocation1);
+                        deliveryLocationOptions.add(deliveryLocationEditText.getText().toString());
+                        break;
+                    default:
+                        break;
+                }
+            }
 
-            // Create a Product object with the delivery option and location
-            Product newProduct = new Product(productName, price, productDescription, 0, stock, "", "", "", userEmail, deliveryOption, deliveryLocation);
+            // Create a Product object with the delivery options and locations
+            Product newProduct = new Product(productName, price, productDescription, 0, stock, "", "", "", userEmail, deliveryOptions, deliveryLocationOptions);
 
             // Push the non-image information to Realtime Database
             DatabaseReference productRef = databaseReference.push();
@@ -188,24 +204,27 @@ public class AddProductActivity extends AppCompatActivity {
         }
     }
 
-    private String getSelectedDeliveryOption() {
-        // Implement the logic to get the selected delivery option based on checkboxes
-        // For example, if you have checkboxes with IDs checkBoxOption1, checkBoxOption2, checkBoxOption3
-        // Check which one is selected and return the corresponding delivery option
+
+    private List<String> getSelectedDeliveryOptions() {
+        List<String> selectedOptions = new ArrayList<>();
+
         CheckBox checkBoxOption1 = findViewById(R.id.checkBoxOption1);
         CheckBox checkBoxOption2 = findViewById(R.id.checkBoxOption2);
         CheckBox checkBoxOption3 = findViewById(R.id.checkBoxOption3);
 
         if (checkBoxOption1.isChecked()) {
-            return "Nhận tại điểm bán"; // Modify this based on your actual delivery option values
-        } else if (checkBoxOption2.isChecked()) {
-            return "Tự giao"; // Modify this based on your actual delivery option values
-        } else if (checkBoxOption3.isChecked()) {
-            return "Shipping"; // Modify this based on your actual delivery option values
-        } else {
-            return "Shipping"; // Provide a default option if none is selected
+            selectedOptions.add("Nhận tại điểm bán");
         }
+        if (checkBoxOption2.isChecked()) {
+            selectedOptions.add("Tự giao");
+        }
+        if (checkBoxOption3.isChecked()) {
+            selectedOptions.add("Shipping");
+        }
+
+        return selectedOptions;
     }
+
 
     private void uploadImage(Uri imageUri, String imageName) {
         progressDialog = createProgressDialog(this);
